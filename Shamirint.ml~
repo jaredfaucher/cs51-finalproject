@@ -4,7 +4,7 @@ type poly = int list;;
 type key = int * int;;
 
 (* Encoding functions *)
-let rec gen_poly (s:int) (t:int) : int list =
+let rec gen_poly (s:int) (t:int) : poly =
   match t with
   | 1 -> [s]
   | _ -> 
@@ -12,8 +12,8 @@ let rec gen_poly (s:int) (t:int) : int list =
     let r = (Random.int s) in
       r::(gen_poly s (t - 1));;
 
-let eval_poly (x: int) (poly: int list) : int =
-  let rec helper (x: int) (poly: int list) : int list =
+let eval_poly (x: int) (poly: poly) : int =
+  let rec helper (x: int) (poly: poly) : int list =
     match poly with
     | [] -> []
     | hd::tl ->
@@ -21,8 +21,8 @@ let eval_poly (x: int) (poly: int list) : int =
   in
   List.fold_left (helper x poly) ~f:(+) ~init:0;;
   
-let gen_keys (s:int) (t: int) (n: int): (int*int) list =
-  let rec helper (n:int) (poly: int list) : (int*int) list =
+let gen_keys (s:int) (t: int) (n: int): key list =
+  let rec helper (n:int) (poly: poly) : key list =
   match n with
   | 0 -> []
   | _ ->

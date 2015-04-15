@@ -32,3 +32,20 @@ let gen_keys (s:int) (t: int) (n: int): key list =
     helper n poly;;
 
 (* decoding functions *)
+
+let add_polys (x:poly) (y:poly) : poly =
+  let rec helper (x:poly) (y:poly) (acc:poly) : poly =
+    match (x, y) with
+    | ([],[]) -> acc
+    | ([], yh::yt) -> helper [] yt (yh::acc)
+    | (xh::xt, []) -> helper xt [] (xh::acc)
+    | (xh::xt, yh::yt) ->
+      helper xt yt ((xh+yh)::acc)
+  in helper x y []
+;;
+
+let mult_x_a_poly (a: int) (poly: poly) : poly =
+  let x_half = poly @ [0] in
+  let a_half = List.map ~f:(fun x -> a * x) poly in
+  add_polys x_half a_half
+;;
