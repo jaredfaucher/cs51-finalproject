@@ -1,20 +1,21 @@
-open Core.std
+open Core.Std
 
 module type SHAMIR_ENCRYPT =
 sig
-  type secret
+  (*type secret
   type threshold
-  type num_participants
+  type num_participants*)
   type poly
   type key
-  val gen_keys: secret -> threshold -> num_participants -> key list
+  val gen_keys: int -> int -> int -> key list
+  val print_keys: key list -> unit
 end
 
 module Shamirint_encode =
 struct
-  type secret = int
+  (*type secret = int
   type threshold = int
-  type num_participants = int
+  type num_participants = int*)
   type poly = int list;;
   type key = int * int;;
 
@@ -22,8 +23,8 @@ struct
 
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
-  let gen_poly (s: secret) (t: threshold) : poly =
-    let rec helper (s: secret) (t: threshold) : poly =
+  let gen_poly (s: int) (t: int) : poly =
+    let rec helper (s: int) (t: int) : poly =
       match t with
       | 1 -> [s]
       | _ -> 
@@ -42,8 +43,8 @@ struct
     in
     List.fold_left (helper x poly) ~f:(+) ~init:0;;
   
-  let gen_keys (s: secret) (t: threshold) (n: num_participants): key list =
-    let rec helper (n: num_participants) (poly: poly) : key list =
+  let gen_keys (s: int) (t: int) (n: int): key list =
+    let rec helper (n: int) (poly: poly) : key list =
       match n with
       | 0 -> []
       | _ ->
@@ -51,6 +52,14 @@ struct
     in
     let poly = gen_poly s t in
     List.rev (helper n poly);;
+
+  let rec print_keys (keys: key list) : unit =
+    match keys with
+    | [] -> ()
+    | h::t ->
+      (match h with
+      | (x,y) -> Printf.printf "(%i, %i)\n" x y; print_keys t)
+  ;;
 end
  
 module ShamirIntEncode = (Shamirint_encode : SHAMIR_ENCRYPT)
@@ -68,8 +77,7 @@ let parse_args () =
 let main () =
   let (secret, threshold, num_participants) = parse_args () in
   let keys = ShamirIntEncode.gen_keys secret threshold num_participants in
-  List.map (List.rev keys) ~f:(fun x ->
-    Printf.printf "(%i, %i)\n" (fst x) (snd x))
+  ShamirIntEncode.print_keys keys
 ;;
 
 main ();;

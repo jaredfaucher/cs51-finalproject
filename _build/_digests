@@ -1,0 +1,5 @@
+"Rule: ocaml: ml & cmi -> cmx & o (%=shamirtry )": "=\145\026\166\167EA\001wP\198\220\023\2329\128"
+"Rule: ocaml: cmx* & o* -> native (%=shamirtry )": ",\152\175\221\151>C3N\217\137T_f\212\146"
+"Rule: ocaml dependencies ml (%=shamirtry )": "\225\185\141\231\018\028\179jrBR)\181\001\243h"
+"Rule: ocaml: ml -> cmo & cmi (%=shamirtry )": "+\002\170Bd\202\217O\244\254\030{r\206x\153"
+"Resource: /home/jharvard/Final/shamirtry.ml": "\212\186|2\243\210)<\192\018\200N\131|\017\254"
