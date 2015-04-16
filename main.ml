@@ -1,4 +1,8 @@
-open Core.Std
+open Core.Std;;
+
+module ShamirIntEncode = (Shamirint_encode : SHAMIR_ENCRYPT);;
+(* module ShamirIntDecode = (Shamirint_decode : SHAMIR_DECRYPT);; *)
+
 
 let parse_args () =
   let usage () = Printf.printf 
@@ -12,7 +16,7 @@ let parse_args () =
 
 let main () =
   let (secret, threshold, num_participants) = parse_args () in
-  let keys = gen_keys secret threshold num_participants in
+  let keys = ShamirIntEncode.gen_keys secret threshold num_participants in
   List.map (List.rev keys) ~f:(fun x ->
     Printf.printf "(%i, %i)\n" (fst x) (snd x))
 ;;

@@ -93,7 +93,8 @@ let gen_lagrange_num (x: big_int) (keys: key list) : poly =
   let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
   let neg_filtered_keys_xs = List.map 
     ~f:(fun k -> minus_big_int (get_key_x k)) filtered_keys in
-  List.fold_right ~f:mult_x_a_poly ~init:[unit_big_int] neg_filtered_keys_xs
+  List.fold_right ~f:mult_x_a_poly ~init:[unit_big_int] 
+    neg_filtered_keys_xs
 ;;
 
 let gen_lagrange_poly (key: key) (keys: key list) : int * poly =
@@ -113,12 +114,14 @@ let rec combine_lag_ys (ys:big_int list) (lags: (int*poly) list) : poly list =
   | yhd::ytl, laghd::lagtl ->
     (match laghd with
     | (denom, num) ->
-      (div_poly_bigint denom (mult_poly_bigint yhd num))::(combine_lag_ys tyl lagtl))
+      (div_poly_bigint denom 
+	 (mult_poly_bigint yhd num))::(combine_lag_ys tyl lagtl))
   | _,_ -> failwith "not same number of keys as lags"
 ;;
 
 let decode_keys (keys: key list) : poly =
   let lag_polys = gen_lag_poly_list keys in
   let lag_ys = List.map ~f:(get_key_y) keys in
-  List.fold_right ~init:[zero_big_int] ~f:(add_polys) (combine_lag_ys lag_ys lag_polys)
+  List.fold_right ~init:[zero_big_int] ~f:(add_polys) 
+    (combine_lag_ys lag_ys lag_polys)
 ;;

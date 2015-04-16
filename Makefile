@@ -1,25 +1,7 @@
-PROG = shamir
+FILES = encrypt.ml Shamirint.ml main.ml
 
-LIBS = \
-	nums.cma \
-	Core.Std
-
-CAMLC = ocamlc
-CAMLFLAGS = -g
-
-%.cmo: %.ml
-	$(CAMLC) $(CAMLFLAGS) -c $<
-
-SOURCES = \
-	Shamirint.ml \
-	main.ml \
-
-OBJECTS = $(SOURCES:.ml=.cmo)
-
-$(PROG): $(OBJECTS)
-	$(CAMLC) $(CAMLFLAGS) $(LIBS) $(OBJECTS) -o $(PROG)
-
-all: $(PROG)
+shamir: $(FILES)
+	corebuild -lib str main.native
 
 clean:
-	rm -rf *.cmo *.cmi $(PROG)
+	rm -rf _build main.native
