@@ -70,7 +70,7 @@ let div_poly_int (x:int) (poly:poly) : poly =
   List.map ~f:(fun a -> a / x) poly
 ;;
 
-fst(* multiplies a poly by (x + a) *)
+(* multiplies a poly by (x + a) *)
 let mult_x_a_poly (a: int) (poly: poly) : poly =
   let x_half = [0] @ poly in
   let a_half = mult_poly_int a poly in
@@ -107,7 +107,7 @@ let rec combine_lag_ys (ys:int list) (lags: (int * poly) list) : poly list =
   | yhd::ytl, laghd::lagtl ->
     (match laghd with
     | (denom, num) ->
-       div_poly_int denom (mult_poly_int yhd num))::(combine_lag_ys ytl lagtl))
+       (div_poly_int denom (mult_poly_int yhd num))::(combine_lag_ys ytl lagtl))
   | _,_ -> failwith "not same number of keys as lags"
 ;;
 
