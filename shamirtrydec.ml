@@ -164,11 +164,21 @@ let parse_args () =
   in arg_to_key ()
 ;;
 
-let main () =
-  let keys = parse_args () in
+
+let decrypt_init () =
+  let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
+    Initialization Decryption Process...
+    \nEnter in the keys
+    (Use format <key number> SPACE <corresponding key value> SPACE): " in
+  (*let input_keystring = read_line () in*)
+  ()
+  (*not finished*)
+
+
+
+let main_decrypt () =
+  let keys = (*decrypt_init ()*) parse_args () in
   let secret = ShamirIntDecode.get_secret (
     ShamirIntDecode.int_int_to_key keys) in
   Printf.printf "secret: %i\n" secret
 ;;
-
-main ();;

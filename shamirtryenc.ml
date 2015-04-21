@@ -71,59 +71,40 @@ module ShamirIntEncode = (Shamirint_encode : SHAMIR_ENCRYPT)
 
 (* Initialize by providing a secret, number of participants, and minimum threshold
  * required to reconstruct the secret.  Prints out all keys to the console*)
-let rec initialize () =
+let rec try_read_int () =
+  try read_int () with
+    Failure _ -> 
+      print_string "\nError: Please enter an integer value: ";
+      try_read_int ()
+;;
+
+let rec validate_threshold (n: int) =
+  let x = try_read_int () in
+  if (x > n)
+    then (print_string "\nError: Please enter an integer number less than or equal to
+    \nthe number of participants: ";
+    validate_threshold n)
+  else (print_string "\nInitialization Complete....processing...: ";x)
+;;
+  
+(* Initialize by providing a secret, number of participants, and minimum threshold
+ * required to reconstruct the secret.  Prints out all keys to the console*)
+let initialize () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
     \nGive me a secret integer: " in
-  try read_int ()
-  
-  let secret = read_int () in
+  let secret = try_read_int () in
   let () = print_string "\nHow many participants (integer number requested): " in
   let num_participants = try_read_int () in
   let () = print_string "\nWhat is the minimum threshold required to access the secret
     \n(integer number requested): " in
-  let threshold = read_int () in 
-  (secret, threshold, num_participants)
-;;  
-  (*I want to add try/with exception handling for checkig if inputs are correct
-   *No need to run with arguments, This will prompt user for arguments after running
-   * ./shamirtryenc.native in terminal window*)    
-
-    
-  (*  
-    "usage: %s secret threshold participants\n" Sys.argv.(0); exit 1 in
-  if Array.length Sys.argv <> 4 then usage ();
-  let secret = int_of_string(Sys.argv.(1)) in
-  let threshold = int_of_string(Sys.argv.(2)) in
-  let num_participants = int_of_string(Sys.argv.(3)) in
+  let threshold = validate_threshold num_participants in 
   (secret, threshold, num_participants)
 ;;
-*)
 
 
 let main () =
   let (secret, threshold, num_participants) = initialize () in
   let keys = ShamirIntEncode.gen_keys secret threshold num_participants in
+  print_string "\n";
   ShamirIntEncode.print_keys keys
 ;;
-(* example of i/o
-let rec hilo n =
-     let () = print_string "type a number: " in
-     let i = read_int () 
-     in 
-       if i = n then 
-         let () = print_string "BRAVO" in
-         let () = print_newline ()
-         in print_newline ()
-       else 
-         let () = 
-           if i < n then 
-             let () = print_string "Higher"
-             in print_newline () 
-           else 
-             let () = print_string "Lower"
-             in print_newline ()
-         in hilo n 
-;;
-
-*)
-main ();;

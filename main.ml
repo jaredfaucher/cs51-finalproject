@@ -1,24 +1,15 @@
-open Core.Std;;
+open Core.Std
+open Shamirtryenc
+open Shamirtrydec
 
-module ShamirIntEncode = (Shamirint_encode : SHAMIR_ENCRYPT);;
-(* module ShamirIntDecode = (Shamirint_decode : SHAMIR_DECRYPT);; *)
+print_string "\n----Shamir's Secret Sharing Scheme----\n\n
+  \nWhat would you like to do?: Encryption (Press 1) or Decryption (Press 2): "
 
-
-let parse_args () =
-  let usage () = Printf.printf 
-    "usage: %s secret threshold participants\n" Sys.argv.(0); exit 1 in
-  if Array.length Sys.argv <> 4 then usage ();
-  let secret = int_of_string(Sys.argv.(1)) in
-  let threshold = int_of_string(Sys.argv.(2)) in
-  let num_participants = int_of_string(Sys.argv.(3)) in
-  (secret, threshold, num_participants)
+let rec start () =
+  match try_read_int () with
+  | 1 -> main ()
+  | 2 -> main_decrypt ()
+  | _ -> (print_string "Error: Incorrect entry, try again"; start ())
 ;;
 
-let main () =
-  let (secret, threshold, num_participants) = parse_args () in
-  let keys = ShamirIntEncode.gen_keys secret threshold num_participants in
-  List.map (List.rev keys) ~f:(fun x ->
-    Printf.printf "(%i, %i)\n" (fst x) (snd x))
-;;
-
-main ();;
+start();;
