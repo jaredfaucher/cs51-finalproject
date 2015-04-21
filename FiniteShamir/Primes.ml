@@ -60,16 +60,19 @@ struct
             Cons (h, sieve (filter (not_div_by h) (tail s))))
   ;;
 
-  (* checks if m is gte n*)
-  let gte n m =
-    m >= n ;;
+  (* checks if m is gt n*)
+  let gt n m =
+    m > n ;;
 
   let primes = sieve (from 2) ;;
+  
+  (* filters all primes gt x out of primes *)
+  let primes_gt x  = filter (gt x) primes ;;
 
-  let primes_gte x  = filter (gte x) primes ;;
-
-  let gen_prime (l_bound: int) : int =
+  (* randomly picks a prime from the first 20 primes greater
+   * than the l_bound value. *)
+  let gen_prime_gt (l_bound: int) : int =
     let r = Random.int 20 in
-    take r (primes_gte l_bound) ;;
+    take r (primes_gt l_bound) ;;
 
 end
