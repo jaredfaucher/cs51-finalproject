@@ -74,9 +74,11 @@ module ShamirIntEncode = (Shamirint_encode : SHAMIR_ENCRYPT)
 let rec initialize () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
     \nGive me a secret integer: " in
+  try read_int ()
+  
   let secret = read_int () in
   let () = print_string "\nHow many participants (integer number requested): " in
-  let num_participants = read_int () in
+  let num_participants = try_read_int () in
   let () = print_string "\nWhat is the minimum threshold required to access the secret
     \n(integer number requested): " in
   let threshold = read_int () in 
