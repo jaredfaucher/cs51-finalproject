@@ -35,10 +35,10 @@ let initialize () =
     \nGive me a secret integer: " in
   let secret = try_read_int () in
   let () =
-    print_string "\nHow many participants (integer number requested): " in
+    print_string "\nHow many participants? (integer number requested): " in
   let num_participants = try_read_int () in
-  let () = print_string "\nWhat is the minimum threshold required to access the
-    secret \n(integer number requested): " in
+  let () =print_string "\nWhat is the minimum threshold required to access the
+    \nsecret? (integer number requested): " in
   let threshold = validate_threshold num_participants in 
   (secret, threshold, num_participants)
 ;;  
