@@ -65,7 +65,7 @@ struct
       match n with
       | 0 -> []
       | _ ->
-	(n, (eval_poly n p prime))::(helper (n-1) p)
+	(n, (eval_poly n p prime))::(helper (n-1) p prime)
     in
     let poly = gen_poly s t in
     let prime = gen_prime (max_poly_coeff poly) in

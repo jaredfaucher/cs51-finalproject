@@ -69,7 +69,7 @@ struct
   let primes_gte x  = filter (gte x) primes ;;
 
   let gen_prime (l_bound: int) : int =
-    let r = Random.int 100 in
+    let r = Random.int 20 in
     take r (primes_gte l_bound) ;;
 
 end
