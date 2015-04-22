@@ -71,4 +71,5 @@ struct
   let gen_prime (l_bound: int) : int =
     let r = Random.int 100 in
     take r (primes_gte l_bound) ;;
+
 end

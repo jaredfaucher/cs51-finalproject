@@ -17,6 +17,7 @@ end
 
 module FiniteShamirInt_encode =
 struct
+  open LazyStream
   type secret = int
   type poly = int list
   type key = int * int
@@ -25,7 +26,7 @@ struct
   
   let to_secret (x: int) : secret =
     x;;
-  
+
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
   let gen_poly (s: secret) (t: int) : poly =
@@ -38,24 +39,37 @@ struct
     in Random.self_init(); List.rev (helper s t)
   ;;
 
-  let eval_poly (x: int) (p: poly) : int =
+  (* Finds the largest coeff in our polynomial to help generate
+   * a prime number for our finite aritmetic *)
+  let max_poly_coeff (p: poly) : int =
+    let rec helper (p: poly) (max: int) =
+      match p with
+      | [] -> max
+      | h::t ->
+	if h > max then helper t h
+	else helper t max
+    in
+    helper p 0 ;;
+
+  let eval_poly (x: int) (p: poly) (prime: int) : int =
     let rec helper (a: int) (b: poly) : int list =
       match b with
       | [] -> []
       | hd::tl ->
 	hd::(helper a (List.map ~f:(fun y -> y * a) tl))
     in
-    List.fold_left (helper x p) ~f:(+) ~init:0;;
+    (List.fold_left (helper x p) ~f:(+) ~init:0) mod prime;;
   
   let gen_keys (s: secret) (t: int) (n: int): key list =
-    let rec helper (n: int) (p: poly) : key list =
+    let rec helper (n: int) (p: poly) (prime: int) : key list =
       match n with
       | 0 -> []
       | _ ->
-	(n, (eval_poly n p))::(helper (n-1) p)
+	(n, (eval_poly n p prime))::(helper (n-1) p)
     in
     let poly = gen_poly s t in
-    List.rev (helper n poly);;
+    let prime = gen_prime (max_poly_coeff poly) in
+    List.rev (helper n poly prime);;
 
   let rec print_keys (keys: key list) : unit =
     match keys with

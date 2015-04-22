@@ -1,11 +1,9 @@
-all: shamirenc shamirdec
-	corebuild TmpFiniteShamirenc.native
-	corebuild TmpFiniteShamirdec.native
+FILES = Primes.ml TmpFiniteShamirenc.ml TmpFiniteShamirdec.ml \
 
-shamirenc: 
+shamirenc: $(FILES)
 	corebuild TmpFiniteShamirenc.native
 
-shamirdec:
+shamirdec: $(FILES)
 	corebuild TmpFiniteShamirdec.native
 
 clean:
