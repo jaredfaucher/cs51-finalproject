@@ -61,6 +61,33 @@ struct
     List.map ~f:(fun a -> a / x) poly
   ;;
 
+  (* Used to mod each coeff in a poly by some int
+   * x *)
+  let mod_poly_elts (x: int) (p: poly) : poly =
+    List.map ~f:(fun a -> a mod x) p
+  ;;
+  
+  (* These three functions are adapted from stackoverflow
+   * for our needs. They will be used to find the multiplicative
+   * modular inverse of our denominator after finding our
+   * combining the lag_poly nums into one polynomial. *)
+  let rec gcd (n: int) (m: int) : int =
+    if m = 0 then n
+    else if n > m then gcd (n-m) m
+    else gcd n (m-n)
+  ;;
+
+  let rec extended_euclidean (a: int) (b: int) : (int*int*int) =
+    if b = 0 then a, 1, 0
+    else match (extended_euclidean b (a mod b)) with
+      (d, x, y) -> d, y, x - a/b*y;;
+
+
+  let rec mult_mod_inverse (prime: int) (d: int): int =
+    let (x,y,inv) = extended_euclidean prime d in
+    prime + inv
+  ;;
+
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
     let x_half = [0] @ poly in
@@ -132,11 +159,14 @@ struct
 	(mult_poly_int yhd num)::(combine_lag_ys ytl lagtl))
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
+  
 
-  let decode_keys (keys: key list) : poly =
+  (* FINISH DECODE_KEYS WITH PRIME NUMBER AND MODULO FUNCTIONS *)
+  let decode_keys (p: prime) (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
     let denom = scale_denoms lag_polys 1 in
     let scaled_lags = scale_lag_polys lag_polys denom in
+    let new_denom = mult_mod_inverse p denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
     let num = List.fold_right ~init:[0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
@@ -178,21 +208,3 @@ let main () =
 
 main ();;
 
-(* Code to be used to do modular inverse *)
-
-let rec gcd (n: int) (m: int) : int =
-  if m = 0 then n
-  else if n > m then gcd (n-m) m
-  else gcd n (m-n)
-;;
-
-let rec extended_euclidean (a: int) (b: int) : (int*int*int) =
-  if b = 0 then a, 1, 0
-  else match (extended_euclidean b (a mod b)) with
-	(d, x, y) -> d, y, x - a/b*y;;
-
-
-let rec mult_mod_inverse (prime: int) (d: int): int =
-  let (x,y,inv) = extended_euclidean prime d in
-  prime + inv
-;;
