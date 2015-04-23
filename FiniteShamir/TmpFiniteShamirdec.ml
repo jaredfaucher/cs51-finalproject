@@ -143,3 +143,22 @@ let main () =
 ;;
 
 main ();;
+
+(* Code to be used to do modular inverse *)
+
+let rec gcd (n: int) (m: int) : int =
+  if m = 0 then n
+  else if n > m then gcd (n-m) m
+  else gcd n (m-n)
+;;
+
+let rec extended_euclidean (a: int) (b: int) : (int*int*int) =
+  if b = 0 then a, 1, 0
+  else match (extended_euclidean b (a mod b)) with
+	(d, x, y) -> d, y, x - a/b*y;;
+
+
+let rec mult_mod_inverse (prime: int) (d: int): int =
+  let (x,y,inv) = extended_euclidean prime d in
+  prime + inv
+;;
