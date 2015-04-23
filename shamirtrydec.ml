@@ -88,20 +88,54 @@ struct
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
-  let rec combine_lag_ys (ys:int list) (lags: lagrange_poly list) : poly list =
+  (* This function multiplies all the denominators from each
+   * lag poly by eachother to create a bigger denominator to
+   * help us avoid division errors when calculating our secret.
+   * E.G. if our 3 lag polys are (1, [1;2;3]), (2,[4;5;6]) and
+   * (3,[7;8;9]), our new denominator would be 1*2*3 or 6. *)
+  let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
+    match lags with
+    | [] -> accum
+    | (x, _)::tl ->
+      scale_denoms tl (x * accum)
+  ;;
+  (* This scales all our lagrange polynomial based on the denominator
+   * d provided.  From the example in the previous function's comments
+   * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
+   * be (6, [12;15;18]), where each coeff is scaled by a factor of 3. *)
+  let scale_lag_poly (lag: lagrange_poly) (d: int) : lagrange_poly =
+    match lag with
+    | (x, l) ->
+      let scale = d / x in
+      (d, mult_poly_int scale l)
+  ;;
+  (* This function scales all of our lagrange polynomials the correct amount
+   * based on our previous function.  The lag_polys from scale_denoms comments
+   * would become (6,[6;12;18]), (6,[12;15;18]) and (6,[14;16;18]). This will
+   * be useful in calculating our secret to help us avoid integer division
+   * errors. *)
+  let scale_lag_polys (lags: lagrange_poly list) (d: int) : lagrange_poly list =
+    List.map ~f:(fun x -> scale_lag_poly x d) lags
+  ;;
+
+  let rec combine_lag_ys (ys: int list) (lags: lagrange_poly list) : poly list =
     match ys, lags with
     | [],[] -> []
     | yhd::ytl, laghd::lagtl ->
       (match laghd with
-      | (denom, num) ->
-	(div_poly_int denom (mult_poly_int yhd num))::(combine_lag_ys ytl lagtl))
-    | _,_ -> failwith "not same number of keys as lags"
+      | (_, num) ->
+	(mult_poly_int yhd num)::(combine_lag_ys ytl lagtl))
+    | _,_ -> failwith "not the same number of keys as lags"
   ;;
 
   let decode_keys (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
+    let denom = scale_denoms lag_polys 1 in
+    let scaled_lags = scale_lag_polys lag_polys denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
-    List.fold_right ~init:[0] ~f:(add_polys) (combine_lag_ys lag_ys lag_polys)
+    let num = List.fold_right ~init:[0] ~f:(add_polys) 
+      (combine_lag_ys lag_ys scaled_lags) in
+    div_poly_int denom num
   ;;
   
   let get_secret (keys: key list) : int =

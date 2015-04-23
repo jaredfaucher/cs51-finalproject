@@ -2,45 +2,67 @@ open Core.Std;;
 
 module FiniteShamirInt_encode =
 struct
+  open LazyStream
   type secret = int
-  type poly = int list;;
-  type key = int * int;;
+  type poly = int list
+  type key = int * int
 
   (* Encoding functions *)
+  
+  let to_secret (x: int) : secret =
+    x;;
 
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
-  let gen_poly (s: secret) (t: threshold) : poly =
-    let rec helper (s: secret) (t: threshold) : poly =
-      match t with
-      | 1 -> [s]
+  let gen_poly (s: secret) (t: int) : poly =
+    let rec helper (x: secret) (y: int) : poly =
+      match y with
+      | 1 -> [x]
       | _ -> 
-	Random.self_init();
-	let r = (Random.int s) in
-	r::(helper s (t - 1))
-    in List.rev (helper s t)
+	let r = (Random.int x) in
+	r::(helper x (y - 1))
+    in Random.self_init(); List.rev (helper s t)
   ;;
 
-  (* GENERATE PRIME NUMBER *)
+  (* Finds the largest coeff in our polynomial to help generate
+   * a prime number for our finite aritmetic *)
+  let max_poly_coeff (p: poly) : int =
+    let rec helper (p: poly) (max: int) =
+      match p with
+      | [] -> max
+      | h::t ->
+	if h > max then helper t h
+	else helper t max
+    in
+    helper p 0 ;;
 
-  let eval_poly (x: int) (poly: poly) : int =
-    let rec helper (x: int) (poly: poly) : int list =
-      match poly with
+  let eval_poly (x: int) (p: poly) (prime: int) : int =
+    let rec helper (a: int) (b: poly) : int list =
+      match b with
       | [] -> []
       | hd::tl ->
-	hd::(helper x (List.map ~f:(fun a -> x*a) tl))
+	hd::(helper a (List.map ~f:(fun y -> y * a) tl))
     in
-    List.fold_left (helper x poly) ~f:(+) ~init:0;;
+    (List.fold_left (helper x p) ~f:(+) ~init:0) mod prime;;
   
-  let gen_keys (s: secret) (t: threshold) (n: num_participants): key list =
-    let rec helper (n: num_participants) (poly: poly) : key list =
+  let gen_keys (s: secret) (t: int) (n: int) : (int * key list) =
+    let rec helper (n: int) (p: poly) (prime: int) : key list =
       match n with
       | 0 -> []
       | _ ->
-	(n, (eval_poly n poly))::(helper (n-1) poly)
+	(n, (eval_poly n p prime))::(helper (n-1) p prime)
     in
     let poly = gen_poly s t in
-    List.rev (helper n poly);;
+    let prime = gen_prime_gt (max_poly_coeff poly) in
+    (prime, List.rev (helper n poly prime));;
+
+  let rec print_keys (keys: key list) : unit =
+    match keys with
+    | [] -> ()
+    | h::t ->
+      (match h with
+      | (x,y) -> Printf.printf "(%i, %i)\n" x y; print_keys t)
+  ;;
 end
 
 module FiniteShamirInt_decode =
@@ -49,6 +71,12 @@ struct
   type key = int * int
   type poly = int list
   type lagrange_poly = int * poly
+  
+  let rec int_int_to_key (lst: (int*int) list) : key list =
+    match lst with
+    | [] -> []
+    | h::t -> h::(int_int_to_key t)
+  ;;
 
   (* decoding functions *)
   let get_key_x (key: key) : int =
@@ -115,25 +143,59 @@ struct
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
-  let rec combine_lag_ys (ys:int list) (lags: lagrange_poly list) : poly list =
+ (* This function multiplies all the denominators from each
+   * lag poly by eachother to create a bigger denominator to
+   * help us avoid division errors when calculating our secret.
+   * E.G. if our 3 lag polys are (1, [1;2;3]), (2,[4;5;6]) and
+   * (3,[7;8;9]), our new denominator would be 1*2*3 or 6. *)
+  let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
+    match lags with
+    | [] -> accum
+    | (x, _)::tl ->
+      scale_denoms tl (x * accum)
+  ;;
+  (* This scales all our lagrange polynomial based on the denominator
+   * d provided.  From the example in the previous function's comments
+   * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
+   * be (6, [12;15;18]), where each coeff is scaled by a factor of 3. *)
+  let scale_lag_poly (lag: lagrange_poly) (d: int) : lagrange_poly =
+    match lag with
+    | (x, l) ->
+      let scale = d / x in
+      (d, mult_poly_int scale l)
+  ;;
+  (* This function scales all of our lagrange polynomials the correct amount
+   * based on our previous function.  The lag_polys from scale_denoms comments
+   * would become (6,[6;12;18]), (6,[12;15;18]) and (6,[14;16;18]). This will
+   * be useful in calculating our secret to help us avoid integer division
+   * errors. *)
+  let scale_lag_polys (lags: lagrange_poly list) (d: int) : lagrange_poly list =
+    List.map ~f:(fun x -> scale_lag_poly x d) lags
+  ;;
+
+  let rec combine_lag_ys (ys: int list) (lags: lagrange_poly list) : poly list =
     match ys, lags with
     | [],[] -> []
     | yhd::ytl, laghd::lagtl ->
       (match laghd with
-      | (denom, num) ->
-	(div_poly_int denom (mult_poly_int yhd num))::(combine_lag_ys ytl lagtl))
-    | _,_ -> failwith "not same number of keys as lags"
+      | (_, num) ->
+	(mult_poly_int yhd num)::(combine_lag_ys ytl lagtl))
+    | _,_ -> failwith "not the same number of keys as lags"
   ;;
 
   let decode_keys (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
+    let denom = scale_denoms lag_polys 1 in
+    let scaled_lags = scale_lag_polys lag_polys denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
-    List.fold_right ~init:[0] ~f:(add_polys) (combine_lag_ys lag_ys lag_polys)
+    let num = List.fold_right ~init:[0] ~f:(add_polys) 
+      (combine_lag_ys lag_ys scaled_lags) in
+    div_poly_int denom num
   ;;
   
-  let get_secret (keys: key list) : secret =
+  let get_secret (keys: key list) : int =
     match decode_keys keys with
-    | [] -> []
-    | h::t -> h
+    | h::_ -> h
+    | _ -> failwith "broken"
   ;;
 end

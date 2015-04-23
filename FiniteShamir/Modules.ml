@@ -10,6 +10,7 @@ end
 module type SHAMIR_ENCODE =
 sig
   include SHAMIR
+  val to_secret: int -> secret
   val gen_keys: int -> int -> int -> key list
   val print_keys: key list -> unit
 end
