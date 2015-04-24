@@ -1,6 +1,6 @@
 open Core.Std
 
-module LazyStream = 
+module Primes = 
 struct
   type 'a str = Cons of 'a * 'a stream
   and 'a stream = ('a str) lazy_t;;
@@ -89,7 +89,7 @@ end
 
 module FiniteShamirInt_encode =
 struct
-  open LazyStream
+  open Primes
   type secret = int
   type poly = int list
   type key = int * int

@@ -5,7 +5,7 @@ open Core.Std
  * finite arithmetic implementation. All credit to 
  * professor and staff *)
 
-module LazyStream = 
+module Primes = 
 struct
   type 'a str = Cons of 'a * 'a stream
   and 'a stream = ('a str) lazy_t;;

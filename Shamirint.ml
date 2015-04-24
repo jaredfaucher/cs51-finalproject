@@ -1,10 +1,8 @@
-open Core.Std;;
+open Core.Std
 
-module Shamirint_encode =
+module ShamirInt_encode =
 struct
   type secret = int
-  type threshold = int
-  type num_participants = int
   type poly = int list;;
   type key = int * int;;
 
@@ -12,40 +10,52 @@ struct
 
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
-  let gen_poly (s: secret) (t: threshold) : poly =
-    let rec helper (s: secret) (t: threshold) : poly =
-      match t with
-      | 1 -> [s]
+  let gen_poly (s: secret) (t: int) : poly =
+    let rec helper (x: secret) (y: int) : poly =
+      match y with
+      | 1 -> [x]
       | _ -> 
-	Random.self_init();
-	let r = (Random.int s) in
-	r::(helper s (t - 1))
-    in List.rev (helper s t)
+        (* Generate t-1 random numbers to be coefficients to the poly*)
+	    let r = (Random.int (x * 4)) in
+	    r::(helper x (y - 1))
+    in Random.self_init(); List.rev (helper s t)
   ;;
 
+  (* Evaluates the outcome of a poly given an int*)
   let eval_poly (x: int) (poly: poly) : int =
     let rec helper (x: int) (poly: poly) : int list =
       match poly with
       | [] -> []
       | hd::tl ->
-	hd::(helper x (List.map ~f:(fun a -> x*a) tl))
-    in
-    List.fold_left (helper x poly) ~f:(+) ~init:0;;
+	    hd::(helper x (List.map ~f:(fun a -> a * x) tl))
+    in List.fold_left (helper x poly) ~f:(+) ~init:0
+  ;;
   
-  let gen_keys (s: secret) (t: threshold) (n: num_participants): key list =
-    let rec helper (n: num_participants) (poly: poly) : key list =
+  (* Generates list of n keys, one for each participant*)
+  let gen_keys (s: secret) (t: int) (n: int): key list =
+    let rec helper (n: int) (p: poly) : key list =
       match n with
       | 0 -> []
       | _ ->
-	(n, (eval_poly n poly))::(helper (n-1) poly)
-    in
-    let poly = gen_poly s t in
-    List.rev (helper n poly);;
+	    (n, (eval_poly n p))::(helper (n-1) p) in
+	let poly = gen_poly s t in
+    List.rev (helper n poly)
+  ;;
+
+  (* Prints the list of keys to the terminal window as a side-effect*)
+  let rec print_keys (keys: key list) : unit =
+    match keys with
+    | [] -> ()
+    | h::t ->
+      let (x,y) = h in
+      Printf.printf "(%i, %i)\n" x y; print_keys t
+  ;;
+  
 end
 
-module Shamirint_decode =
+module ShamirInt_decode =
 struct
-  (*type secret = int*)
+  type secret = int
   type key = int * int
   type poly = int list
   type lagrange_poly = int * poly
@@ -121,17 +131,28 @@ struct
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
-  (* This function multiplies all the denominators from each
-   * lag poly by eachother to create a bigger denominator to
-   * help us avoid division errors when calculating our secret.
-   * E.G. if our 3 lag polys are (1, [1;2;3]), (2,[4;5;6]) and
-   * (3,[7;8;9]), our new denominator would be 1*2*3 or 6. *)
-  let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
-    match lags with
-    | [] -> accum
-    | (x, _)::tl ->
-      scale_denoms tl (x * accum)
+  (* returns list of the the abs value of our lag_polys denoms. *)
+  
+  let remove_denoms (lags: lagrange_poly list) : int list =
+    let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
+      match ls with
+      | [] -> accum
+      | (x, _)::tl ->
+	helper tl ((abs x)::accum)
+    in
+    helper lags []
   ;;
+
+  let common_denom (denoms: int list) : int =
+    let rec helper (ds: int list) (count: int) : int =
+      let test_denoms = List.map ~f:(fun x -> (count mod x = 0)) ds in
+      if List.for_all ~f:(fun x -> x = true) test_denoms
+      then count
+      else helper ds (count + 1)
+    in
+    helper denoms 2
+      ;;
+
   (* This scales all our lagrange polynomial based on the denominator
    * d provided.  From the example in the previous function's comments
    * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
@@ -163,7 +184,7 @@ struct
 
   let decode_keys (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
-    let denom = scale_denoms lag_polys 1 in
+    let denom = common_denom (remove_denoms lag_polys) in
     let scaled_lags = scale_lag_polys lag_polys denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
     let num = List.fold_right ~init:[0] ~f:(add_polys) 

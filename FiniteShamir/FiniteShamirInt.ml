@@ -1,8 +1,8 @@
-open Core.Std;;
+open Core.Std
 
 module FiniteShamirInt_encode =
 struct
-  open LazyStream
+  open Primes
   type secret = int
   type poly = int list
   type key = int * int
@@ -111,6 +111,35 @@ struct
     List.map ~f:(fun a -> a / x) poly
   ;;
 
+  (* Used to mod each coeff in a poly by some int
+   * x *)
+  let mod_poly_elts (x: int) (p: poly) : poly =
+    List.map ~f:(fun a -> 
+      if a >= 0 then a mod x
+      else x - (-a mod x)) p
+  ;;
+  
+  (* These three functions are adapted from stackoverflow
+   * for our needs. They will be used to find the multiplicative
+   * modular inverse of our denominator after finding our
+   * combining the lag_poly nums into one polynomial. *)
+  let rec gcd (n: int) (m: int) : int =
+    if m = 0 then n
+    else if n > m then gcd (n-m) m
+    else gcd n (m-n)
+  ;;
+
+  let rec extended_euclidean (a: int) (b: int) : (int*int*int) =
+    if b = 0 then a, 1, 0
+    else match (extended_euclidean b (a mod b)) with
+      (d, x, y) -> d, y, x - a/b*y;;
+
+
+  let mult_mod_inverse (prime: int) (d: int): int =
+    let (_,_,inv) = extended_euclidean prime d in
+    prime + inv
+  ;;
+
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
     let x_half = [0] @ poly in
@@ -143,17 +172,28 @@ struct
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
- (* This function multiplies all the denominators from each
-   * lag poly by eachother to create a bigger denominator to
-   * help us avoid division errors when calculating our secret.
-   * E.G. if our 3 lag polys are (1, [1;2;3]), (2,[4;5;6]) and
-   * (3,[7;8;9]), our new denominator would be 1*2*3 or 6. *)
-  let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
-    match lags with
-    | [] -> accum
-    | (x, _)::tl ->
-      scale_denoms tl (x * accum)
+  (* returns list of the the abs value of our lag_polys denoms. *)
+  
+  let remove_denoms (lags: lagrange_poly list) : int list =
+    let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
+      match ls with
+      | [] -> accum
+      | (x, _)::tl ->
+	helper tl ((abs x)::accum)
+    in
+    helper lags []
   ;;
+
+  let common_denom (denoms: int list) : int =
+    let rec helper (ds: int list) (count: int) : int =
+      let test_denoms = List.map ~f:(fun x -> (count mod x = 0)) ds in
+      if List.for_all ~f:(fun x -> x = true) test_denoms
+      then count
+      else helper ds (count + 1)
+    in
+    helper denoms 2
+      ;;
+
   (* This scales all our lagrange polynomial based on the denominator
    * d provided.  From the example in the previous function's comments
    * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
@@ -182,19 +222,21 @@ struct
 	(mult_poly_int yhd num)::(combine_lag_ys ytl lagtl))
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
-
-  let decode_keys (keys: key list) : poly =
+  
+  let decode_keys (p: int) (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
-    let denom = scale_denoms lag_polys 1 in
+    let denom = common_denom (remove_denoms lag_polys) in
     let scaled_lags = scale_lag_polys lag_polys denom in
+    let new_denom = mult_mod_inverse p denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
     let num = List.fold_right ~init:[0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
-    div_poly_int denom num
+    let num_2 = mult_poly_int new_denom num in
+    mod_poly_elts p num_2
   ;;
   
-  let get_secret (keys: key list) : int =
-    match decode_keys keys with
+  let get_secret (prime: int) (keys: key list) : int =
+    match decode_keys prime keys with
     | h::_ -> h
     | _ -> failwith "broken"
   ;;

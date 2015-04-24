@@ -1,18 +1,23 @@
 open Core.Std
 
-module type SHAMIR_DECRYPT =
+module type SHAMIR =
 sig
-  (* type secret *)
-  type key
+  type secret
   type poly
+  type key
+end
+
+module type SHAMIR_DECODE =
+sig
+  include SHAMIR
   type lagrange_poly
   val int_int_to_key: (int*int) list -> key list
   val get_secret: key list -> int
 end
 
-module Shamirint_decode =
+module ShamirInt_decode =
 struct
-  (*type secret = int*)
+  type secret = int
   type key = int * int
   type poly = int list
   type lagrange_poly = int * poly
@@ -156,7 +161,7 @@ struct
   ;;
 end
  
-module ShamirIntDecode = (Shamirint_decode : SHAMIR_DECRYPT)
+module ShamirIntDecode = (ShamirInt_decode : SHAMIR_DECODE)
 
 let rec try_read_int () =
   try read_int () with

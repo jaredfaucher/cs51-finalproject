@@ -1,21 +1,22 @@
 open Core.Std
 
-module type SHAMIR_ENCRYPT =
+module type SHAMIR =
 sig
-  (*type secret
-  type threshold
-  type num_participants*)
+  type secret
   type poly
   type key
+end
+
+module type SHAMIR_ENCODE =
+sig
+  include SHAMIR
   val gen_keys: int -> int -> int -> key list
   val print_keys: key list -> unit
 end
 
-module Shamirint_encode =
+module ShamirInt_encode =
 struct
-  (*type secret = int
-  type threshold = int
-  type num_participants = int*)
+  type secret = int
   type poly = int list;;
   type key = int * int;;
 
@@ -23,16 +24,15 @@ struct
 
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
-  let gen_poly (s: int) (t: int) : poly =
-    Random.self_init();
-    let rec helper (s: int) (t: int) : poly =
-      match t with
-      | 1 -> [s]
+  let gen_poly (s: secret) (t: int) : poly =
+    let rec helper (x: secret) (y: int) : poly =
+      match y with
+      | 1 -> [x]
       | _ -> 
         (* Generate t-1 random numbers to be coefficients to the poly*)
-	    let r = (Random.int (s * 4)) in
-	    r::(helper s (t - 1))
-    in List.rev (helper s t)
+	    let r = (Random.int (x * 4)) in
+	    r::(helper x (y - 1))
+    in Random.self_init(); List.rev (helper s t)
   ;;
 
   (* Evaluates the outcome of a poly given an int*)
@@ -46,12 +46,12 @@ struct
   ;;
   
   (* Generates list of n keys, one for each participant*)
-  let gen_keys (s: int) (t: int) (n: int): key list =
-    let rec helper (n: int) (poly: poly) : key list =
+  let gen_keys (s: secret) (t: int) (n: int): key list =
+    let rec helper (n: int) (p: poly) : key list =
       match n with
       | 0 -> []
       | _ ->
-	    (n, (eval_poly n poly))::(helper (n-1) poly) in
+	    (n, (eval_poly n p))::(helper (n-1) p) in
 	let poly = gen_poly s t in
     List.rev (helper n poly)
   ;;
@@ -67,7 +67,7 @@ struct
   
 end
  
-module ShamirIntEncode = (Shamirint_encode : SHAMIR_ENCRYPT)
+module ShamirIntEncode = (ShamirInt_encode : SHAMIR_ENCODE)
 
 (* Initialize by providing a secret, number of participants, and minimum threshold
  * required to reconstruct the secret.  Prints out all keys to the console*)

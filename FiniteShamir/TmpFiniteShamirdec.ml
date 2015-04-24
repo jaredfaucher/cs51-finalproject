@@ -173,8 +173,6 @@ struct
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
   
-
-  (* FINISH DECODE_KEYS WITH PRIME NUMBER AND MODULO FUNCTIONS *)
   let decode_keys (p: int) (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
     let denom = common_denom (remove_denoms lag_polys) in
