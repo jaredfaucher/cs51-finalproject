@@ -97,7 +97,7 @@ struct
     match lags with
     | [] -> accum
     | (x, _)::tl ->
-      scale_denoms tl (x * accum)
+      scale_denoms tl ((abs x) * accum)
   ;;
   (* This scales all our lagrange polynomial based on the denominator
    * d provided.  From the example in the previous function's comments
@@ -147,37 +147,32 @@ end
  
 module ShamirIntDecode = (Shamirint_decode : SHAMIR_DECRYPT)
 
-let parse_args () =
-  let usage () = Printf.printf
-      "usage: %s key1-x key1-y key2-x key2-y ..." Sys.argv.(0); exit 1 in
-  let key_num () = Printf.printf
-    "please enter x's and y's for all keys"; exit 2 in
-  if Array.length Sys.argv <= 1 then usage ();
-  let num_of_keys = (Array.length Sys.argv) - 1 in
-  if (num_of_keys mod 2) <> 0 then key_num ();
-  let arg_to_key () =
-    let rec helper acc count =
-      if count >= (Array.length Sys.argv) then acc
-      else helper ((int_of_string(Sys.argv.(count)), 
-		    int_of_string(Sys.argv.(count + 1)))::acc) (count + 2)
-    in helper [] 1
-  in arg_to_key ()
+let rec try_read_int () =
+  try read_int () with
+    Failure _ -> 
+      print_string "\nError: Please enter an integer value: ";
+      try_read_int ()
 ;;
 
+let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
+  if count <= 0 then accum
+  else let () = print_string "\nEnter key x: " in
+       let x = try_read_int () in
+       let () = print_string "\nEnter key y: " in
+       let y = try_read_int () in
+       get_key_cl (count - 1) ((x,y)::accum)
+	 ;; 
 
 let decrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
     Initialization Decryption Process...
-    \nEnter in the keys
-    (Use format <key number> SPACE <corresponding key value> SPACE): " in
-  (*let input_keystring = read_line () in*)
-  ()
-  (*not finished*)
-
-
+    \nEnter in the threshold value: " in
+  let threshold = try_read_int () in
+  get_key_cl threshold []
+;;
 
 let main_decrypt () =
-  let keys = (*decrypt_init ()*) parse_args () in
+  let keys = decrypt_init () in
   let secret = ShamirIntDecode.get_secret (
     ShamirIntDecode.int_int_to_key keys) in
   Printf.printf "secret: %i\n" secret

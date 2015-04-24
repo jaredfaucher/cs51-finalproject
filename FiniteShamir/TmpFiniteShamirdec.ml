@@ -133,6 +133,21 @@ struct
     | (x, _)::tl ->
       scale_denoms tl (x * accum)
   ;;
+  
+  (* returns a high-to-low sorted list of the the abs value
+   * of our lag_polys *)
+  let remove_denoms (lags: lagrange_poly list) : int list =
+    let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
+      match ls with
+      | [] -> accum
+      | (x, _)::tl ->
+	helper tl (abs x)::tl
+    in
+    List.stable_sort ~f:(>) (helper lags [])
+
+  let common_denom (denoms: int list) : int =
+    
+      
 
   (* NEED TO CHANGE SCALE_DENOMS TO FIND COMMON DENOM *)
 
@@ -211,7 +226,7 @@ let initialize () =
   let () = print_string "\nGive me the threshold value: " in
   let threshold = try_read_int () in
    (prime, (get_key_cl threshold []))
-  
+ ;; 
 
 let main () =
   let (prime, keys) = initialize () in
