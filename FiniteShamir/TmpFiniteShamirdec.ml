@@ -127,15 +127,16 @@ struct
    * help us avoid division errors when calculating our secret.
    * E.G. if our 3 lag polys are (1, [1;2;3]), (2,[4;5;6]) and
    * (3,[7;8;9]), our new denominator would be 1*2*3 or 6. *)
-  let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
+  (* let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
     match lags with
     | [] -> accum
     | (x, _)::tl ->
       scale_denoms tl (x * accum)
-  ;;
+  ;; *)
   
-  (* returns a high-to-low sorted list of the the abs value
-   * of our lag_polys *)
+  (* returns list of the the abs value
+   * of our lag_polys denoms. *)
+  
   let remove_denoms (lags: lagrange_poly list) : int list =
     let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
       match ls with
@@ -143,13 +144,18 @@ struct
       | (x, _)::tl ->
 	helper tl (abs x)::tl
     in
-    List.stable_sort ~f:(>) (helper lags [])
+    helper lags []
+  ;;
 
   let common_denom (denoms: int list) : int =
-    
-      
-
-  (* NEED TO CHANGE SCALE_DENOMS TO FIND COMMON DENOM *)
+    let rec helper (ds: int list) (count: int) : int =
+      let test_denoms = List.map ~f:(fun x -> (count mod x = 0)) ds in
+      if List.for_all ~f:(fun x -> x = true) test_denoms
+      then count
+      else helper ds (count + 1)
+    in
+    helper denoms 2
+      ;;
 
   (* This scales all our lagrange polynomial based on the denominator
    * d provided.  From the example in the previous function's comments
@@ -184,7 +190,7 @@ struct
   (* FINISH DECODE_KEYS WITH PRIME NUMBER AND MODULO FUNCTIONS *)
   let decode_keys (p: int) (keys: key list) : poly =
     let lag_polys = gen_lag_poly_list keys in
-    let denom = scale_denoms lag_polys 1 in
+    let denom = common_denom (remove_denoms lag_polys) in
     let scaled_lags = scale_lag_polys lag_polys denom in
     let new_denom = mult_mod_inverse p denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
