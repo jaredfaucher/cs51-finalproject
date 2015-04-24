@@ -85,8 +85,8 @@ struct
       (d, x, y) -> d, y, x - a/b*y;;
 
 
-  let rec mult_mod_inverse (prime: int) (d: int): int =
-    let (x,y,inv) = extended_euclidean prime d in
+  let mult_mod_inverse (prime: int) (d: int): int =
+    let (_,_,inv) = extended_euclidean prime d in
     prime + inv
   ;;
 
@@ -212,22 +212,21 @@ let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
        get_key_cl (count - 1) ((x,y)::accum)
 	 ;; 
 
-let initialize () =
-  let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
-    \nGive me the prime number integer: " in
+let decrypt_init () =
+  let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
+    Initialization Decryption Process...
+    \nEnter in the prime base value: " in
   let prime = try_read_int () in
   let () = print_string "\nGive me the threshold value: " in
   let threshold = try_read_int () in
-   (prime, (get_key_cl threshold []))
- ;; 
+  (prime, (get_key_cl threshold []))
+;;
 
-let main () =
-  let (prime, keys) = initialize () in
+let main_decrypt () =
+  let (prime, keys) = decrypt_init () in
   let secret = FiniteShamirIntDecode.get_secret 
     (prime)
     (FiniteShamirIntDecode.int_int_to_key keys) in
   Printf.printf "secret: %i\n" secret
 ;;
-
-main ();;
 

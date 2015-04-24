@@ -193,5 +193,3 @@ let main () =
   Printf.printf "\nPrime: %i\n" prime;
   FiniteShamirIntEncode.print_keys keys
 ;;
-
-main ();;
