@@ -122,27 +122,14 @@ struct
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
- (* This function multiplies all the denominators from each
-   * lag poly by eachother to create a bigger denominator to
-   * help us avoid division errors when calculating our secret.
-   * E.G. if our 3 lag polys are (1, [1;2;3]), (2,[4;5;6]) and
-   * (3,[7;8;9]), our new denominator would be 1*2*3 or 6. *)
-  (* let rec scale_denoms (lags: lagrange_poly list) (accum: int) : int =
-    match lags with
-    | [] -> accum
-    | (x, _)::tl ->
-      scale_denoms tl (x * accum)
-  ;; *)
-  
-  (* returns list of the the abs value
-   * of our lag_polys denoms. *)
+  (* returns list of the the abs value of our lag_polys denoms. *)
   
   let remove_denoms (lags: lagrange_poly list) : int list =
     let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
       match ls with
       | [] -> accum
       | (x, _)::tl ->
-	helper tl (abs x)::tl
+	helper tl ((abs x)::accum)
     in
     helper lags []
   ;;
