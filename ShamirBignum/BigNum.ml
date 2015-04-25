@@ -3,6 +3,11 @@ open Core.Std
 type bignum = {neg: bool; coeffs: int list}
 let base = 10
 
+let abs_bignum (b:bignum) : bignum =
+  if b.neg then negate b
+  else b
+;;
+
 let negate (b : bignum) : bignum =
   (* if b is negative, return b with neg = false *)
   if b.neg = true then {b with neg = false}

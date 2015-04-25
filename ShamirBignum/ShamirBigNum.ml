@@ -58,7 +58,7 @@ struct
   ;;
 
 end
-(*
+
 module ShamirBigNum_decode =
 struct
   type secret = bignum
@@ -73,7 +73,7 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
   ;;
 
   (* decoding functions *)
-  let get_key_x (key: key) : bignum =
+  let get_key_x (key: key) : int =
     fst(key)
   ;;
 
@@ -102,28 +102,28 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
   ;;
 
   let div_poly_bignum (x:bignum) (poly:poly) : poly =
-    List.map ~f:(fun a -> divising a x) poly
+    List.map ~f:(fun a -> divsing a x) poly
   ;;
 
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [0] @ poly in
-    let a_half = mult_poly_int a poly in
+    let x_half = [fromInt 0] @ poly in
+    let a_half = mult_poly_bignum a poly in
     add_polys x_half a_half
   ;;
 
-  let gen_lagrange_denom (x:int) (keys: key list) : int =
+  let gen_lagrange_denom (x:int) (keys: key list) : bignum =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let filtered_keys_xs = List.map ~f:(get_key_x) filtered_keys in
     let denom = List.map ~f:(fun a -> x - a) filtered_keys_xs in
-    List.fold_left ~f:( * ) ~init:1 denom
+    fromInt (List.fold_left ~f:( * ) ~init: 1 denom)
   ;;
 
   let gen_lagrange_num (x:int) (keys: key list) : poly =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
       List.map ~f:(fun k -> -1*(get_key_x k)) filtered_keys in
-    List.fold_right ~f:mult_x_a_poly ~init:[1] neg_filtered_keys_xs
+    List.fold_right ~f:mult_x_a_poly ~init:[fromInt 1] neg_filtered_keys_xs
   ;;
 
   let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
@@ -139,12 +139,12 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
 
   (* returns list of the the abs value of our lag_polys denoms. *)
   
-  let remove_denoms (lags: lagrange_poly list) : int list =
-    let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
+  let remove_denoms (lags: lagrange_poly list) : bignum list =
+    let rec helper (ls: lagrange_poly list) (accum: bignum list) : bignum list =
       match ls with
       | [] -> accum
       | (x, _)::tl ->
-	helper tl ((abs x)::accum)
+	helper tl ((abs_bignum x)::accum)
     in
     helper lags []
   ;;
@@ -204,4 +204,3 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     | _ -> failwith "broken"
   ;;
 end
-*)

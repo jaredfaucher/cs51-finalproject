@@ -1,6 +1,9 @@
 open Core.Std
 open BigNum
 
+(* Assumes the number of participants and/or the threshold is within
+ * integer bounds*)
+
  (* Module contains basic type identifiers to be used in encryption and
   * decryption algorithms *)
 module type SHAMIR =
