@@ -6,7 +6,7 @@ module ShamirBigNum_encode =
 struct
   type secret = bignum
   type poly = bignum list;;
-  type key = bignum * bignum;;
+  type key = int * bignum;;
 
 (* Encoding functions *)
 
@@ -29,8 +29,8 @@ struct
       match poly with
       | [] -> []
       | hd::tl ->
-	    hd::(helper x (List.map ~f:(fun a -> a * x) tl))
-    in List.fold_left (helper x poly) ~f:(+) ~init:0
+	    hd::(helper x (List.map ~f:(fun a -> bignumTimesInt a x) tl))
+    in List.fold_left (helper x poly) ~f:(plus) ~init:(fromInt 0)
   ;;
   
   (* Generates list of n keys, one for each participant*)
@@ -50,7 +50,7 @@ struct
     | [] -> ()
     | h::t ->
       let (x,y) = h in
-      Printf.printf "(%i, %i)\n" x y; print_keys t
+      Printf.printf "(%i, %s)\n" x (toString y); print_keys t
   ;;
 
 end
@@ -58,14 +58,14 @@ end
 module ShamirBigNum_decode =
 struct
   type secret = bignum
-  type key = bignum * bignum
+  type key = int * bignum
   type poly = bignum list
   type lagrange_poly = bignum * poly
 
-let rec big_big_to_key (lst: (int*int) list) : key list =
+let rec int_big_to_key (lst: (int*bignum) list) : key list =
     match lst with
     | [] -> []
-    | h::t -> h::(int_int_to_key t)
+    | h::t -> h::(int_big_to_key t)
   ;;
 
   (* decoding functions *)
