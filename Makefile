@@ -1,8 +1,8 @@
 all:  main
-	corebuild main.native
+	corebuild Main.native
 
 main:
-	corebuild main.native
+	corebuild Main.native
 
 clean:
 	rm -rf _build *.native

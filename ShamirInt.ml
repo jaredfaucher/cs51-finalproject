@@ -1,4 +1,5 @@
 open Core.Std
+open Modules
 
 module ShamirInt_encode =
 struct

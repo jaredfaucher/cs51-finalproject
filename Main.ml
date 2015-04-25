@@ -1,6 +1,5 @@
 open Core.Std
-open Shamirtryenc
-open Shamirtrydec
+open Initialize
 
 print_string "\n----Shamir's Secret Sharing Scheme----\n\n
   \nWhat would you like to do?: Encryption (Press 1) or Decryption (Press 2): "
