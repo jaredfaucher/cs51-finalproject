@@ -3,11 +3,6 @@ open Core.Std
 type bignum = {neg: bool; coeffs: int list}
 let base = 10
 
-let abs_bignum (b:bignum) : bignum =
-  if b.neg then negate b
-  else b
-;;
-
 let negate (b : bignum) : bignum =
   (* if b is negative, return b with neg = false *)
   if b.neg = true then {b with neg = false}
@@ -23,6 +18,11 @@ let _ = assert(negate {neg = true; coeffs = [1; 2]}
                     = {neg = false; coeffs = [1; 2]})
 let _ = assert(negate {neg = false; coeffs = [1; 2]}
 		    = {neg = true; coeffs = [1; 2]})
+
+let abs_bignum (b:bignum) : bignum =
+  if b.neg then negate b
+  else b
+;;
 
 let fromInt (n: int) : bignum =
   (* this helper function extracts digits from the int m 

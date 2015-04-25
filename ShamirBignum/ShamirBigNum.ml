@@ -64,7 +64,7 @@ struct
   type secret = bignum
   type key = int * bignum
   type poly = bignum list
-  type lagrange_poly = bignum * poly
+  type lagrange_poly = int * poly
 
 let rec int_big_to_key (lst: (int*bignum) list) : key list =
     match lst with
@@ -97,11 +97,15 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     List.map ~f:(fun x -> negate  x) poly
   ;;
 
+  let mult_poly_int (x: int) (p: poly) : poly =
+    List.map ~f:(fun a -> bignumTimesInt a x) p
+  ;;
+
   let mult_poly_bignum (x:bignum) (poly:poly) : poly =
     List.map ~f:(fun a -> times_faster a x) poly
   ;;
-
-  let div_poly_bignum (x:bignum) (poly:poly) : poly =
+  
+  let div_poly_int (x:int) (poly:poly) : poly =
     List.map ~f:(fun a -> divsing a x) poly
   ;;
 
@@ -112,11 +116,11 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     add_polys x_half a_half
   ;;
 
-  let gen_lagrange_denom (x:int) (keys: key list) : bignum =
+  let gen_lagrange_denom (x:int) (keys: key list) : int =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let filtered_keys_xs = List.map ~f:(get_key_x) filtered_keys in
     let denom = List.map ~f:(fun a -> x - a) filtered_keys_xs in
-    fromInt (List.fold_left ~f:( * ) ~init: 1 denom)
+    List.fold_left ~f:( * ) ~init: 1 denom
   ;;
 
   let gen_lagrange_num (x:int) (keys: key list) : poly =
@@ -139,12 +143,12 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
 
   (* returns list of the the abs value of our lag_polys denoms. *)
   
-  let remove_denoms (lags: lagrange_poly list) : bignum list =
-    let rec helper (ls: lagrange_poly list) (accum: bignum list) : bignum list =
+  let remove_denoms (lags: lagrange_poly list) : int list =
+    let rec helper (ls: lagrange_poly list) (accum: bignum list) : int list =
       match ls with
       | [] -> accum
       | (x, _)::tl ->
-	helper tl ((abs_bignum x)::accum)
+	helper tl ((abs x)::accum)
     in
     helper lags []
   ;;
@@ -178,13 +182,13 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     List.map ~f:(fun x -> scale_lag_poly x d) lags
   ;;
 
-  let rec combine_lag_ys (ys: int list) (lags: lagrange_poly list) : poly list =
+  let rec combine_lag_ys (ys: bignum list) (lags: lagrange_poly list) : poly list =
     match ys, lags with
     | [],[] -> []
     | yhd::ytl, laghd::lagtl ->
       (match laghd with
       | (_, num) ->
-	(mult_poly_int yhd num)::(combine_lag_ys ytl lagtl))
+	(mult_poly_bignum yhd num)::(combine_lag_ys ytl lagtl))
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
 
@@ -193,12 +197,12 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     let denom = common_denom (remove_denoms lag_polys) in
     let scaled_lags = scale_lag_polys lag_polys denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
-    let num = List.fold_right ~init:[0] ~f:(add_polys) 
+    let num = List.fold_right ~init:[fromInt 0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
     div_poly_int denom num
   ;;
   
-  let get_secret (keys: key list) : int =
+  let get_secret (keys: key list) : bignum =
     match decode_keys keys with
     | h::_ -> h
     | _ -> failwith "broken"
