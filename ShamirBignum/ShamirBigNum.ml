@@ -106,13 +106,13 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
   ;;
   
   let div_poly_int (x:int) (poly:poly) : poly =
-    List.map ~f:(fun a -> divsing a x) poly
+    List.map ~f:(fun a -> fst (divmod a (fromInt x))) poly
   ;;
 
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
     let x_half = [fromInt 0] @ poly in
-    let a_half = mult_poly_bignum a poly in
+    let a_half = mult_poly_int a poly in
     add_polys x_half a_half
   ;;
 
@@ -144,7 +144,7 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
   (* returns list of the the abs value of our lag_polys denoms. *)
   
   let remove_denoms (lags: lagrange_poly list) : int list =
-    let rec helper (ls: lagrange_poly list) (accum: bignum list) : int list =
+    let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
       match ls with
       | [] -> accum
       | (x, _)::tl ->
