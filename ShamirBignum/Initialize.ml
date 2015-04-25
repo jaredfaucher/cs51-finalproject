@@ -4,7 +4,7 @@ open Modules
 open ShamirBigNum
 
 module ShamirBigNumEncode = (ShamirBigNum_encode : SHAMIR_ENCODE)
-module ShamirBigNumDecode = (ShamirBigNum_decode : SHAMIR_DECODE)
+(*module ShamirBigNumDecode = (ShamirBigNum_decode : SHAMIR_DECODE)*)
 
 (* Initialize by providing a secret, number of participants, and minimum threshold
  * required to reconstruct the secret.  Prints out all keys to the console*)
@@ -16,7 +16,7 @@ let rec try_read_int () =
 ;;
 
 let rec try_read_bignum () =
-  try fromString(read_string ()) with
+  try fromString(read_line ()) with
     Failure _ -> 
       print_string "\nError: Please enter an bignum value: ";
       try_read_bignum ()
@@ -57,10 +57,12 @@ let initialize () =
 
 let main () =
   let (secret, threshold, num_participants) = initialize () in
-  let keys = ShamirBigNumEncode.gen_keys secret threshold num_participants in
+  let keys = ShamirBigNumEncode.gen_keys 
+    (ShamirBigNumEncode.to_secret secret) threshold num_participants in
   print_string "\n";
   ShamirBigNumEncode.print_keys keys
 ;;
+(*
 
 let decrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
@@ -77,3 +79,4 @@ let main_decrypt () =
   let secret_string = toString secret in
   Printf.printf "secret: %s\n" secret
 ;;
+*)

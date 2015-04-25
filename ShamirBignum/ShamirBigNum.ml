@@ -10,6 +10,10 @@ struct
 
 (* Encoding functions *)
 
+  let to_secret (b: bignum) : secret =
+    b
+  ;;
+  
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
   let gen_poly (s: secret) (t: int) : poly =
@@ -24,8 +28,8 @@ struct
   ;;
 
   (* Evaluates the outcome of a poly given an int*)
-  let eval_poly (x: int) (poly: poly) : int =
-    let rec helper (x: int) (poly: poly) : int list =
+  let eval_poly (x: int) (poly: poly) : bignum =
+    let rec helper (x: int) (poly: poly) : bignum list =
       match poly with
       | [] -> []
       | hd::tl ->
@@ -54,7 +58,7 @@ struct
   ;;
 
 end
-
+(*
 module ShamirBigNum_decode =
 struct
   type secret = bignum
@@ -200,3 +204,4 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     | _ -> failwith "broken"
   ;;
 end
+*)
