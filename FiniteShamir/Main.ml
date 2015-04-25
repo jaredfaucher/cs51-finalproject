@@ -1,6 +1,6 @@
 open Core.Std
-open TmpFiniteShamirenc
-open TmpFiniteShamirdec
+open Initialize
+
 
 (*Getting Started....*)
 print_string "\n----Shamir's Secret Sharing Scheme - Finite Version----\n\n
