@@ -4,7 +4,7 @@ open BigNum
 
 module ShamirBigNum_encode =
 struct
-  type secret = bignum
+  type secret = bignum;;
   type poly = bignum list;;
   type key = int * bignum;;
 
