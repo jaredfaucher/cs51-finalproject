@@ -111,9 +111,11 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
 
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [fromInt 0] @ poly in
-    let a_half = mult_poly_int a poly in
-    add_polys x_half a_half
+    let x_half = [{neg = false; coeffs = [0]}] @ poly in
+    let a_half =
+      if a < 0 then neg_poly (mult_poly_int (abs a) poly)
+      else mult_poly_int a poly
+    in add_polys x_half a_half
   ;;
 
   let gen_lagrange_denom (x:int) (keys: key list) : int =
@@ -127,7 +129,8 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
       List.map ~f:(fun k -> -1*(get_key_x k)) filtered_keys in
-    List.fold_right ~f:mult_x_a_poly ~init:[fromInt 1] neg_filtered_keys_xs
+    List.fold_right ~f:(fun a b -> mult_x_a_poly a b) ~init:[fromInt 1]
+    neg_filtered_keys_xs
   ;;
 
   let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
