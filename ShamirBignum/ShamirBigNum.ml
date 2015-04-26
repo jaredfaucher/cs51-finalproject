@@ -129,7 +129,7 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
       List.map ~f:(fun k -> -1*(get_key_x k)) filtered_keys in
-    List.fold_right ~f:(fun a b -> mult_x_a_poly a b) ~init:[fromInt 1]
+    List.fold_right ~f:(fun a b -> mult_x_a_poly a b) ~init:([fromInt 1])
     neg_filtered_keys_xs
   ;;
 

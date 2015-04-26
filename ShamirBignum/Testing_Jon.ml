@@ -122,8 +122,8 @@ assert (gen_lagrange_num 2
   [(2, {neg = false; coeffs = [1; 9; 4; 2]});
    (4, {neg = false; coeffs = [3; 4; 0; 2]});
    (5, {neg = false; coeffs = [4; 4; 1; 4]})] =
-   
-  [{neg = false; coeffs = [2;0]};
-   {neg = true; coeffs = [9]};
-   {neg = false; coeffs = [1]}]
+  
+  [{neg = false; coeffs = [2; 0]};
+   {neg = true; coeffs = [9]}; 
+   {neg = false; coeffs = [1]}] 
 ) ;
