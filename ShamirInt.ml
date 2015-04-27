@@ -8,6 +8,8 @@ struct
   type key = int * int;;
 
   (* Encoding functions *)
+  
+  let to_secret (x: int) : secret = x;;
 
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
    * ---> [3;2;1]   *)
