@@ -174,8 +174,11 @@ let rec int_big_to_key (lst: (int*bignum) list) : key list =
     match lag with
     | (x, l) ->
       let scale = d / x in
-      (d, mult_poly_int scale l)
+      if scale < 0
+        then (d, (neg_poly (mult_poly_int (abs scale) l)))
+      else (d, mult_poly_int scale l)
   ;;
+   
   (* This function scales all of our lagrange polynomials the correct amount
    * based on our previous function.  The lag_polys from scale_denoms comments
    * would become (6,[6;12;18]), (6,[12;15;18]) and (6,[14;16;18]). This will

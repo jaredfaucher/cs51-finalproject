@@ -127,3 +127,77 @@ assert (gen_lagrange_num 2
    {neg = true; coeffs = [9]}; 
    {neg = false; coeffs = [1]}] 
 ) ;
+
+assert (gen_lagrange_poly (2, {neg = false; coeffs = [1; 9; 4; 2]})
+  [(2, {neg = false; coeffs = [1; 9; 4; 2]});
+   (4, {neg = false; coeffs = [3; 4; 0; 2]});
+   (5, {neg = false; coeffs = [4; 4; 1; 4]})] =
+  
+  (6, [{neg = false; coeffs = [2; 0]};
+       {neg = true; coeffs = [9]}; 
+       {neg = false; coeffs = [1]}])
+) ;
+
+assert (gen_lagrange_poly (4, {neg = false; coeffs = [3; 4; 0; 2]})
+  [(2, {neg = false; coeffs = [1; 9; 4; 2]});
+   (4, {neg = false; coeffs = [3; 4; 0; 2]});
+   (5, {neg = false; coeffs = [4; 4; 1; 4]})] =
+  
+  ((-2), [{neg = false; coeffs = [1; 0]};
+       {neg = true; coeffs = [7]}; 
+       {neg = false; coeffs = [1]}])
+) ;
+
+assert (gen_lag_poly_list 
+  [(2, {neg = false; coeffs = [1; 9; 4; 2]});
+   (4, {neg = false; coeffs = [3; 4; 0; 2]});
+   (5, {neg = false; coeffs = [4; 4; 1; 4]})] =
+
+  [(6, [{neg = false; coeffs = [2; 0]};
+       {neg = true; coeffs = [9]}; 
+       {neg = false; coeffs = [1]}]);
+   ((-2), [{neg = false; coeffs = [1; 0]};
+       {neg = true; coeffs = [7]}; 
+       {neg = false; coeffs = [1]}]);
+   (3, [{neg = false; coeffs = [8]};
+       {neg = true; coeffs = [6]}; 
+       {neg = false; coeffs = [1]}])]
+) ;
+
+assert (remove_denoms
+  [(6, [{neg = false; coeffs = [2; 0]};
+       {neg = true; coeffs = [9]}; 
+       {neg = false; coeffs = [1]}]);
+   ((-2), [{neg = false; coeffs = [1; 0]};
+       {neg = true; coeffs = [7]}; 
+       {neg = false; coeffs = [1]}]);
+   (3, [{neg = false; coeffs = [8]};
+       {neg = true; coeffs = [6]}; 
+       {neg = false; coeffs = [1]}])] =
+  [3; 2; 6]
+) ;
+
+assert (common_denom [3; 2; 6] = 6) ;
+assert (common_denom [12; 8; 3] = 24) ;
+
+assert (scale_lag_poly
+  (6, [{neg = false; coeffs = [2; 0]};
+       {neg = true; coeffs = [9]}; 
+       {neg = false; coeffs = [1]}]) 6 =
+   
+  (6, [{neg = false; coeffs = [2; 0]};
+       {neg = true; coeffs = [9]}; 
+       {neg = false; coeffs = [1]}])
+) ;
+
+assert (scale_lag_poly
+  ((-2), [{neg = false; coeffs = [1; 0]};
+       {neg = true; coeffs = [7]}; 
+       {neg = false; coeffs = [1]}]) 6 =
+  
+  (6, [{neg = true; coeffs = [3; 0]};
+       {neg = false; coeffs = [2;1]}; 
+       {neg = true; coeffs = [3]}])
+) ;
+
+
