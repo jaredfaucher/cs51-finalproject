@@ -274,8 +274,6 @@ let _ = assert((greater (fromInt (-123)) (fromInt (-1234))) = true)
 let _ = assert((greater (fromInt (-1234)) (fromInt (-123))) = false)
 
 
-(*>* Problem 1.3.2 *>*)
-
 let toInt (b : bignum) : int option =
   (* helper function expand takes int list and expands it into an int *)
   let rec expand (ints: int list) (acc: int) : int = 
@@ -353,9 +351,6 @@ let plus_pos (b1 : bignum) (b2 : bignum) : bignum =
                         0
   in {neg = negres; coeffs = stripzeroes (List.rev coeffsres)}
 
-
-(*>* Problem 1.4 *>*)
-
 let plus (b1 : bignum) (b2 : bignum) : bignum =
   (* if b1 < -b2, then b1 + b2 < 0, so evaluate -((-b2) + (-b2)) *)
   if less b1 (negate b2) then negate (plus_pos (negate b1) (negate b2))
@@ -367,8 +362,6 @@ let _ = assert((plus (fromInt 123) (fromInt 111)) = (fromInt 234))
 let _ = assert((plus (fromInt 123) (fromInt (-123))) = (fromInt 0))
 let _ = assert((plus (fromInt 123) (fromInt (-124))) = (fromInt (-1)))
 let _ = assert((plus (fromInt (-124)) (fromInt 123)) = (fromInt (-1)))
-
-(*>* Problem 1.5 *>*)
 
 (* bignumTimesInt multiplies a bignum by an int n, assuming n > 0, using
    the grade school multiplication method, carrying over each result *)
@@ -468,11 +461,6 @@ let divmod (b1 : bignum) (b2 : bignum): bignum * bignum =
   divmod_rec (clean b1) (clean b2) (fromInt 0)
 
 
-(**************************** Challenge 1: RSA ******************************)
-
-(** Support code for RSA **)
-(* Hint: each part of this problem can be implemented in approximately one
- * line of code. *)
 
 (* Returns b to the power of e mod m *)
 let rec expmod (b : bignum) (e : bignum) (m : bignum) : bignum =
@@ -539,38 +527,6 @@ let rec generateRandomPrime (min : bignum) (max: bignum) : bignum =
     if isPrime rand then rand else generateRandomPrime min max
 
 
-(** Code for encrypting and decrypting messages using RSA **)
-
-(* Generate a random RSA key pair, returned as (e, d, n).
- * p and q will be between 2^n and 2^(n+1).
- * Recall that (n, e) is the public key, and (n, d) is the private key. *)
-let rec generateKeyPair (r : bignum) : bignum * bignum * bignum =
-  let c1 = fromInt 1 in
-  let c2 = fromInt 2 in
-  let p = generateRandomPrime (exponent c2 r) (exponent c2 (plus r c1)) in
-  let q = generateRandomPrime (exponent c2 r) (exponent c2 (plus r c1)) in
-  let m = times (plus p (negate c1)) (plus q (negate c1)) in
-  let rec selectPair () =
-    let e = generateRandomPrime (exponent c2 r) (exponent c2 (plus r c1)) in
-    let (_, d, g) = euclid m e in
-    let d = if d.neg then plus d m else d in
-      if equal g c1 then (clean e, clean d, clean (times p q))
-      else selectPair ()
-  in
-    if equal p q then generateKeyPair r else selectPair ()
-
-
-(*>* Problem 2.1 *>*)
-
-(* To encrypt, pass in n e s. To decrypt, pass in n d s. *)
-let encryptDecryptBignum (n : bignum) (e : bignum) (s : bignum) : bignum =
-  (* uses expmod to evaluate s^e mod n*)
-  expmod s e n;;
-
-let (e, d, n) = generateKeyPair (fromInt 10);;
-let _ = assert((encryptDecryptBignum n d 
-                  (encryptDecryptBignum n e (fromInt 123))) 
-                = fromInt 123)
 
 (* Pack a list of chars as a list of bignums, with m chars to a bignum. *)
 let rec charsToBignums (lst : char list) (m : int) : bignum list =
@@ -605,39 +561,6 @@ let bytesInKey (n : bignum) =
   Float.to_int (Float.of_int (List.length (stripzeroes n.coeffs) - 1)
                 *. log10 (Float.of_int base) /. (log10 2. *. 8.))
 
-
-(* Encrypts or decrypts a list of bignums using RSA.
- * To encrypt, pass in n e lst.
- * To decrypt, pass in n d lst. *)
-let rec encDecBignumList (n : bignum) (e : bignum) (lst : bignum list) =
-  match lst with
-    | [] -> []
-    | h :: t -> encryptDecryptBignum n e h :: encDecBignumList n e t
-;;
-
-
-(*>* Problem 2.2 *>*)
-let encrypt (n : bignum) (e : bignum) (s : string) =
- (* explode s converts the string s to a list of chars and bytesInKey 
-    provides the number of bytes that charsToBignums needs to break the 
-    string into.  These chars as bignums are then passed into encDecBignumList 
-    with n and e to be encrypted. *)
- encDecBignumList n e (charsToBignums (explode s) (bytesInKey n))
-;;
-
-
-(* Decrypt an encrypted message (list of bignums) to produce the
- * original string. *)
-let decrypt (n : bignum) (d : bignum) (m : bignum list) =
-  (* encDecBignumList decodes the bignum list m with n and d.  This list 
-     of decrypted bignums is then passed into bignumsToChars to become a 
-     list of chars.  This list of chars is then converted into a string 
-     with implode *)
-  implode (bignumsToChars (encDecBignumList n d m))
-;;
-let _ = assert((decrypt n d (encrypt n e "Hello world!")) = "Hello world!")
-
-(**************** Challenge 2: Faster Multiplication *********************)
 
  (* This helper function splits b into two bignums x1 and x0 where
     x = x1*b^(m2) + x0 using the split function, for Karatsuba algorithm *)
@@ -683,4 +606,3 @@ let _ = assert((times_faster (fromInt (-12345)) (fromInt 6789))
 let _ = assert((times_faster (fromInt 12345) (fromInt (-6789)))
                 = times (fromInt 12345) (fromInt (-6789)))
 
-let minutes_spent = 700;;
