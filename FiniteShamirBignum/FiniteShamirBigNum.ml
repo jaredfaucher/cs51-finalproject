@@ -59,7 +59,7 @@ struct
 	let poly = gen_poly s t in
 	let max_coeff = max_poly_coeff poly in
 	let prime = generateRandomPrime max_coeff 
-	  (times max_coeff (fromInt 10)) in
+	  (times max_coeff (fromInt 5)) in
     (prime, List.rev (helper n poly prime))
   ;;
 
@@ -113,7 +113,8 @@ let rec to_key (lst: (int*bignum) list) : key list =
   ;;
 
   let mult_poly_int (x: int) (p: poly) : poly =
-    List.map ~f:(fun a -> bignumTimesInt a x) p
+    let bigx = fromInt x in
+    List.map ~f:(fun a -> times_faster a bigx) p
   ;;
 
   let mult_poly_bignum (x:bignum) (poly:poly) : poly =
@@ -130,19 +131,15 @@ let rec to_key (lst: (int*bignum) list) : key list =
       else plus x (negate (snd(divmod (negate a) x)))) p
   ;; 
 
-  let mult_mod_inverse (prime: bignum) (d: int) : int =
+  let mult_mod_inverse (prime: bignum) (d: int) : bignum =
     let (_,inv,_) = euclid prime (fromInt d) in
-    match toInt(plus prime inv) with
-    | None -> failwith "error"
-    | Some x -> x
+    plus prime inv
   ;;
 
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [{neg = false; coeffs = [0]}] @ poly in
-    let a_half =
-      if a < 0 then neg_poly (mult_poly_int (abs a) poly)
-      else mult_poly_int a poly
+    let x_half = [fromInt 0] @ poly in
+    let a_half = mult_poly_int a poly
     in add_polys x_half a_half
   ;;
 
@@ -234,7 +231,7 @@ let rec to_key (lst: (int*bignum) list) : key list =
     let lag_ys = List.map ~f:(get_key_y) keys in
     let num = List.fold_right ~init:[fromInt 0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
-    let num_2 = mult_poly_int new_denom num in
+    let num_2 = mult_poly_bignum new_denom num in
     mod_poly_elts p num_2
   ;;
   

@@ -98,7 +98,8 @@ let rec to_key (lst: (int*bignum) list) : key list =
   ;;
 
   let mult_poly_int (x: int) (p: poly) : poly =
-    List.map ~f:(fun a -> bignumTimesInt a x) p
+    let bigx = fromInt x in
+    List.map ~f:(fun a -> times_faster a bigx) p
   ;;
 
   let mult_poly_bignum (x:bignum) (poly:poly) : poly =
@@ -111,10 +112,8 @@ let rec to_key (lst: (int*bignum) list) : key list =
 
   (* multiplies a poly by (x + a) *)
   let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [{neg = false; coeffs = [0]}] @ poly in
-    let a_half =
-      if a < 0 then neg_poly (mult_poly_int (abs a) poly)
-      else mult_poly_int a poly
+    let x_half = [fromInt 0] @ poly in
+    let a_half = mult_poly_int a poly
     in add_polys x_half a_half
   ;;
 
