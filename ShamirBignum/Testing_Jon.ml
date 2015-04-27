@@ -14,7 +14,7 @@ assert (eval_poly 1 [{neg = false; coeffs = [250]};
 ) ;
 *)
 
-assert (int_big_to_key
+assert (to_key
   [(1, {neg = false; coeffs = [2; 592]});
    (3, {neg = false; coeffs = [11; 806]});
    (5, {neg = false; coeffs = [29; 684]})] =

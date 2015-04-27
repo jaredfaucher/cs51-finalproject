@@ -66,10 +66,10 @@ struct
   type poly = bignum list
   type lagrange_poly = int * poly
 
-let rec int_big_to_key (lst: (int*bignum) list) : key list =
+let rec to_key (lst: (int*bignum) list) : key list =
     match lst with
     | [] -> []
-    | h::t -> h::(int_big_to_key t)
+    | h::t -> h::(to_key t)
   ;;
 
   (* decoding functions *)

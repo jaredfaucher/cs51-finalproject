@@ -85,6 +85,6 @@ let decrypt_init () =
 let main_decrypt () =
   let (prime, keys) = decrypt_init () in
   let secret = FiniteShamirIntDecode.get_secret (prime)
-    (FiniteShamirIntDecode.int_int_to_key keys) in
+    (FiniteShamirIntDecode.to_key keys) in
   Printf.printf "secret: %i\n" secret
 ;;

@@ -81,10 +81,10 @@ struct
   type lagrange_poly = int * poly
   
   (* Create list of keys from user entered input *)
-  let rec int_int_to_key (lst: (int*int) list) : key list =
+  let rec to_key (lst: (int*int) list) : key list =
     match lst with
     | [] -> []
-    | h::t -> h::(int_int_to_key t)
+    | h::t -> h::(to_key t)
   ;;
 
   (* Decoding functions, get first value of key pair *)

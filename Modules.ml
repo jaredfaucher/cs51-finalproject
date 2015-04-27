@@ -10,15 +10,17 @@ end
 module type SHAMIR_ENCODE =
 sig
   include SHAMIR
+  (*type t*)
   val to_secret: int -> secret
-  val gen_keys: int -> int -> int -> key list
+  val gen_keys: secret -> int -> int -> key list
   val print_keys: key list -> unit
 end
 
 module type SHAMIR_DECODE =
 sig
   include SHAMIR
+  (*type t*)
   type lagrange_poly
-  val int_int_to_key: (int*int) list -> key list
+  val to_key: (int * int) list -> key list
   val get_secret: key list -> int
 end

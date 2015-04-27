@@ -25,7 +25,7 @@ module type SHAMIR_DECODE =
 sig
   include SHAMIR
   type lagrange_poly
-  val int_int_to_key: (int*int) list -> key list
+  val to_key: (int*int) list -> key list
   val get_secret: int -> key list -> int
 end
 

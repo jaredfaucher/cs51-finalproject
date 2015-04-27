@@ -14,7 +14,7 @@ let bignumConvert (b: bignum) : bytes =
   implode chars
 ;;
 
-assert(bignumConvert (stringConvert "Hello"));
-assert(bignumConvert (stringConvert "Goodbye"));
-assert(bignumConvert (stringConvert "Jared Faucher & Jonathan Penney"));
+assert(bignumConvert (stringConvert "Hello") = "Hello");
+assert(bignumConvert (stringConvert "Goodbye") = "Goodbye");
+assert(bignumConvert (stringConvert "Jared Faucher") = "Jared Faucher");
 

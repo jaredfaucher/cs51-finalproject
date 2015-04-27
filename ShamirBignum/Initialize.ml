@@ -75,8 +75,7 @@ let decrypt_init () =
 let main_decrypt () =
   let keys = decrypt_init () in
   let secret = ShamirBigNumDecode.get_secret (
-    ShamirBigNumDecode.int_big_to_key keys) in
-(*  let secret_string = toString secret in*)
+    ShamirBigNumDecode.to_key keys) in
   Printf.printf "secret: %s\n" (toString secret)
 ;;
 

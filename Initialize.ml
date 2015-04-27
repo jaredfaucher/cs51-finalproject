@@ -49,7 +49,8 @@ let initialize () =
 
 let main () =
   let (secret, threshold, num_participants) = initialize () in
-  let keys = ShamirIntEncode.gen_keys secret threshold num_participants in
+  let keys = ShamirIntEncode.gen_keys 
+    (ShamirIntEncode.to_secret secret) threshold num_participants in
   print_string "\n";
   ShamirIntEncode.print_keys keys
 ;;
@@ -65,6 +66,6 @@ let decrypt_init () =
 let main_decrypt () =
   let keys = decrypt_init () in
   let secret = ShamirIntDecode.get_secret (
-    ShamirIntDecode.int_int_to_key keys) in
+    ShamirIntDecode.to_key keys) in
   Printf.printf "secret: %i\n" secret
 ;;
