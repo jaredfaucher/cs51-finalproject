@@ -274,8 +274,6 @@ let _ = assert((greater (fromInt (-123)) (fromInt (-1234))) = true)
 let _ = assert((greater (fromInt (-1234)) (fromInt (-123))) = false)
 
 
-(*>* Problem 1.3.2 *>*)
-
 let toInt (b : bignum) : int option =
   (* helper function expand takes int list and expands it into an int *)
   let rec expand (ints: int list) (acc: int) : int = 
@@ -353,9 +351,6 @@ let plus_pos (b1 : bignum) (b2 : bignum) : bignum =
                         0
   in {neg = negres; coeffs = stripzeroes (List.rev coeffsres)}
 
-
-(*>* Problem 1.4 *>*)
-
 let plus (b1 : bignum) (b2 : bignum) : bignum =
   (* if b1 < -b2, then b1 + b2 < 0, so evaluate -((-b2) + (-b2)) *)
   if less b1 (negate b2) then negate (plus_pos (negate b1) (negate b2))
@@ -367,8 +362,6 @@ let _ = assert((plus (fromInt 123) (fromInt 111)) = (fromInt 234))
 let _ = assert((plus (fromInt 123) (fromInt (-123))) = (fromInt 0))
 let _ = assert((plus (fromInt 123) (fromInt (-124))) = (fromInt (-1)))
 let _ = assert((plus (fromInt (-124)) (fromInt 123)) = (fromInt (-1)))
-
-(*>* Problem 1.5 *>*)
 
 (* bignumTimesInt multiplies a bignum by an int n, assuming n > 0, using
    the grade school multiplication method, carrying over each result *)
@@ -468,11 +461,6 @@ let divmod (b1 : bignum) (b2 : bignum): bignum * bignum =
   divmod_rec (clean b1) (clean b2) (fromInt 0)
 
 
-(**************************** Challenge 1: RSA ******************************)
-
-(** Support code for RSA **)
-(* Hint: each part of this problem can be implemented in approximately one
- * line of code. *)
 
 (* Returns b to the power of e mod m *)
 let rec expmod (b : bignum) (e : bignum) (m : bignum) : bignum =
