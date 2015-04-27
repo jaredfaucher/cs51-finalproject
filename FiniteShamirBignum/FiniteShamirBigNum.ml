@@ -59,7 +59,7 @@ struct
 	let poly = gen_poly s t in
 	let max_coeff = max_poly_coeff poly in
 	let prime = generateRandomPrime max_coeff 
-	  (times max_coeff (fromInt 1000)) in
+	  (times max_coeff (fromInt 10)) in
     (prime, List.rev (helper n poly prime))
   ;;
 
