@@ -145,6 +145,7 @@ struct
     else gcd n (m-n)
   ;;
 
+  (* returns tuple of (gcd(a,b), x, y) from ax + by = gcd(a,b) *)
   let rec extended_euclidean (a: int) (b: int) : (int*int*int) =
     if b = 0 then a, 1, 0
     else
