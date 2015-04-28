@@ -8,8 +8,7 @@ struct
   type poly = bignum list;;
   type key = int * bignum;;
 
-(* Encoding functions *)
-
+  (* Convert bignum to type secret *)
   let to_secret (b: bignum) : secret = b ;;
   
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
@@ -37,7 +36,7 @@ struct
     in helper p (fromInt 0)
   ;;
 
-  (* Evaluates the outcome of a poly given an int*)
+  (* Evaluates a polynomial with a given key x value, and prime value *)
   let eval_poly (x: int) (poly: poly) (prime: bignum) : bignum =
     let rec helper (a: int) (b: poly) : bignum list =
       match b with
@@ -49,7 +48,8 @@ struct
 	     prime)
   ;;
   
-  (* Generates list of n keys, one for each participant*)
+  (* Generate a prime and a list of keys, given a secret, a threshold, 
+   * and number of participants *)
   let gen_keys (s: secret) (t: int) (n: int): bignum * (key list) =
     let rec helper (n: int) (p: poly) (prime: bignum) : key list =
       match n with
@@ -74,6 +74,7 @@ struct
 
 end
 
+ (* Module contains implementation to be used in dencryption algorithm *)
 module FiniteShamirBigNum_decode =
 struct
   type secret = bignum
@@ -81,17 +82,19 @@ struct
   type poly = bignum list
   type lagrange_poly = int * poly
 
-let rec to_key (lst: (int*bignum) list) : key list =
+  (* Create list of keys from user entered input *)
+  let rec to_key (lst: (int*bignum) list) : key list =
     match lst with
     | [] -> []
     | h::t -> h::(to_key t)
   ;;
 
-  (* decoding functions *)
+  (* Decoding functions, get first value of key pair *)
   let get_key_x (key: key) : int =
     fst(key)
   ;;
 
+  (* Decoding functions, get second value of key pair *)
   let get_key_y (key: key) : bignum =
     snd(key)
   ;;
@@ -108,29 +111,42 @@ let rec to_key (lst: (int*bignum) list) : key list =
     in List.rev (helper x y [])
   ;;
 
+  (* Negates a poly *)
   let neg_poly (poly:poly) : poly =
     List.map ~f:(fun x -> negate  x) poly
   ;;
 
+  (* Multiplies a poly with an integer *)
   let mult_poly_int (x: int) (p: poly) : poly =
     let bigx = fromInt x in
     List.map ~f:(fun a -> times_faster a bigx) p
   ;;
 
+  (* Multiplies a poly with an bignum *)
   let mult_poly_bignum (x:bignum) (poly:poly) : poly =
     List.map ~f:(fun a -> times_faster a x) poly
   ;;
-  
+
+  (* Divides a poly with an integer.  Will never encounter a division by
+   * zero *)
   let div_poly_int (x:int) (poly:poly) : poly =
-    List.map ~f:(fun a -> fst (divmod a (fromInt x))) poly
+    if x = 0 then (Printf.printf "Fatal Error: Division by zero."; exit 1)
+    else List.map ~f:(fun a -> fst (divmod a (fromInt x))) poly
   ;;
 
+  (* Used to mod each coeff in a poly by some bignum
+   * x *)
   let mod_poly_elts (x: bignum) (p: poly) : poly =
     List.map ~f:(fun a ->
       if greater a (fromInt 0) then snd(divmod a x)
       else plus x (negate (snd(divmod (negate a) x)))) p
   ;; 
 
+  (* uses the extended_eclidean algorithm to produce the multiplicative
+   * modular inverse of a prime and an integer. This allows us to replace
+   * out common denominator with a whole number during reconstruction.
+   * eg (1/2)*f(x) mod 17 = 15*f(x) mod 17 because 15 is the multiplicative
+   * modular inverse of 2^-1 mod prime. *)
   let mult_mod_inverse (prime: bignum) (d: int) : bignum =
     let (_,inv,_) = euclid prime (fromInt d) in
     plus prime inv
@@ -143,6 +159,10 @@ let rec to_key (lst: (int*bignum) list) : key list =
     in add_polys x_half a_half
   ;;
 
+  (* Generates a lagrange poly denomenator by multiplying all a - x 
+   * in our key list together, for the key with the x-value a. 
+   * eg for keys [(1, 5);(2,10);(3,15)] the lagrange denominator for 
+   * (1,5) would be (1 - 2) * (1 - 3) = 2 *)
   let gen_lagrange_denom (x:int) (keys: key list) : int =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let filtered_keys_xs = List.map ~f:(get_key_x) filtered_keys in
@@ -150,6 +170,11 @@ let rec to_key (lst: (int*bignum) list) : key list =
     List.fold_left ~f:( * ) ~init: 1 denom
   ;;
 
+  (* Generates a lagrange poly numerator given an x key value and a list 
+   * of keys, ignores denominator value by multiplying  x - a for all 
+   * x-values a in our key list, besides the key with the valuex x. eg 
+   * for the keys [(1, 5);(2,10);(3,15)] the lagrange numerator for (1,5) 
+   * would be (x - 2)*(x - 3) =  x^2 -5x +6 *)
   let gen_lagrange_num (x:int) (keys: key list) : poly =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
@@ -158,6 +183,8 @@ let rec to_key (lst: (int*bignum) list) : key list =
     neg_filtered_keys_xs
   ;;
 
+  (* Generates a Lagrange poly given a key and key list.  A lagrange_poly type
+   * is a (Lagrange denominator, Lagrange numerator) pair *)
   let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
     let x = get_key_x key in
     let denom = gen_lagrange_denom x keys in
@@ -165,12 +192,12 @@ let rec to_key (lst: (int*bignum) list) : key list =
     (denom, num)
   ;;
 
+  (* Generates a Lagrange poly list, given a list of keys *)
   let gen_lag_poly_list (keys: key list) : lagrange_poly list =
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
   (* returns list of the the abs value of our lag_polys denoms. *)
-  
   let remove_denoms (lags: lagrange_poly list) : int list =
     let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
       match ls with
@@ -181,6 +208,7 @@ let rec to_key (lst: (int*bignum) list) : key list =
     helper lags []
   ;;
 
+  (* Returns the lowest common denominator, given a list of denominators*)
   let common_denom (denoms: int list) : int =
     let rec helper (ds: int list) (count: int) : int =
       let test_denoms = List.map ~f:(fun x -> (count mod x = 0)) ds in
@@ -192,9 +220,9 @@ let rec to_key (lst: (int*bignum) list) : key list =
       ;;
 
   (* This scales all our lagrange polynomial based on the denominator
-   * d provided.  From the example in the previous function's comments
-   * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
-   * be (6, [12;15;18]), where each coeff is scaled by a factor of 3. *)
+   * d provided.  From the example for (2,[4;5;6]) with a common denominator
+   * of 6 would be (6, [12;15;18]), where each coeff is scaled by a factor 
+   * of 3. *)
   let scale_lag_poly (lag: lagrange_poly) (d: int) : lagrange_poly =
     match lag with
     | (x, l) ->
@@ -205,15 +233,15 @@ let rec to_key (lst: (int*bignum) list) : key list =
   ;;
    
   (* This function scales all of our lagrange polynomials the correct amount
-   * based on our previous function.  The lag_polys from scale_denoms comments
-   * would become (6,[6;12;18]), (6,[12;15;18]) and (6,[14;16;18]). This will
-   * be useful in calculating our secret to help us avoid integer division
-   * errors. *)
+   * based on our previous function. *)
   let scale_lag_polys (lags: lagrange_poly list) (d: int) : lagrange_poly list =
     List.map ~f:(fun x -> scale_lag_poly x d) lags
   ;;
-
-  let rec combine_lag_ys (ys: bignum list) (lags: lagrange_poly list) : poly list =
+  (* Evaluates a list of polys using Lagrange method, which multiplies the
+   * corresponding y value from a list of keys by their resepctive lagrange 
+   * polynomial's numerator.*)
+  let rec combine_lag_ys (ys: bignum list) (lags: lagrange_poly list) 
+      : poly list =
     match ys, lags with
     | [],[] -> []
     | yhd::ytl, laghd::lagtl ->
@@ -223,18 +251,31 @@ let rec to_key (lst: (int*bignum) list) : key list =
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
 
+  (* This function combines the above functions to decode a list of keys into
+   * the polynomial containing the key's secret when given the prime base. *)
   let decode_keys (p: bignum) (keys: key list) : poly =
+    (* generates the lagrange polynomials from a list of keys *)
     let lag_polys = gen_lag_poly_list keys in
+    (* finds the common denominator from the lag_poly list *)
     let denom = common_denom (remove_denoms lag_polys) in
+    (* scales the lag_polys to all have the same common denominator *)
     let scaled_lags = scale_lag_polys lag_polys denom in
-    let new_denom = mult_mod_inverse p denom in
+    (* finds the multiplicative modular inverse of denom *)
+    let inv = mult_mod_inverse p denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
+    (* multiplies each lag_poly numerator by it's respective key 
+     * y-value and then adds them all together*)
     let num = List.fold_right ~init:[fromInt 0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
-    let num_2 = mult_poly_bignum new_denom num in
+    (* multies the polynomial num by inv *)
+    let num_2 = mult_poly_bignum inv num in
+    (* mods each coeff of num_2 by the given prime number and returns
+     * the polynomial containing the secret. *)
     mod_poly_elts p num_2
   ;;
-  
+
+  (* Calls decode_keys and returns the secret integer from the calculated
+   * polynomial *)  
   let get_secret (prime: bignum) (keys: key list) : bignum =
     match decode_keys prime keys with
     | h::_ -> h

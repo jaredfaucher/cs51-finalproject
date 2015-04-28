@@ -63,6 +63,7 @@ struct
   type poly = int list
   type lagrange_poly = int * poly
   
+  (* Converts inputted int * ints to keys *)
   let rec to_key (lst: (int*int) list) : key list =
     match lst with
     | [] -> []
@@ -89,15 +90,18 @@ struct
 	helper xt yt ((xh+yh)::acc)
     in List.rev (helper x y [])
   ;;
-
+  
+  (* negates all coefficients in a polynomial *)
   let neg_poly (poly:poly) : poly =
     List.map ~f:(fun x -> (-1) * x) poly
   ;;
-
+  
+  (* multiplies all coefficients in a polynomial by an integer *)
   let mult_poly_int (x:int) (poly:poly) : poly =
     List.map ~f:(fun a -> a * x) poly
   ;;
-
+ 
+  (* divides all coefficients in a polynomial by an integer *)
   let div_poly_int (x:int) (poly:poly) : poly =
     List.map ~f:(fun a -> a / x) poly
   ;;
@@ -108,7 +112,11 @@ struct
     let a_half = mult_poly_int a poly in
     add_polys x_half a_half
   ;;
-
+  
+  (* Generates a lagrange poly denomenator by multiplying all a - x 
+   * in our key list together, for the key with the x-value a. 
+   * eg for keys [(1, 5);(2,10);(3,15)] the lagrange denominator for 
+   * (1,5) would be (1 - 2) * (1 - 3) = 2 *)
   let gen_lagrange_denom (x:int) (keys: key list) : int =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let filtered_keys_xs = List.map ~f:(get_key_x) filtered_keys in
@@ -116,26 +124,33 @@ struct
     List.fold_left ~f:( * ) ~init:1 denom
   ;;
 
+  (* Generates a poly numerator given an x key value and a list of keys,
+   * ignores denominator value by multiplying  x - a for all x-values a 
+   * in our key list, besides the key with the valuex x. eg for the keys 
+   * [(1, 5);(2,10);(3,15)] the lagrange numerator for (1,5) would be 
+   * (x - 2)*(x - 3) =  x^2 -5x +6 *)
   let gen_lagrange_num (x:int) (keys: key list) : poly =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
       List.map ~f:(fun k -> -1*(get_key_x k)) filtered_keys in
     List.fold_right ~f:mult_x_a_poly ~init:[1] neg_filtered_keys_xs
   ;;
-
+  
+  (* Generates a Lagrange poly given a key and key list.  A lagrange_poly type
+   * is a (Lagrange denominator, Lagrange numerator) pair *)
   let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
     let x = get_key_x key in
     let denom = gen_lagrange_denom x keys in
     let num = gen_lagrange_num x keys in
     (denom, num)
   ;;
-
+  
+  (* Generates a Lagrange poly list, given a list of keys *)
   let gen_lag_poly_list (keys: key list) : lagrange_poly list =
     List.map ~f:(fun x -> gen_lagrange_poly x keys) keys
   ;;
 
   (* returns list of the the abs value of our lag_polys denoms. *)
-  
   let remove_denoms (lags: lagrange_poly list) : int list =
     let rec helper (ls: lagrange_poly list) (accum: int list) : int list =
       match ls with
@@ -145,7 +160,8 @@ struct
     in
     helper lags []
   ;;
-
+  
+  (* Returns the lowest common denominator, given a list of denominators*)
   let common_denom (denoms: int list) : int =
     let rec helper (ds: int list) (count: int) : int =
       let test_denoms = List.map ~f:(fun x -> (count mod x = 0)) ds in
@@ -157,24 +173,25 @@ struct
       ;;
 
   (* This scales all our lagrange polynomial based on the denominator
-   * d provided.  From the example in the previous function's comments
-   * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
-   * be (6, [12;15;18]), where each coeff is scaled by a factor of 3. *)
+   * d provided.  From the example for (2,[4;5;6]) with a common denominator
+   * of 6 would be (6, [12;15;18]), where each coeff is scaled by a factor 
+   * of 3. *)
   let scale_lag_poly (lag: lagrange_poly) (d: int) : lagrange_poly =
     match lag with
     | (x, l) ->
       let scale = d / x in
       (d, mult_poly_int scale l)
   ;;
+
   (* This function scales all of our lagrange polynomials the correct amount
-   * based on our previous function.  The lag_polys from scale_denoms comments
-   * would become (6,[6;12;18]), (6,[12;15;18]) and (6,[14;16;18]). This will
-   * be useful in calculating our secret to help us avoid integer division
-   * errors. *)
+   * based on our previous function. *)
   let scale_lag_polys (lags: lagrange_poly list) (d: int) : lagrange_poly list =
     List.map ~f:(fun x -> scale_lag_poly x d) lags
   ;;
-
+  
+  (* Evaluates a list of polys using Lagrange method, which multiplies the
+   * corresponding y value from a list of keys by their resepctive lagrange 
+   * polynomial's numerator.*)
   let rec combine_lag_ys (ys: int list) (lags: lagrange_poly list) : poly list =
     match ys, lags with
     | [],[] -> []
@@ -185,19 +202,32 @@ struct
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
 
+  (* This function combines the above functions to decode a list of keys into
+   * the polynomial containing the key's secret. *)
   let decode_keys (keys: key list) : poly =
+    (* generates the lagrange polynomials from a list of keys *)
     let lag_polys = gen_lag_poly_list keys in
+    (* finds the common denominator from the lag_poly list *)
     let denom = common_denom (remove_denoms lag_polys) in
+    (* scales the lag_polys to all have the same common denominator *)
     let scaled_lags = scale_lag_polys lag_polys denom in
+    (* gets the corresponding y-values from the keys to multiply
+     * by their corresponding lag_poly *)
     let lag_ys = List.map ~f:(get_key_y) keys in
+    (* multiplies each lag_poly numerator by it's respective key 
+     * y-value and then adds them all together*)
     let num = List.fold_right ~init:[0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
+    (* divies our combined lag_polys by their common denominator to 
+     * return the polynomial containing the secret int *)
     div_poly_int denom num
   ;;
   
+  (* Calls decode_keys and returns the secret integer from the calculated
+   * polynomial *)
   let get_secret (keys: key list) : int =
     match decode_keys keys with
     | h::_ -> h
-    | _ -> failwith "broken"
+    | _ -> failwith "No polynomial generated."
   ;;
 end

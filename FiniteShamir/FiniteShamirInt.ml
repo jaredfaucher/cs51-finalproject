@@ -48,8 +48,8 @@ struct
     (List.fold_left (helper x p) ~f:(+) ~init:0) mod prime
   ;;
   
-  (* Generate list of keys, given a secret, a threshold, and number of
-   * participants *)
+  (* Generate a prime and a list of keys, given a secret, a threshold, 
+   * and number of participants *)
   let gen_keys (s: secret) (t: int) (n: int) : (int * key list) =
     let rec helper (n: int) (p: poly) (prime: int) : key list =
       match n with
@@ -62,7 +62,7 @@ struct
     (prime, List.rev (helper n poly prime))
   ;;
 
-  (* Print the keys to the console terminal *)
+  (* Prints the list of keys to the terminal window as a side-effect*)
   let rec print_keys (keys: key list) : unit =
     match keys with
     | [] -> ()
@@ -134,16 +134,6 @@ struct
       if a >= 0 then a mod x
       else x - (-a mod x)) p
   ;;
-  
-  (* These three functions are adapted from stackoverflow
-   * for our needs. They will be used to find the multiplicative
-   * modular inverse of our denominator after finding our
-   * combining the lag_poly nums into one polynomial. *)
-  let rec gcd (n: int) (m: int) : int =
-    if m = 0 then n
-    else if n > m then gcd (n-m) m
-    else gcd n (m-n)
-  ;;
 
   (* returns tuple of (gcd(a,b), x, y) from ax + by = gcd(a,b) *)
   let rec extended_euclidean (a: int) (b: int) : (int*int*int) =
@@ -152,7 +142,12 @@ struct
       match (extended_euclidean b (a mod b)) with
       | (d, x, y) -> d, y, x - a/b*y
   ;;
-
+  
+  (* uses the extended_eclidean algorithm to produce the multiplicative
+   * modular inverse of a prime and an integer. This allows us to replace
+   * out common denominator with a whole number during reconstruction.
+   * eg (1/2)*f(x) mod 17 = 15*f(x) mod 17 because 15 is the multiplicative
+   * modular inverse of 2^-1 mod prime. *)
   let mult_mod_inverse (prime: int) (d: int): int =
     let (_,_,inv) = extended_euclidean prime d in
     prime + inv
@@ -165,8 +160,10 @@ struct
     add_polys x_half a_half
   ;;
 
-  (* Generates a common denominator for a Lagrange basis polynomial,
-   * ignores numerator value *)
+  (* Generates a lagrange poly denomenator by multiplying all a - x 
+   * in our key list together, for the key with the x-value a. 
+   * eg for keys [(1, 5);(2,10);(3,15)] the lagrange denominator for 
+   * (1,5) would be (1 - 2) * (1 - 3) = 2 *)
   let gen_lagrange_denom (x:int) (keys: key list) : int =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let filtered_keys_xs = List.map ~f:(get_key_x) filtered_keys in
@@ -174,8 +171,11 @@ struct
     List.fold_left ~f:( * ) ~init:1 denom
   ;;
 
-  (* Generates a poly numerator given an x key value and a list of keys,
-   * ignores denominator value *)
+  (* Generates a lagrange poly numerator given an x key value and a list 
+   * of keys, ignores denominator value by multiplying  x - a for all 
+   * x-values a in our key list, besides the key with the valuex x. eg 
+   * for the keys [(1, 5);(2,10);(3,15)] the lagrange numerator for (1,5) 
+   * would be (x - 2)*(x - 3) =  x^2 -5x +6 *)
   let gen_lagrange_num (x:int) (keys: key list) : poly =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
@@ -219,9 +219,9 @@ struct
   ;;
 
   (* This scales all our lagrange polynomial based on the denominator
-   * d provided.  From the example in the previous function's comments
-   * for (2,[4;5;6]) our resulting lag_poly from the denominator 6 would
-   * be (6, [12;15;18]), where each coeff is scaled by a factor of 3. *)
+   * d provided.  From the example for (2,[4;5;6]) with a common denominator
+   * of 6 would be (6, [12;15;18]), where each coeff is scaled by a factor 
+   * of 3. *)
   let scale_lag_poly (lag: lagrange_poly) (d: int) : lagrange_poly =
     match lag with
     | (x, l) ->
@@ -230,16 +230,14 @@ struct
   ;;
   
   (* This function scales all of our lagrange polynomials the correct amount
-   * based on our previous function.  The lag_polys from scale_denoms comments
-   * would become (6,[6;12;18]), (6,[12;15;18]) and (6,[14;16;18]). This will
-   * be useful in calculating our secret to help us avoid integer division
-   * errors. *)
+   * based on our previous function. *)
   let scale_lag_polys (lags: lagrange_poly list) (d: int) : lagrange_poly list =
     List.map ~f:(fun x -> scale_lag_poly x d) lags
   ;;
 
   (* Evaluates a list of polys using Lagrange method, which multiplies the
-   * corresponding *)
+   * corresponding y value from a list of keys by their resepctive lagrange 
+   * polynomial's numerator.*)
   let rec combine_lag_ys (ys: int list) (lags: lagrange_poly list) : poly list =
     match ys, lags with
     | [],[] -> []
@@ -250,20 +248,31 @@ struct
     | _,_ -> failwith "not the same number of keys as lags"
   ;;
   
-  (* Decryption function *)
+  (* This function combines the above functions to decode a list of keys into
+   * the polynomial containing the key's secret when given the prime base. *)
   let decode_keys (p: int) (keys: key list) : poly =
+    (* generates the lagrange polynomials from a list of keys *)
     let lag_polys = gen_lag_poly_list keys in
+    (* finds the common denominator from the lag_poly list *)
     let denom = common_denom (remove_denoms lag_polys) in
+    (* scales the lag_polys to all have the same common denominator *)
     let scaled_lags = scale_lag_polys lag_polys denom in
-    let new_denom = mult_mod_inverse p denom in
+    (* finds the multiplicative modular inverse of denom *)
+    let inv = mult_mod_inverse p denom in
     let lag_ys = List.map ~f:(get_key_y) keys in
+    (* multiplies each lag_poly numerator by it's respective key 
+     * y-value and then adds them all together*)
     let num = List.fold_right ~init:[0] ~f:(add_polys) 
       (combine_lag_ys lag_ys scaled_lags) in
-    let num_2 = mult_poly_int new_denom num in
+    (* multies the polynomial num by inv *)
+    let num_2 = mult_poly_int inv num in
+    (* mods each coeff of num_2 by the given prime number and returns
+     * the polynomial containing the secret. *)
     mod_poly_elts p num_2
   ;;
   
-  (* Calls decode_keys *)
+  (* Calls decode_keys and returns the secret integer from the calculated
+   * polynomial *)
   let get_secret (prime: int) (keys: key list) : int =
     match decode_keys prime keys with
     | h::_ -> h

@@ -1,5 +1,7 @@
 open Core.Std
 
+ (* Module contains basic type identifiers to be used in encryption and
+  * decryption algorithms *)
 module type SHAMIR =
 sig
   type secret
@@ -7,6 +9,8 @@ sig
   type key
 end
 
+ (* Module contains basic type identifiers to be used in encryption
+  * algorithm *)
 module type SHAMIR_ENCODE =
 sig
   include SHAMIR
@@ -16,6 +20,8 @@ sig
   val print_keys: key list -> unit
 end
 
+ (* Module contains basic type identifiers to be used in dencryption
+  * algorithm *)
 module type SHAMIR_DECODE =
 sig
   include SHAMIR

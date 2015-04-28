@@ -6,7 +6,7 @@ print_string "\n----Shamir's Secret Sharing Scheme----\n\n
 
 let rec start () =
   match try_read_int () with
-  | 1 -> main ()
+  | 1 -> main_encrypt ()
   | 2 -> main_decrypt ()
   | _ -> (print_string "Error: Incorrect entry, try again"; start ())
 ;;

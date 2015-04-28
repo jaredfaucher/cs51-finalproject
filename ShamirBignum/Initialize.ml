@@ -42,7 +42,7 @@ let rec get_key_cl (count: int) (accum: (int * bignum) list) : (int * bignum) li
 
 (* Initialize by providing a secret, number of participants, and minimum threshold
  * required to reconstruct the secret.  Prints out all keys to the console*)
-let initialize () =
+let encrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
     \nGive me a secret bignum: " in
   let secret = try_read_bignum () in
@@ -55,8 +55,8 @@ let initialize () =
 ;;
 
 
-let main () =
-  let (secret, threshold, num_participants) = initialize () in
+let main_encrypt () =
+  let (secret, threshold, num_participants) = encrypt_init () in
   let keys = ShamirBigNumEncode.gen_keys 
     (ShamirBigNumEncode.to_secret secret) threshold num_participants in
   print_string "\n";

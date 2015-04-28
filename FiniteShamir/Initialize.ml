@@ -45,7 +45,7 @@ let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
  (* Initialize by providing a secret, number of participants, and minimum
   * threshold required to reconstruct the secret.  Prints out all keys to the
   * console*)
-let initialize () =
+let encrypt_init () =
   let () =
     print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
     \nGive me a secret integer: " in
@@ -59,8 +59,12 @@ let initialize () =
   (secret, threshold, num_participants)
 ;;  
 
+
+(* This is our main function to be called by start(). It takes in our user's
+ * input and runs the encryption algorithm, printing the prime and keys to 
+ * the command line. *)
 let main_encrypt () =
-  let (secret, threshold, num_participants) = initialize () in
+  let (secret, threshold, num_participants) = encrypt_init () in
   let primekeys = FiniteShamirIntEncode.gen_keys 
     (FiniteShamirIntEncode.to_secret secret) threshold num_participants in
   let prime = fst(primekeys) in
@@ -69,7 +73,7 @@ let main_encrypt () =
   FiniteShamirIntEncode.print_keys keys
 ;;
 
-(* These are the decryption phases initializtion function and main
+(* These are the decryption phase's initializtion function and main
  * function. *)
 
 let decrypt_init () =
