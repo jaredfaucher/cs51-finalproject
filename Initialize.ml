@@ -20,7 +20,7 @@ let rec try_read_int () =
       print_string "\nError: Please enter an integer value: ";
       try_read_int ()
 ;;
-
+ (* Function to validate that threshold < number of participants *)
 let rec validate_threshold (n: int) =
   let x = try_read_int () in
   if (x > n)
@@ -29,7 +29,8 @@ let rec validate_threshold (n: int) =
     validate_threshold n)
   else (print_string "\nInitialization Complete....processing...: ";x)
 ;;
-  
+ 
+ (* Function to receive int * int key pairs from the user *) 
 let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
   if count <= 0 then accum
   else let () = print_string "\nEnter key x: " in

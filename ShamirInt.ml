@@ -7,8 +7,7 @@ struct
   type poly = int list;;
   type key = int * int;;
 
-  (* Encoding functions *)
-  
+  (* Convert integer to type secret *)
   let to_secret (x: int) : secret = x;;
 
   (* Generates polynomial of the form f(x) = 3 + 2*x + x^2)
@@ -24,7 +23,7 @@ struct
     in Random.self_init(); List.rev (helper s t)
   ;;
 
-  (* Evaluates the outcome of a poly given an int*)
+  (* Evaluates a polynomial with a givena key x value *)
   let eval_poly (x: int) (poly: poly) : int =
     let rec helper (x: int) (poly: poly) : int list =
       match poly with
@@ -34,7 +33,8 @@ struct
     in List.fold_left (helper x poly) ~f:(+) ~init:0
   ;;
   
-  (* Generates list of n keys, one for each participant*)
+ (* Generates a list of keys, given a secret, a threshold, 
+   * and number of participants *)
   let gen_keys (s: secret) (t: int) (n: int): key list =
     let rec helper (n: int) (p: poly) : key list =
       match n with
@@ -63,18 +63,19 @@ struct
   type poly = int list
   type lagrange_poly = int * poly
   
-  (* Converts inputted int * ints to keys *)
+  (* Create list of keys from user entered input *)
   let rec to_key (lst: (int*int) list) : key list =
     match lst with
     | [] -> []
     | h::t -> h::(to_key t)
   ;;
 
-  (* decoding functions *)
+  (* Decoding functions, get first value of key pair *)
   let get_key_x (key: key) : int =
     fst(key)
   ;;
 
+  (* Decoding functions, get second value of key pair *)
   let get_key_y (key: key) : int =
     snd(key)
   ;;
@@ -91,19 +92,21 @@ struct
     in List.rev (helper x y [])
   ;;
   
-  (* negates all coefficients in a polynomial *)
+  (* Negates a poly *)
   let neg_poly (poly:poly) : poly =
     List.map ~f:(fun x -> (-1) * x) poly
   ;;
   
-  (* multiplies all coefficients in a polynomial by an integer *)
+  (* Multiplies a poly with an integer *)
   let mult_poly_int (x:int) (poly:poly) : poly =
     List.map ~f:(fun a -> a * x) poly
   ;;
  
-  (* divides all coefficients in a polynomial by an integer *)
+  (* Divides a poly with an integer.  Will never encounter a division by
+   * zero *)
   let div_poly_int (x:int) (poly:poly) : poly =
-    List.map ~f:(fun a -> a / x) poly
+    if x = 0 then (Printf.printf "Fatal Error: Division by zero."; exit 1)
+    else List.map ~f:(fun a -> a / x) poly
   ;;
 
   (* multiplies a poly by (x + a) *)
@@ -124,11 +127,11 @@ struct
     List.fold_left ~f:( * ) ~init:1 denom
   ;;
 
-  (* Generates a poly numerator given an x key value and a list of keys,
-   * ignores denominator value by multiplying  x - a for all x-values a 
-   * in our key list, besides the key with the valuex x. eg for the keys 
-   * [(1, 5);(2,10);(3,15)] the lagrange numerator for (1,5) would be 
-   * (x - 2)*(x - 3) =  x^2 -5x +6 *)
+  (* Generates a lagrange poly numerator given an x key value and a list 
+   * of keys, ignores denominator value by multiplying  x - a for all 
+   * x-values a in our key list, besides the key with the valuex x. eg 
+   * for the keys [(1, 5);(2,10);(3,15)] the lagrange numerator for (1,5) 
+   * would be (x - 2)*(x - 3) =  x^2 -5x +6 *)
   let gen_lagrange_num (x:int) (keys: key list) : poly =
     let filtered_keys = List.filter ~f:(fun k -> (get_key_x k) <> x) keys in
     let neg_filtered_keys_xs = 
