@@ -1,6 +1,6 @@
 open Core.Std
-open ShamirInt
-include ShamirInt_decode
+open FiniteShamirInt
+include FiniteShamirInt_decode
 
 let test_to_key () =
   let k1 = [(1, 12345)] in
@@ -68,6 +68,35 @@ let test_div_poly_int () =
       [(-3640); (-3750); (-165)]);
   assert(div_poly_int x2 poly2 =
       [3640; 3750; 165])
+;;
+
+let test_mod_poly_elts () =
+  let prime = 1279 in
+  let poly1 = [1456; 1500; 66] in
+  assert(mod_poly_elts prime poly1 =
+      [177; 221; 66]);
+  let poly2 = [(-1456); (-1500); (-66)] in
+  assert(mod_poly_elts prime poly2 =
+      [1102; 1058; 1213]);      
+;;
+
+let test_extended_euclidean () =
+  let a = 1 in
+  let b = 0 in
+  assert(extended_euclidean a b = (1,1,0));
+  let a = 9 in
+  let b = 3 in
+  assert(extended_euclidean a b = (3,0,1));
+  let a = 1279 in
+  let b = 6 in
+  assert(extended_euclidean a b = (1, 1, (-213)));
+;;
+
+let test_mult_mod_inverse () =
+  let a = 1279 in
+  let b = 6 in
+  let inv = mult_mod_inverse a 6 in
+  assert((inv * b) mod a = 1);
 ;;
 
 let test_mult_x_a_poly () =
@@ -179,22 +208,24 @@ let test_combine_lag_ys () =
 ;;
 
 let test_decode_keys () =
+  let prime = 1279 in
   let secret = 1234 in
   let poly = [secret; 166; 94] in
-  let key1 = (2, 1942) in
-  let key2 = (4, 3402) in
-  let key3 = (5, 4414) in
+  let key1 = (2, 663) in
+  let key2 = (4, 844) in
+  let key3 = (5, 577) in
   let keys = [key1; key2; key3] in
-  assert(decode_keys keys = poly)
+  assert(decode_keys prime keys = poly)
 ;;
 
 let test_get_secret () =
+  let prime = 1279 in
   let secret = 1234 in
-  let key1 = (2, 1942) in
-  let key2 = (4, 3402) in
-  let key3 = (5, 4414) in
+  let key1 = (2, 663) in
+  let key2 = (4, 844) in
+  let key3 = (5, 577) in
   let keys = [key1; key2; key3] in
-  assert(get_secret keys = secret)
+  assert(get_secret prime keys = secret)
 ;;
 
 let run_tests () =
@@ -203,7 +234,10 @@ let run_tests () =
   test_add_polys ();
   test_neg_poly ();
   test_mult_poly_int ();
-  test_div_poly_int ();;
+  test_div_poly_int ();
+  test_mod_poly_elts ();
+  test_extended_euclidean ();
+  test_mult_mod_inverse ();
   test_mult_x_a_poly ();
   test_gen_lagrange_denom ();
   test_gen_lagrange_num ();

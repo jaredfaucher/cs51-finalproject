@@ -1,5 +1,7 @@
 open Core.Std
 open Initialize
+open TestEnc
+open TestDec
 
 
 (*Getting Started....*)

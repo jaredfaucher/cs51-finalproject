@@ -1,7 +1,6 @@
 open Core.Std
 open BigNum
 open ShamirBigNum
-open Modules
 include ShamirBigNum_encode
 
 (* To use get_secret function in test_gen_keys

@@ -1,5 +1,7 @@
 open Core.Std
 open InitializeString
+open TestEnc
+open TestDec
 
 print_string "\n----Shamir's Secret Sharing Scheme----
   \nWhat would you like to do?: Encryption (Press 1) or Decryption (Press 2): "
