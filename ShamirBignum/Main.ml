@@ -1,5 +1,5 @@
 open Core.Std
-open Initialize
+open InitializeString
 open TestEnc
 open TestDec
 
