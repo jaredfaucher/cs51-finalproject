@@ -27,23 +27,23 @@ struct
   ;;
 
   (* Evaluates a polynomial with a given a key x value *)
-  let eval_poly (x: int) (poly: poly) : bignum =
-    let rec helper (x: int) (poly: poly) : bignum list =
-      match poly with
+  let eval_poly (x: int) (p: poly) : bignum =
+    let rec helper (a: int) (b: poly) : bignum list =
+      match b with
       | [] -> []
       | hd::tl ->
-	    hd::(helper x (List.map ~f:(fun a -> bignumTimesInt a x) tl))
-    in List.fold_left (helper x poly) ~f:(plus) ~init:(fromInt 0)
+	    hd::(helper a (List.map ~f:(fun y -> bignumTimesInt y a) tl))
+    in List.fold_left (helper x p) ~f:(plus) ~init:(fromInt 0)
   ;;
 
  (* Generates a list of keys, given a secret, a threshold, 
    * and number of participants *)
   let gen_keys (s: secret) (t: int) (n: int): key list =
-    let rec helper (n: int) (p: poly) : key list =
-      match n with
+    let rec helper (m: int) (p: poly) : key list =
+      match m with
       | 0 -> []
       | _ ->
-	    (n, (eval_poly n p))::(helper (n-1) p) in
+	    (m, (eval_poly m p))::(helper (m-1) p) in
 	let poly = gen_poly s t in
     List.rev (helper n poly)
   ;;
@@ -74,30 +74,30 @@ struct
   ;;
 
   (* Decoding functions, get first value of key pair *)
-  let get_key_x (key: key) : int =
-    fst(key)
+  let get_key_x (k: key) : int =
+    fst(k)
   ;;
 
   (* Decoding functions, get second value of key pair *)
-  let get_key_y (key: key) : bignum =
-    snd(key)
+  let get_key_y (k: key) : bignum =
+    snd(k)
   ;;
 
   (* adds two polys together *)
   let add_polys (x:poly) (y:poly) : poly =
-    let rec helper (x:poly) (y:poly) (acc:poly) : poly =
-      match (x, y) with
+    let rec helper (a:poly) (b:poly) (acc:poly) : poly =
+      match (a, b) with
       | ([],[]) -> acc
-      | ([], yh::yt) -> helper [] yt (yh::acc)
-      | (xh::xt, []) -> helper xt [] (xh::acc)
-      | (xh::xt, yh::yt) ->
-	helper xt yt ((plus xh yh)::acc)
+      | ([], bh::bt) -> helper [] bt (bh::acc)
+      | (ah::at, []) -> helper at [] (ah::acc)
+      | (ah::at, bh::bt) ->
+	helper at bt ((plus ah bh)::acc)
     in List.rev (helper x y [])
   ;;
 
   (* Negates a poly *)
-  let neg_poly (poly:poly) : poly =
-    List.map ~f:(fun x -> negate  x) poly
+  let neg_poly (p:poly) : poly =
+    List.map ~f:(fun x -> negate  x) p
   ;;
 
   (* Multiplies a poly with an integer *)
@@ -107,26 +107,26 @@ struct
   ;;
 
   (* Multiplies a poly with a bignum *)
-  let mult_poly_bignum (x:bignum) (poly:poly) : poly =
-    List.map ~f:(fun a -> times_faster a x) poly
+  let mult_poly_bignum (x:bignum) (p:poly) : poly =
+    List.map ~f:(fun a -> times_faster a x) p
   ;;
  
   (* Divides a poly with an integer.  Will never encounter a division by
    * zero *) 
-  let div_poly_int (x:int) (poly:poly) : poly =
+  let div_poly_int (x:int) (p:poly) : poly =
     let divmod_signs (a:bignum) (b:bignum) =
       let result = fst(divmod (abs_bignum a) (abs_bignum b)) in
       if a.neg <> b.neg then negate result
       else result
     in
     if x = 0 then (Printf.printf "Fatal Error: Division by zero."; exit 1)
-    else List.map ~f:(fun a -> divmod_signs a (fromInt x)) poly
+    else List.map ~f:(fun a -> divmod_signs a (fromInt x)) p
   ;;
 
   (* multiplies a poly by (x + a) *)
-  let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [fromInt 0] @ poly in
-    let a_half = mult_poly_int a poly
+  let mult_x_a_poly (a: int) (p: poly) : poly =
+    let x_half = [fromInt 0] @ p in
+    let a_half = mult_poly_int a p
     in add_polys x_half a_half
   ;;
 
@@ -156,8 +156,8 @@ struct
 
   (* Generates a Lagrange poly given a key and key list.  A lagrange_poly type
    * is a (Lagrange denominator, Lagrange numerator) pair *)
-  let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
-    let x = get_key_x key in
+  let gen_lagrange_poly (k: key) (keys: key list): lagrange_poly =
+    let x = get_key_x k in
     let denom = gen_lagrange_denom x keys in
     let num = gen_lagrange_num x keys in
     (denom, num)
@@ -248,6 +248,6 @@ struct
   let get_secret (keys: key list) : bignum =
     match decode_keys keys with
     | h::_ -> h
-    | _ -> failwith "broken"
+    | _ -> failwith "No polynomial generated."
   ;;
 end

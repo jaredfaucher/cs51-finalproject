@@ -18,29 +18,29 @@ struct
       | 1 -> [x]
       | _ -> 
         (* Generate t-1 random numbers to be coefficients to the poly*)
-	    let r = (Random.int (x * 4)) in
+	    let r = (Random.int x) in
 	    r::(helper x (y - 1))
     in Random.self_init(); List.rev (helper s t)
   ;;
 
   (* Evaluates a polynomial with a givena key x value *)
-  let eval_poly (x: int) (poly: poly) : int =
-    let rec helper (x: int) (poly: poly) : int list =
-      match poly with
+  let eval_poly (x: int) (p: poly) : int =
+    let rec helper (a: int) (b: poly) : int list =
+      match b with
       | [] -> []
       | hd::tl ->
-	    hd::(helper x (List.map ~f:(fun a -> a * x) tl))
-    in List.fold_left (helper x poly) ~f:(+) ~init:0
+	    hd::(helper a (List.map ~f:(fun y -> a * y) tl))
+    in List.fold_left (helper x p) ~f:(+) ~init:0
   ;;
   
  (* Generates a list of keys, given a secret, a threshold, 
    * and number of participants *)
   let gen_keys (s: secret) (t: int) (n: int): key list =
-    let rec helper (n: int) (p: poly) : key list =
-      match n with
+    let rec helper (m: int) (p: poly) : key list =
+      match m with
       | 0 -> []
       | _ ->
-	    (n, (eval_poly n p))::(helper (n-1) p) in
+	    (m, (eval_poly m p))::(helper (m-1) p) in
 	let poly = gen_poly s t in
     List.rev (helper n poly)
   ;;
@@ -71,48 +71,48 @@ struct
   ;;
 
   (* Decoding functions, get first value of key pair *)
-  let get_key_x (key: key) : int =
-    fst(key)
+  let get_key_x (k: key) : int =
+    fst(k)
   ;;
 
   (* Decoding functions, get second value of key pair *)
-  let get_key_y (key: key) : int =
-    snd(key)
+  let get_key_y (k: key) : int =
+    snd(k)
   ;;
 
   (* adds two polys together *)
   let add_polys (x:poly) (y:poly) : poly =
-    let rec helper (x:poly) (y:poly) (acc:poly) : poly =
-      match (x, y) with
+    let rec helper (a:poly) (b:poly) (acc:poly) : poly =
+      match (a, b) with
       | ([],[]) -> acc
-      | ([], yh::yt) -> helper [] yt (yh::acc)
-      | (xh::xt, []) -> helper xt [] (xh::acc)
-      | (xh::xt, yh::yt) ->
-	helper xt yt ((xh+yh)::acc)
+      | ([], bh::bt) -> helper [] bt (bh::acc)
+      | (ah::at, []) -> helper at [] (ah::acc)
+      | (ah::at, bh::bt) ->
+	helper at bt ((ah+bh)::acc)
     in List.rev (helper x y [])
   ;;
   
   (* Negates a poly *)
-  let neg_poly (poly:poly) : poly =
-    List.map ~f:(fun x -> (-1) * x) poly
+  let neg_poly (p:poly) : poly =
+    List.map ~f:(fun x -> (-1) * x) p
   ;;
   
   (* Multiplies a poly with an integer *)
-  let mult_poly_int (x:int) (poly:poly) : poly =
-    List.map ~f:(fun a -> a * x) poly
+  let mult_poly_int (x:int) (p:poly) : poly =
+    List.map ~f:(fun a -> a * x) p
   ;;
  
   (* Divides a poly with an integer.  Will never encounter a division by
    * zero *)
-  let div_poly_int (x:int) (poly:poly) : poly =
+  let div_poly_int (x:int) (p:poly) : poly =
     if x = 0 then (Printf.printf "Fatal Error: Division by zero."; exit 1)
-    else List.map ~f:(fun a -> a / x) poly
+    else List.map ~f:(fun a -> a / x) p
   ;;
 
   (* multiplies a poly by (x + a) *)
-  let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [0] @ poly in
-    let a_half = mult_poly_int a poly in
+  let mult_x_a_poly (a: int) (p: poly) : poly =
+    let x_half = [0] @ p in
+    let a_half = mult_poly_int a p in
     add_polys x_half a_half
   ;;
   
@@ -141,8 +141,8 @@ struct
   
   (* Generates a Lagrange poly given a key and key list.  A lagrange_poly type
    * is a (Lagrange denominator, Lagrange numerator) pair *)
-  let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
-    let x = get_key_x key in
+  let gen_lagrange_poly (k: key) (keys: key list): lagrange_poly =
+    let x = get_key_x k in
     let denom = gen_lagrange_denom x keys in
     let num = gen_lagrange_num x keys in
     (denom, num)

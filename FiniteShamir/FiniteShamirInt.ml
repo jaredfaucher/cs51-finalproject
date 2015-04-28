@@ -27,8 +27,8 @@ struct
   (* Finds the largest coeff in our polynomial to help generate
    * a prime number for our finite aritmetic *)
   let max_poly_coeff (p: poly) : int =
-    let rec helper (p: poly) (max: int) =
-      match p with
+    let rec helper (x: poly) (max: int) =
+      match x with
       | [] -> max
       | h::t ->
 	    if h > max then helper t h
@@ -51,11 +51,11 @@ struct
   (* Generate a prime and a list of keys, given a secret, a threshold, 
    * and number of participants *)
   let gen_keys (s: secret) (t: int) (n: int) : (int * key list) =
-    let rec helper (n: int) (p: poly) (prime: int) : key list =
-      match n with
+    let rec helper (m: int) (p: poly) (prime: int) : key list =
+      match m with
       | 0 -> []
       | _ ->
-	    (n, (eval_poly n p prime))::(helper (n-1) p prime) in
+	    (m, (eval_poly m p prime))::(helper (m-1) p prime) in
     
     let poly = gen_poly s t in
     let prime = gen_prime_gt (max_poly_coeff poly) in
@@ -88,43 +88,43 @@ struct
   ;;
 
   (* Decoding functions, get first value of key pair *)
-  let get_key_x (key: key) : int =
-    fst(key)
+  let get_key_x (k: key) : int =
+    fst(k)
   ;;
 
   (* Decoding functions, get second value of key pair *)
-  let get_key_y (key: key) : int =
-    snd(key)
+  let get_key_y (k: key) : int =
+    snd(k)
   ;;
 
   (* adds two polys together *)
   let add_polys (x:poly) (y:poly) : poly =
-    let rec helper (x:poly) (y:poly) (acc:poly) : poly =
-      match (x, y) with
+    let rec helper (a:poly) (b:poly) (acc:poly) : poly =
+      match (a, b) with
       | ([],[]) -> acc
-      | ([], yh::yt) -> helper [] yt (yh::acc)
-      | (xh::xt, []) -> helper xt [] (xh::acc)
-      | (xh::xt, yh::yt) ->
-	    helper xt yt ((xh+yh)::acc)
+      | ([], bh::bt) -> helper [] bt (bh::acc)
+      | (ah::at, []) -> helper at [] (ah::acc)
+      | (ah::at, bh::bt) ->
+	    helper at bt ((ah+bh)::acc)
     
     in List.rev (helper x y [])
   ;;
 
   (* Negates a poly *)
-  let neg_poly (poly:poly) : poly =
-    List.map ~f:(fun x -> (-1) * x) poly
+  let neg_poly (p:poly) : poly =
+    List.map ~f:(fun x -> (-1) * x) p
   ;;
 
   (* Multiplies a poly with an integer *)
-  let mult_poly_int (x:int) (poly:poly) : poly =
-    List.map ~f:(fun a -> a * x) poly
+  let mult_poly_int (x:int) (p:poly) : poly =
+    List.map ~f:(fun a -> a * x) p
   ;;
 
   (* Divides a poly with an integer.  Will never encounter a division by
    * zero *)
-  let div_poly_int (x:int) (poly:poly) : poly =
+  let div_poly_int (x:int) (p:poly) : poly =
     if x = 0 then (Printf.printf "Fatal Error: Division by zero."; exit 1)
-    else List.map ~f:(fun a -> a / x) poly
+    else List.map ~f:(fun a -> a / x) p
   ;;
 
   (* Used to mod each coeff in a poly by some int
@@ -154,9 +154,9 @@ struct
   ;;
 
   (* multiplies a poly by (x + a) *)
-  let mult_x_a_poly (a: int) (poly: poly) : poly =
-    let x_half = [0] @ poly in
-    let a_half = mult_poly_int a poly in
+  let mult_x_a_poly (a: int) (p: poly) : poly =
+    let x_half = [0] @ p in
+    let a_half = mult_poly_int a p in
     add_polys x_half a_half
   ;;
 
@@ -185,8 +185,8 @@ struct
 
   (* Generates a Lagrange poly given a key and key list.  A lagrange_poly type
    * is a (Lagrange denominator, Lagrange numerator) pair *)
-  let gen_lagrange_poly (key: key) (keys: key list): lagrange_poly =
-    let x = get_key_x key in
+  let gen_lagrange_poly (k: key) (keys: key list): lagrange_poly =
+    let x = get_key_x k in
     let denom = gen_lagrange_denom x keys in
     let num = gen_lagrange_num x keys in
     (denom, num)
@@ -276,6 +276,6 @@ struct
   let get_secret (prime: int) (keys: key list) : int =
     match decode_keys prime keys with
     | h::_ -> h
-    | _ -> failwith "broken"
+    | _ -> failwith "No polynomial generated."
   ;;
 end
