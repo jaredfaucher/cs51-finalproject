@@ -1,6 +1,8 @@
 open Core.Std
 open Modules
 open ShamirInt
+open TestEnc
+open TestDec
 
  (* This module includes functions to initialize Shamir's Secret Sharing Scheme
   * encryption algorithm*)
