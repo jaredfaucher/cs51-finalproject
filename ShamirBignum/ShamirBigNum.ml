@@ -114,7 +114,13 @@ struct
   (* Divides a poly with an integer.  Will never encounter a division by
    * zero *) 
   let div_poly_int (x:int) (poly:poly) : poly =
-    List.map ~f:(fun a -> fst (divmod a (fromInt x))) poly
+    let divmod_signs (a:bignum) (b:bignum) =
+      let result = fst(divmod (abs_bignum a) (abs_bignum b)) in
+      if a.neg <> b.neg then negate result
+      else result
+    in
+    if x = 0 then (Printf.printf "Fatal Error: Division by zero."; exit 1)
+    else List.map ~f:(fun a -> divmod_signs a (fromInt x)) poly
   ;;
 
   (* multiplies a poly by (x + a) *)

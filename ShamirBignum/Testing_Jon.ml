@@ -16,21 +16,21 @@ assert (eval_poly 1 [{neg = false; coeffs = [250]};
 *)
 
 assert (to_key
-  [(1, {neg = false; coeffs = [2; 592]});
-   (3, {neg = false; coeffs = [11; 806]});
-   (5, {neg = false; coeffs = [29; 684]})] =
+  [(1, {neg = false; coeffs = [2; 9]});
+   (3, {neg = false; coeffs = [1; 6]});
+   (5, {neg = false; coeffs = [9; 4]})] =
   
-  [(1, {neg = false; coeffs = [2; 592]});
-   (3, {neg = false; coeffs = [11; 806]});
-   (5, {neg = false; coeffs = [29; 684]})]
+  [(1, {neg = false; coeffs = [2; 9]});
+   (3, {neg = false; coeffs = [1; 6]});
+   (5, {neg = false; coeffs = [9; 4]})]
 ) ;
    
-assert (get_key_x (1, {neg = false; coeffs = [2; 592]}) = 1) ;
-assert (get_key_x (5, {neg = false; coeffs = [29; 684]}) = 5) ;   
+assert (get_key_x (1, {neg = false; coeffs = [2; 9]}) = 1) ;
+assert (get_key_x (5, {neg = false; coeffs = [9; 4]}) = 5) ;   
    
-assert (get_key_y (1, {neg = false; coeffs = [2; 592]}) =
-  {neg = false; coeffs = [2; 592]}) ;
-assert (get_key_y (5, {neg = false; coeffs = [29; 684]}) =
+assert (get_key_y (1, {neg = false; coeffs = [2; 9]}) =
+  {neg = false; coeffs = [2; 9]}) ;
+assert (get_key_y (5, {neg = false; coeffs = [9; 4]}) =
   {neg = false; coeffs = [29; 684]}) ;
 
 assert (add_polys 
