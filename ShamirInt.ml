@@ -3,7 +3,7 @@ open Modules
 
 module ShamirInt_encode =
 struct
-  type secret = int
+  type secret = int;;
   type poly = int list;;
   type key = int * int;;
 

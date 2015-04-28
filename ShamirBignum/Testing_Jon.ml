@@ -1,5 +1,6 @@
+open Core.Std
+open BigNum
 open ShamirBigNum
-(*include ShamirBigNum_encode*)
 include ShamirBigNum_decode
 
 (*
@@ -199,5 +200,3 @@ assert (scale_lag_poly
        {neg = false; coeffs = [2;1]}; 
        {neg = true; coeffs = [3]}])
 ) ;
-
-
