@@ -1,4 +1,4 @@
-all: main string
+all: main 
 	corebuild Main.native
 
 main: 
