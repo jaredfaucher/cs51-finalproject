@@ -1,0 +1,3 @@
+title: Shamir's Secret Sharing Algorithm
+
+seas-usernames: faucher, jonathanpenney

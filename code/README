@@ -1,0 +1,56 @@
+Shamir's Secret Sharing Algorithm
+Jared Faucher
+Jonathan Penney
+CS51 Final Project
+
+README:
+
+>Compiling code
+  To compile any of the four implementations of Shamir's
+  Secret Sharing Algorithm simple navigate to the folder
+  for that version (eg FiniteShamir, ShamirBignum, etc) 
+  in the command line and run the "make" command. The 
+  resulting "Main.native" file will be the executable. It
+  can be run via the command line by entering "./Main.native".
+
+>Running code
+  Running each of our four implementations of Shamir's
+  Secret Sharing Algorithm run very similarly, each having
+  a encryptiong and decryption phase. Upon running one of
+  the four versions of our program the user is prompted to
+  enter "1" for ecryption and "2" for decryption.
+
+  >Encryption
+  The encryption phase is very similar for all of our 
+  implementations.  The user first inputs a secret integer/string,
+  then the total number of participants (ie number of keys
+  generated) and then the minimum threshold number of keys
+  needed to reconstruct the secret.  The program then outputs
+  the list of keys to the user, including the prime base value
+  for the finite versions.
+
+  For the ShamirInt and FiniteShamir versions the secret entered 
+  must be an integer value. We recommend a 4-5 digit secret number 
+  for the Naive implementation and a 3-4 digit secret number for 
+  the Finite implementation to avoid integer bounds errors during 
+  decryption. 
+ 
+  For the ShamirBignum and FiniteShamirBignum versions the secret
+  entered can be any string of characters.  The ShamirBignum
+  version has no real limits to the length of the secret string 
+  that can be entered, and has still worked when given a 100
+  character string.  We recommend a string of less than 20 characters
+  for the finite Bignum version due to the time it takes for the
+  program to generate the keys.  Because the finite Shamir Scheme
+  requires generating large prime numbers, it takes our program a
+  long time to encode longer strings.
+  
+  >Decryption
+  As with the encryption phase, the decryption phase is very similar
+  for all four implementations.  In the finite versions the user first
+  inputs the prime base value and then the threshold value before
+  entering the keys (the naive versions just require the threshold
+  value).  The user then inputs the x and y values for the keys 
+  separately.  When the threshold number of keys has been entered the
+  user's secret is calculated and printed out to the command line.
+  
