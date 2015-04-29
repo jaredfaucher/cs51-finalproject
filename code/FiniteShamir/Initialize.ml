@@ -15,7 +15,7 @@ module FiniteShamirIntDecode = (FiniteShamirInt_decode : SHAMIR_DECODE)
 let rec try_read_int () =
   try read_int () with
   | Failure _ -> 
-      print_string "\nError: Please enter an integer value: ";
+      print_string "\nError: Please enter a positive integer value: ";
       try_read_int ()
 ;;
 
@@ -25,7 +25,7 @@ let rec try_read_int () =
 let rec validate_threshold (n: int) =
   let x = try_read_int () in
   if (x > n)
-    then (print_string "\nError: Please enter an integer number less than or
+    then (print_string "\nError: Please enter a positive integer number less than or
     \nequal to the number of participants: ";
     validate_threshold n)
   else (print_string "\nInitialization Complete....processing...: ";x)
@@ -48,13 +48,13 @@ let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
 let encrypt_init () =
   let () =
     print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
-    \nGive me a secret integer: " in
+    \nGive me a positive secret integer: " in
   let secret = try_read_int () in
   let () =
-    print_string "\nHow many participants? (integer number requested): " in
+    print_string "\nHow many participants? (positive integer number requested): " in
   let num_participants = try_read_int () in
   let () =print_string "\nWhat is the minimum threshold required to access the
-    \nsecret? (integer number requested): " in
+    \nsecret? (positive integer number requested): " in
   let threshold = validate_threshold num_participants in 
   (secret, threshold, num_participants)
 ;;  

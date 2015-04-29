@@ -1,0 +1,6436 @@
+"TestDec.ml" 5 55 59 "TestDec.ml" 5 55 70
+type(
+  unit -> unit
+)
+ident(
+  def test_to_key "TestDec.ml" 13 257 257 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 5 55 71 "TestDec.ml" 5 55 73
+type(
+  unit
+)
+"TestDec.ml" 6 76 82 "TestDec.ml" 6 76 84
+type(
+  (secret * secret) list
+)
+ident(
+  def k1 "TestDec.ml" 7 103 105 "TestDec.ml" 10 200 252
+)
+"TestDec.ml" 6 76 89 "TestDec.ml" 6 76 90
+type(
+  secret
+)
+"TestDec.ml" 6 76 92 "TestDec.ml" 6 76 97
+type(
+  secret
+)
+"TestDec.ml" 6 76 89 "TestDec.ml" 6 76 97
+type(
+  secret * secret
+)
+"TestDec.ml" 6 76 88 "TestDec.ml" 6 76 98
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 6 76 87 "TestDec.ml" 6 76 99
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 7 103 112 "TestDec.ml" 7 103 118
+type(
+  (secret * secret) list -> key list
+)
+ident(
+  ext_ref to_key
+)
+"TestDec.ml" 7 103 119 "TestDec.ml" 7 103 121
+type(
+  (secret * secret) list
+)
+ident(
+  int_ref k1 "TestDec.ml" 6 76 82 "TestDec.ml" 6 76 84
+)
+"TestDec.ml" 7 103 112 "TestDec.ml" 7 103 121
+call(
+  stack
+)
+type(
+  key list
+)
+"TestDec.ml" 7 103 122 "TestDec.ml" 7 103 123
+type(
+  key list -> key list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 7 103 126 "TestDec.ml" 7 103 127
+type(
+  secret
+)
+"TestDec.ml" 7 103 129 "TestDec.ml" 7 103 134
+type(
+  secret
+)
+"TestDec.ml" 7 103 126 "TestDec.ml" 7 103 134
+type(
+  key
+)
+"TestDec.ml" 7 103 125 "TestDec.ml" 7 103 135
+type(
+  key list
+)
+"TestDec.ml" 7 103 124 "TestDec.ml" 7 103 136
+type(
+  key list
+)
+"TestDec.ml" 7 103 112 "TestDec.ml" 7 103 136
+type(
+  bool
+)
+"TestDec.ml" 7 103 105 "TestDec.ml" 7 103 137
+type(
+  unit
+)
+"TestDec.ml" 8 139 145 "TestDec.ml" 8 139 147
+type(
+  (secret * secret) list
+)
+ident(
+  def k2 "TestDec.ml" 9 165 167 "TestDec.ml" 10 200 252
+)
+"TestDec.ml" 8 139 152 "TestDec.ml" 8 139 153
+type(
+  secret
+)
+"TestDec.ml" 8 139 155 "TestDec.ml" 8 139 159
+type(
+  secret
+)
+"TestDec.ml" 8 139 152 "TestDec.ml" 8 139 159
+type(
+  secret * secret
+)
+"TestDec.ml" 8 139 151 "TestDec.ml" 8 139 160
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 8 139 150 "TestDec.ml" 8 139 161
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 9 165 174 "TestDec.ml" 9 165 180
+type(
+  (secret * secret) list -> key list
+)
+ident(
+  ext_ref to_key
+)
+"TestDec.ml" 9 165 181 "TestDec.ml" 9 165 183
+type(
+  (secret * secret) list
+)
+ident(
+  int_ref k2 "TestDec.ml" 8 139 145 "TestDec.ml" 8 139 147
+)
+"TestDec.ml" 9 165 174 "TestDec.ml" 9 165 183
+call(
+  stack
+)
+type(
+  key list
+)
+"TestDec.ml" 9 165 184 "TestDec.ml" 9 165 185
+type(
+  key list -> key list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 9 165 188 "TestDec.ml" 9 165 189
+type(
+  secret
+)
+"TestDec.ml" 9 165 191 "TestDec.ml" 9 165 195
+type(
+  secret
+)
+"TestDec.ml" 9 165 188 "TestDec.ml" 9 165 195
+type(
+  key
+)
+"TestDec.ml" 9 165 187 "TestDec.ml" 9 165 196
+type(
+  key list
+)
+"TestDec.ml" 9 165 186 "TestDec.ml" 9 165 197
+type(
+  key list
+)
+"TestDec.ml" 9 165 174 "TestDec.ml" 9 165 197
+type(
+  bool
+)
+"TestDec.ml" 9 165 167 "TestDec.ml" 9 165 198
+type(
+  unit
+)
+"TestDec.ml" 10 200 209 "TestDec.ml" 10 200 215
+type(
+  (secret * secret) list -> key list
+)
+ident(
+  ext_ref to_key
+)
+"TestDec.ml" 10 200 217 "TestDec.ml" 10 200 219
+type(
+  (secret * secret) list
+)
+ident(
+  int_ref k1 "TestDec.ml" 6 76 82 "TestDec.ml" 6 76 84
+)
+"TestDec.ml" 10 200 220 "TestDec.ml" 10 200 221
+type(
+  (secret * secret) list -> (secret * secret) list -> (secret * secret) list
+)
+ident(
+  ext_ref Core.Std.( @ )
+)
+"TestDec.ml" 10 200 222 "TestDec.ml" 10 200 224
+type(
+  (secret * secret) list
+)
+ident(
+  int_ref k2 "TestDec.ml" 8 139 145 "TestDec.ml" 8 139 147
+)
+"TestDec.ml" 10 200 217 "TestDec.ml" 10 200 224
+call(
+  stack
+)
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 10 200 209 "TestDec.ml" 10 200 225
+call(
+  stack
+)
+type(
+  key list
+)
+"TestDec.ml" 10 200 226 "TestDec.ml" 10 200 227
+type(
+  key list -> key list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 10 200 230 "TestDec.ml" 10 200 231
+type(
+  secret
+)
+"TestDec.ml" 10 200 233 "TestDec.ml" 10 200 238
+type(
+  secret
+)
+"TestDec.ml" 10 200 230 "TestDec.ml" 10 200 238
+type(
+  key
+)
+"TestDec.ml" 10 200 242 "TestDec.ml" 10 200 243
+type(
+  secret
+)
+"TestDec.ml" 10 200 245 "TestDec.ml" 10 200 249
+type(
+  secret
+)
+"TestDec.ml" 10 200 242 "TestDec.ml" 10 200 249
+type(
+  key
+)
+"TestDec.ml" 10 200 241 "TestDec.ml" 10 200 250
+type(
+  key list
+)
+"TestDec.ml" 10 200 229 "TestDec.ml" 10 200 250
+type(
+  key list
+)
+"TestDec.ml" 10 200 228 "TestDec.ml" 10 200 251
+type(
+  key list
+)
+"TestDec.ml" 10 200 209 "TestDec.ml" 10 200 251
+type(
+  bool
+)
+"TestDec.ml" 10 200 202 "TestDec.ml" 10 200 252
+type(
+  unit
+)
+"TestDec.ml" 9 165 167 "TestDec.ml" 10 200 252
+type(
+  unit
+)
+"TestDec.ml" 8 139 141 "TestDec.ml" 10 200 252
+type(
+  unit
+)
+"TestDec.ml" 7 103 105 "TestDec.ml" 10 200 252
+type(
+  unit
+)
+"TestDec.ml" 6 76 78 "TestDec.ml" 10 200 252
+type(
+  unit
+)
+"TestDec.ml" 5 55 71 "TestDec.ml" 10 200 252
+type(
+  unit -> unit
+)
+"TestDec.ml" 13 257 261 "TestDec.ml" 13 257 273
+type(
+  unit -> unit
+)
+ident(
+  def test_get_key "TestDec.ml" 22 456 456 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 13 257 274 "TestDec.ml" 13 257 276
+type(
+  unit
+)
+"TestDec.ml" 14 279 286 "TestDec.ml" 14 279 288
+type(
+  secret * secret
+)
+ident(
+  def k1 "TestDec.ml" 15 305 308 "TestDec.ml" 19 421 451
+)
+"TestDec.ml" 14 279 292 "TestDec.ml" 14 279 293
+type(
+  secret
+)
+"TestDec.ml" 14 279 295 "TestDec.ml" 14 279 300
+type(
+  secret
+)
+"TestDec.ml" 14 279 292 "TestDec.ml" 14 279 300
+type(
+  secret * secret
+)
+"TestDec.ml" 15 305 315 "TestDec.ml" 15 305 324
+type(
+  key -> secret
+)
+ident(
+  ext_ref get_key_x
+)
+"TestDec.ml" 15 305 325 "TestDec.ml" 15 305 327
+type(
+  key
+)
+ident(
+  int_ref k1 "TestDec.ml" 14 279 286 "TestDec.ml" 14 279 288
+)
+"TestDec.ml" 15 305 315 "TestDec.ml" 15 305 327
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 15 305 328 "TestDec.ml" 15 305 329
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 15 305 330 "TestDec.ml" 15 305 331
+type(
+  secret
+)
+"TestDec.ml" 15 305 315 "TestDec.ml" 15 305 331
+type(
+  bool
+)
+"TestDec.ml" 15 305 308 "TestDec.ml" 15 305 332
+type(
+  unit
+)
+"TestDec.ml" 16 334 344 "TestDec.ml" 16 334 353
+type(
+  key -> secret
+)
+ident(
+  ext_ref get_key_y
+)
+"TestDec.ml" 16 334 354 "TestDec.ml" 16 334 356
+type(
+  key
+)
+ident(
+  int_ref k1 "TestDec.ml" 14 279 286 "TestDec.ml" 14 279 288
+)
+"TestDec.ml" 16 334 344 "TestDec.ml" 16 334 356
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 16 334 357 "TestDec.ml" 16 334 358
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 16 334 359 "TestDec.ml" 16 334 364
+type(
+  secret
+)
+"TestDec.ml" 16 334 344 "TestDec.ml" 16 334 364
+type(
+  bool
+)
+"TestDec.ml" 16 334 337 "TestDec.ml" 16 334 365
+type(
+  unit
+)
+"TestDec.ml" 17 367 374 "TestDec.ml" 17 367 376
+type(
+  secret * secret
+)
+ident(
+  def k2 "TestDec.ml" 18 392 395 "TestDec.ml" 19 421 451
+)
+"TestDec.ml" 17 367 380 "TestDec.ml" 17 367 381
+type(
+  secret
+)
+"TestDec.ml" 17 367 383 "TestDec.ml" 17 367 387
+type(
+  secret
+)
+"TestDec.ml" 17 367 380 "TestDec.ml" 17 367 387
+type(
+  secret * secret
+)
+"TestDec.ml" 18 392 402 "TestDec.ml" 18 392 411
+type(
+  key -> secret
+)
+ident(
+  ext_ref get_key_x
+)
+"TestDec.ml" 18 392 412 "TestDec.ml" 18 392 414
+type(
+  key
+)
+ident(
+  int_ref k2 "TestDec.ml" 17 367 374 "TestDec.ml" 17 367 376
+)
+"TestDec.ml" 18 392 402 "TestDec.ml" 18 392 414
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 18 392 415 "TestDec.ml" 18 392 416
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 18 392 417 "TestDec.ml" 18 392 418
+type(
+  secret
+)
+"TestDec.ml" 18 392 402 "TestDec.ml" 18 392 418
+type(
+  bool
+)
+"TestDec.ml" 18 392 395 "TestDec.ml" 18 392 419
+type(
+  unit
+)
+"TestDec.ml" 19 421 431 "TestDec.ml" 19 421 440
+type(
+  key -> secret
+)
+ident(
+  ext_ref get_key_y
+)
+"TestDec.ml" 19 421 441 "TestDec.ml" 19 421 443
+type(
+  key
+)
+ident(
+  int_ref k2 "TestDec.ml" 17 367 374 "TestDec.ml" 17 367 376
+)
+"TestDec.ml" 19 421 431 "TestDec.ml" 19 421 443
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 19 421 444 "TestDec.ml" 19 421 445
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 19 421 446 "TestDec.ml" 19 421 450
+type(
+  secret
+)
+"TestDec.ml" 19 421 431 "TestDec.ml" 19 421 450
+type(
+  bool
+)
+"TestDec.ml" 19 421 424 "TestDec.ml" 19 421 451
+type(
+  unit
+)
+"TestDec.ml" 18 392 395 "TestDec.ml" 19 421 451
+type(
+  unit
+)
+"TestDec.ml" 17 367 370 "TestDec.ml" 19 421 451
+type(
+  unit
+)
+"TestDec.ml" 16 334 337 "TestDec.ml" 19 421 451
+type(
+  unit
+)
+"TestDec.ml" 15 305 308 "TestDec.ml" 19 421 451
+type(
+  unit
+)
+"TestDec.ml" 14 279 282 "TestDec.ml" 19 421 451
+type(
+  unit
+)
+"TestDec.ml" 13 257 274 "TestDec.ml" 19 421 451
+type(
+  unit -> unit
+)
+"TestDec.ml" 22 456 460 "TestDec.ml" 22 456 474
+type(
+  unit -> unit
+)
+ident(
+  def test_add_polys "TestDec.ml" 39 943 943 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 22 456 475 "TestDec.ml" 22 456 477
+type(
+  unit
+)
+"TestDec.ml" 23 480 486 "TestDec.ml" 23 480 488
+type(
+  secret list
+)
+ident(
+  def p0 "TestDec.ml" 24 498 500 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 23 480 492 "TestDec.ml" 23 480 493
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 23 480 491 "TestDec.ml" 23 480 494
+type(
+  secret list
+)
+"TestDec.ml" 24 498 504 "TestDec.ml" 24 498 506
+type(
+  secret list
+)
+ident(
+  def p1 "TestDec.ml" 25 522 524 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 24 498 510 "TestDec.ml" 24 498 511
+type(
+  secret
+)
+"TestDec.ml" 24 498 513 "TestDec.ml" 24 498 514
+type(
+  secret
+)
+"TestDec.ml" 24 498 516 "TestDec.ml" 24 498 517
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 24 498 513 "TestDec.ml" 24 498 517
+type(
+  secret list
+)
+"TestDec.ml" 24 498 510 "TestDec.ml" 24 498 517
+type(
+  secret list
+)
+"TestDec.ml" 24 498 509 "TestDec.ml" 24 498 518
+type(
+  secret list
+)
+"TestDec.ml" 25 522 528 "TestDec.ml" 25 522 530
+type(
+  secret list
+)
+ident(
+  def p2 "TestDec.ml" 26 546 548 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 25 522 534 "TestDec.ml" 25 522 535
+type(
+  secret
+)
+"TestDec.ml" 25 522 537 "TestDec.ml" 25 522 538
+type(
+  secret
+)
+"TestDec.ml" 25 522 540 "TestDec.ml" 25 522 541
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 25 522 537 "TestDec.ml" 25 522 541
+type(
+  secret list
+)
+"TestDec.ml" 25 522 534 "TestDec.ml" 25 522 541
+type(
+  secret list
+)
+"TestDec.ml" 25 522 533 "TestDec.ml" 25 522 542
+type(
+  secret list
+)
+"TestDec.ml" 26 546 555 "TestDec.ml" 26 546 564
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 26 546 565 "TestDec.ml" 26 546 567
+type(
+  poly
+)
+ident(
+  int_ref p0 "TestDec.ml" 23 480 486 "TestDec.ml" 23 480 488
+)
+"TestDec.ml" 26 546 568 "TestDec.ml" 26 546 570
+type(
+  poly
+)
+ident(
+  int_ref p1 "TestDec.ml" 24 498 504 "TestDec.ml" 24 498 506
+)
+"TestDec.ml" 26 546 555 "TestDec.ml" 26 546 570
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 26 546 571 "TestDec.ml" 26 546 572
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 26 546 573 "TestDec.ml" 26 546 575
+type(
+  poly
+)
+ident(
+  int_ref p1 "TestDec.ml" 24 498 504 "TestDec.ml" 24 498 506
+)
+"TestDec.ml" 26 546 555 "TestDec.ml" 26 546 575
+type(
+  bool
+)
+"TestDec.ml" 26 546 548 "TestDec.ml" 26 546 576
+type(
+  unit
+)
+"TestDec.ml" 27 578 587 "TestDec.ml" 27 578 596
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 27 578 597 "TestDec.ml" 27 578 599
+type(
+  poly
+)
+ident(
+  int_ref p0 "TestDec.ml" 23 480 486 "TestDec.ml" 23 480 488
+)
+"TestDec.ml" 27 578 600 "TestDec.ml" 27 578 602
+type(
+  poly
+)
+ident(
+  int_ref p2 "TestDec.ml" 25 522 528 "TestDec.ml" 25 522 530
+)
+"TestDec.ml" 27 578 587 "TestDec.ml" 27 578 602
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 27 578 603 "TestDec.ml" 27 578 604
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 27 578 605 "TestDec.ml" 27 578 607
+type(
+  poly
+)
+ident(
+  int_ref p2 "TestDec.ml" 25 522 528 "TestDec.ml" 25 522 530
+)
+"TestDec.ml" 27 578 587 "TestDec.ml" 27 578 607
+type(
+  bool
+)
+"TestDec.ml" 27 578 580 "TestDec.ml" 27 578 608
+type(
+  unit
+)
+"TestDec.ml" 28 610 619 "TestDec.ml" 28 610 628
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 28 610 629 "TestDec.ml" 28 610 631
+type(
+  poly
+)
+ident(
+  int_ref p1 "TestDec.ml" 24 498 504 "TestDec.ml" 24 498 506
+)
+"TestDec.ml" 28 610 632 "TestDec.ml" 28 610 634
+type(
+  poly
+)
+ident(
+  int_ref p2 "TestDec.ml" 25 522 528 "TestDec.ml" 25 522 530
+)
+"TestDec.ml" 28 610 619 "TestDec.ml" 28 610 634
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 28 610 635 "TestDec.ml" 28 610 636
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 28 610 638 "TestDec.ml" 28 610 639
+type(
+  secret
+)
+"TestDec.ml" 28 610 641 "TestDec.ml" 28 610 642
+type(
+  secret
+)
+"TestDec.ml" 28 610 644 "TestDec.ml" 28 610 645
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 28 610 641 "TestDec.ml" 28 610 645
+type(
+  secret list
+)
+"TestDec.ml" 28 610 638 "TestDec.ml" 28 610 645
+type(
+  poly
+)
+"TestDec.ml" 28 610 637 "TestDec.ml" 28 610 646
+type(
+  secret list
+)
+"TestDec.ml" 28 610 619 "TestDec.ml" 28 610 646
+type(
+  bool
+)
+"TestDec.ml" 28 610 612 "TestDec.ml" 28 610 647
+type(
+  unit
+)
+"TestDec.ml" 29 649 655 "TestDec.ml" 29 649 657
+type(
+  secret list
+)
+ident(
+  def p3 "TestDec.ml" 30 680 682 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 29 649 661 "TestDec.ml" 29 649 665
+type(
+  secret
+)
+"TestDec.ml" 29 649 667 "TestDec.ml" 29 649 671
+type(
+  secret
+)
+"TestDec.ml" 29 649 673 "TestDec.ml" 29 649 675
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 29 649 667 "TestDec.ml" 29 649 675
+type(
+  secret list
+)
+"TestDec.ml" 29 649 661 "TestDec.ml" 29 649 675
+type(
+  secret list
+)
+"TestDec.ml" 29 649 660 "TestDec.ml" 29 649 676
+type(
+  secret list
+)
+"TestDec.ml" 30 680 686 "TestDec.ml" 30 680 688
+type(
+  secret list
+)
+ident(
+  def p4 "TestDec.ml" 31 712 714 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 30 680 692 "TestDec.ml" 30 680 697
+type(
+  secret
+)
+"TestDec.ml" 30 680 699 "TestDec.ml" 30 680 701
+type(
+  secret
+)
+"TestDec.ml" 30 680 703 "TestDec.ml" 30 680 707
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 30 680 699 "TestDec.ml" 30 680 707
+type(
+  secret list
+)
+"TestDec.ml" 30 680 692 "TestDec.ml" 30 680 707
+type(
+  secret list
+)
+"TestDec.ml" 30 680 691 "TestDec.ml" 30 680 708
+type(
+  secret list
+)
+"TestDec.ml" 31 712 721 "TestDec.ml" 31 712 730
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 31 712 731 "TestDec.ml" 31 712 733
+type(
+  poly
+)
+ident(
+  int_ref p3 "TestDec.ml" 29 649 655 "TestDec.ml" 29 649 657
+)
+"TestDec.ml" 31 712 734 "TestDec.ml" 31 712 736
+type(
+  poly
+)
+ident(
+  int_ref p4 "TestDec.ml" 30 680 686 "TestDec.ml" 30 680 688
+)
+"TestDec.ml" 31 712 721 "TestDec.ml" 31 712 736
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 31 712 737 "TestDec.ml" 31 712 738
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 31 712 740 "TestDec.ml" 31 712 745
+type(
+  secret
+)
+"TestDec.ml" 31 712 747 "TestDec.ml" 31 712 751
+type(
+  secret
+)
+"TestDec.ml" 31 712 753 "TestDec.ml" 31 712 757
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 31 712 747 "TestDec.ml" 31 712 757
+type(
+  secret list
+)
+"TestDec.ml" 31 712 740 "TestDec.ml" 31 712 757
+type(
+  poly
+)
+"TestDec.ml" 31 712 739 "TestDec.ml" 31 712 758
+type(
+  secret list
+)
+"TestDec.ml" 31 712 721 "TestDec.ml" 31 712 758
+type(
+  bool
+)
+"TestDec.ml" 31 712 714 "TestDec.ml" 31 712 759
+type(
+  unit
+)
+"TestDec.ml" 32 761 767 "TestDec.ml" 32 761 769
+type(
+  secret list
+)
+ident(
+  def p5 "TestDec.ml" 33 794 796 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 32 761 773 "TestDec.ml" 32 761 776
+type(
+  secret
+)
+"TestDec.ml" 32 761 779 "TestDec.ml" 32 761 783
+type(
+  secret
+)
+"TestDec.ml" 32 761 786 "TestDec.ml" 32 761 789
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 32 761 778 "TestDec.ml" 32 761 789
+type(
+  secret list
+)
+"TestDec.ml" 32 761 773 "TestDec.ml" 32 761 789
+type(
+  secret list
+)
+"TestDec.ml" 32 761 772 "TestDec.ml" 32 761 790
+type(
+  secret list
+)
+"TestDec.ml" 33 794 803 "TestDec.ml" 33 794 812
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 33 794 813 "TestDec.ml" 33 794 815
+type(
+  poly
+)
+ident(
+  int_ref p3 "TestDec.ml" 29 649 655 "TestDec.ml" 29 649 657
+)
+"TestDec.ml" 33 794 816 "TestDec.ml" 33 794 818
+type(
+  poly
+)
+ident(
+  int_ref p5 "TestDec.ml" 32 761 767 "TestDec.ml" 32 761 769
+)
+"TestDec.ml" 33 794 803 "TestDec.ml" 33 794 818
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 33 794 819 "TestDec.ml" 33 794 820
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 33 794 822 "TestDec.ml" 33 794 826
+type(
+  secret
+)
+"TestDec.ml" 33 794 828 "TestDec.ml" 33 794 832
+type(
+  secret
+)
+"TestDec.ml" 33 794 834 "TestDec.ml" 33 794 837
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 33 794 828 "TestDec.ml" 33 794 837
+type(
+  secret list
+)
+"TestDec.ml" 33 794 822 "TestDec.ml" 33 794 837
+type(
+  poly
+)
+"TestDec.ml" 33 794 821 "TestDec.ml" 33 794 838
+type(
+  secret list
+)
+"TestDec.ml" 33 794 803 "TestDec.ml" 33 794 838
+type(
+  bool
+)
+"TestDec.ml" 33 794 796 "TestDec.ml" 33 794 839
+type(
+  unit
+)
+"TestDec.ml" 34 841 847 "TestDec.ml" 34 841 849
+type(
+  secret list
+)
+ident(
+  def p6 "TestDec.ml" 35 862 864 "TestDec.ml" 36 901 938
+)
+"TestDec.ml" 34 841 853 "TestDec.ml" 34 841 854
+type(
+  secret
+)
+"TestDec.ml" 34 841 856 "TestDec.ml" 34 841 857
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 34 841 853 "TestDec.ml" 34 841 857
+type(
+  secret list
+)
+"TestDec.ml" 34 841 852 "TestDec.ml" 34 841 858
+type(
+  secret list
+)
+"TestDec.ml" 35 862 871 "TestDec.ml" 35 862 880
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 35 862 881 "TestDec.ml" 35 862 883
+type(
+  poly
+)
+ident(
+  int_ref p1 "TestDec.ml" 24 498 504 "TestDec.ml" 24 498 506
+)
+"TestDec.ml" 35 862 884 "TestDec.ml" 35 862 886
+type(
+  poly
+)
+ident(
+  int_ref p6 "TestDec.ml" 34 841 847 "TestDec.ml" 34 841 849
+)
+"TestDec.ml" 35 862 871 "TestDec.ml" 35 862 886
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 35 862 887 "TestDec.ml" 35 862 888
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 35 862 890 "TestDec.ml" 35 862 891
+type(
+  secret
+)
+"TestDec.ml" 35 862 893 "TestDec.ml" 35 862 894
+type(
+  secret
+)
+"TestDec.ml" 35 862 896 "TestDec.ml" 35 862 897
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 35 862 893 "TestDec.ml" 35 862 897
+type(
+  secret list
+)
+"TestDec.ml" 35 862 890 "TestDec.ml" 35 862 897
+type(
+  poly
+)
+"TestDec.ml" 35 862 889 "TestDec.ml" 35 862 898
+type(
+  secret list
+)
+"TestDec.ml" 35 862 871 "TestDec.ml" 35 862 898
+type(
+  bool
+)
+"TestDec.ml" 35 862 864 "TestDec.ml" 35 862 899
+type(
+  unit
+)
+"TestDec.ml" 36 901 910 "TestDec.ml" 36 901 919
+type(
+  poly -> poly -> poly
+)
+ident(
+  ext_ref add_polys
+)
+"TestDec.ml" 36 901 920 "TestDec.ml" 36 901 922
+type(
+  poly
+)
+ident(
+  int_ref p6 "TestDec.ml" 34 841 847 "TestDec.ml" 34 841 849
+)
+"TestDec.ml" 36 901 923 "TestDec.ml" 36 901 925
+type(
+  poly
+)
+ident(
+  int_ref p1 "TestDec.ml" 24 498 504 "TestDec.ml" 24 498 506
+)
+"TestDec.ml" 36 901 910 "TestDec.ml" 36 901 925
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 36 901 926 "TestDec.ml" 36 901 927
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 36 901 929 "TestDec.ml" 36 901 930
+type(
+  secret
+)
+"TestDec.ml" 36 901 932 "TestDec.ml" 36 901 933
+type(
+  secret
+)
+"TestDec.ml" 36 901 935 "TestDec.ml" 36 901 936
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 36 901 932 "TestDec.ml" 36 901 936
+type(
+  secret list
+)
+"TestDec.ml" 36 901 929 "TestDec.ml" 36 901 936
+type(
+  poly
+)
+"TestDec.ml" 36 901 928 "TestDec.ml" 36 901 937
+type(
+  secret list
+)
+"TestDec.ml" 36 901 910 "TestDec.ml" 36 901 937
+type(
+  bool
+)
+"TestDec.ml" 36 901 903 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 35 862 864 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 34 841 843 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 33 794 796 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 32 761 763 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 31 712 714 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 30 680 682 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 29 649 651 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 28 610 612 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 27 578 580 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 26 546 548 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 25 522 524 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 24 498 500 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 23 480 482 "TestDec.ml" 36 901 938
+type(
+  unit
+)
+"TestDec.ml" 22 456 475 "TestDec.ml" 36 901 938
+type(
+  unit -> unit
+)
+"TestDec.ml" 39 943 947 "TestDec.ml" 39 943 960
+type(
+  unit -> unit
+)
+ident(
+  def test_neg_poly "TestDec.ml" 47 1137 1137 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 39 943 961 "TestDec.ml" 39 943 963
+type(
+  unit
+)
+"TestDec.ml" 40 966 972 "TestDec.ml" 40 966 977
+type(
+  secret list
+)
+ident(
+  def poly1 "TestDec.ml" 41 1000 1002 "TestDec.ml" 44 1100 1132
+)
+"TestDec.ml" 40 966 981 "TestDec.ml" 40 966 985
+type(
+  secret
+)
+"TestDec.ml" 40 966 987 "TestDec.ml" 40 966 991
+type(
+  secret
+)
+"TestDec.ml" 40 966 993 "TestDec.ml" 40 966 995
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 40 966 987 "TestDec.ml" 40 966 995
+type(
+  secret list
+)
+"TestDec.ml" 40 966 981 "TestDec.ml" 40 966 995
+type(
+  secret list
+)
+"TestDec.ml" 40 966 980 "TestDec.ml" 40 966 996
+type(
+  secret list
+)
+"TestDec.ml" 41 1000 1009 "TestDec.ml" 41 1000 1017
+type(
+  poly -> poly
+)
+ident(
+  ext_ref neg_poly
+)
+"TestDec.ml" 41 1000 1018 "TestDec.ml" 41 1000 1023
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 40 966 972 "TestDec.ml" 40 966 977
+)
+"TestDec.ml" 41 1000 1009 "TestDec.ml" 41 1000 1023
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 42 1025 1027 "TestDec.ml" 42 1025 1028
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 42 1025 1031 "TestDec.ml" 42 1025 1036
+type(
+  secret
+)
+"TestDec.ml" 42 1025 1040 "TestDec.ml" 42 1025 1045
+type(
+  secret
+)
+"TestDec.ml" 42 1025 1049 "TestDec.ml" 42 1025 1052
+type(
+  secret
+)
+"TestDec.ml" 42 1025 1048 "TestDec.ml" 42 1025 1053
+type(
+  secret list
+)
+"TestDec.ml" 42 1025 1039 "TestDec.ml" 42 1025 1053
+type(
+  secret list
+)
+"TestDec.ml" 42 1025 1030 "TestDec.ml" 42 1025 1053
+type(
+  poly
+)
+"TestDec.ml" 42 1025 1029 "TestDec.ml" 42 1025 1054
+type(
+  secret list
+)
+"TestDec.ml" 41 1000 1009 "TestDec.ml" 42 1025 1054
+type(
+  bool
+)
+"TestDec.ml" 41 1000 1002 "TestDec.ml" 42 1025 1055
+type(
+  unit
+)
+"TestDec.ml" 43 1057 1063 "TestDec.ml" 43 1057 1068
+type(
+  secret list
+)
+ident(
+  def poly2 "TestDec.ml" 44 1100 1102 "TestDec.ml" 44 1100 1132
+)
+"TestDec.ml" 43 1057 1073 "TestDec.ml" 43 1057 1078
+type(
+  secret
+)
+"TestDec.ml" 43 1057 1082 "TestDec.ml" 43 1057 1087
+type(
+  secret
+)
+"TestDec.ml" 43 1057 1091 "TestDec.ml" 43 1057 1094
+type(
+  secret
+)
+"TestDec.ml" 43 1057 1090 "TestDec.ml" 43 1057 1095
+type(
+  secret list
+)
+"TestDec.ml" 43 1057 1081 "TestDec.ml" 43 1057 1095
+type(
+  secret list
+)
+"TestDec.ml" 43 1057 1072 "TestDec.ml" 43 1057 1095
+type(
+  secret list
+)
+"TestDec.ml" 43 1057 1071 "TestDec.ml" 43 1057 1096
+type(
+  secret list
+)
+"TestDec.ml" 44 1100 1109 "TestDec.ml" 44 1100 1117
+type(
+  poly -> poly
+)
+ident(
+  ext_ref neg_poly
+)
+"TestDec.ml" 44 1100 1118 "TestDec.ml" 44 1100 1123
+type(
+  poly
+)
+ident(
+  int_ref poly2 "TestDec.ml" 43 1057 1063 "TestDec.ml" 43 1057 1068
+)
+"TestDec.ml" 44 1100 1109 "TestDec.ml" 44 1100 1123
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 44 1100 1124 "TestDec.ml" 44 1100 1125
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 44 1100 1126 "TestDec.ml" 44 1100 1131
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 40 966 972 "TestDec.ml" 40 966 977
+)
+"TestDec.ml" 44 1100 1109 "TestDec.ml" 44 1100 1131
+type(
+  bool
+)
+"TestDec.ml" 44 1100 1102 "TestDec.ml" 44 1100 1132
+type(
+  unit
+)
+"TestDec.ml" 43 1057 1059 "TestDec.ml" 44 1100 1132
+type(
+  unit
+)
+"TestDec.ml" 41 1000 1002 "TestDec.ml" 44 1100 1132
+type(
+  unit
+)
+"TestDec.ml" 40 966 968 "TestDec.ml" 44 1100 1132
+type(
+  unit
+)
+"TestDec.ml" 39 943 961 "TestDec.ml" 44 1100 1132
+type(
+  unit -> unit
+)
+"TestDec.ml" 47 1137 1141 "TestDec.ml" 47 1137 1159
+type(
+  unit -> unit
+)
+ident(
+  def test_mult_poly_int "TestDec.ml" 58 1437 1437 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 47 1137 1160 "TestDec.ml" 47 1137 1162
+type(
+  unit
+)
+"TestDec.ml" 48 1165 1171 "TestDec.ml" 48 1165 1176
+type(
+  secret list
+)
+ident(
+  def poly1 "TestDec.ml" 49 1199 1201 "TestDec.ml" 55 1399 1432
+)
+"TestDec.ml" 48 1165 1180 "TestDec.ml" 48 1165 1184
+type(
+  secret
+)
+"TestDec.ml" 48 1165 1186 "TestDec.ml" 48 1165 1190
+type(
+  secret
+)
+"TestDec.ml" 48 1165 1192 "TestDec.ml" 48 1165 1194
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 48 1165 1186 "TestDec.ml" 48 1165 1194
+type(
+  secret list
+)
+"TestDec.ml" 48 1165 1180 "TestDec.ml" 48 1165 1194
+type(
+  secret list
+)
+"TestDec.ml" 48 1165 1179 "TestDec.ml" 48 1165 1195
+type(
+  secret list
+)
+"TestDec.ml" 49 1199 1208 "TestDec.ml" 49 1199 1221
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_poly_int
+)
+"TestDec.ml" 49 1199 1222 "TestDec.ml" 49 1199 1223
+type(
+  secret
+)
+"TestDec.ml" 49 1199 1224 "TestDec.ml" 49 1199 1229
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 48 1165 1171 "TestDec.ml" 48 1165 1176
+)
+"TestDec.ml" 49 1199 1208 "TestDec.ml" 49 1199 1229
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 49 1199 1230 "TestDec.ml" 49 1199 1231
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 50 1232 1239 "TestDec.ml" 50 1232 1243
+type(
+  secret
+)
+"TestDec.ml" 50 1232 1245 "TestDec.ml" 50 1232 1249
+type(
+  secret
+)
+"TestDec.ml" 50 1232 1251 "TestDec.ml" 50 1232 1254
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 50 1232 1245 "TestDec.ml" 50 1232 1254
+type(
+  secret list
+)
+"TestDec.ml" 50 1232 1239 "TestDec.ml" 50 1232 1254
+type(
+  poly
+)
+"TestDec.ml" 50 1232 1238 "TestDec.ml" 50 1232 1255
+type(
+  secret list
+)
+"TestDec.ml" 49 1199 1208 "TestDec.ml" 50 1232 1255
+type(
+  bool
+)
+"TestDec.ml" 49 1199 1201 "TestDec.ml" 50 1232 1256
+type(
+  unit
+)
+"TestDec.ml" 51 1258 1264 "TestDec.ml" 51 1258 1269
+type(
+  secret list
+)
+ident(
+  def poly2 "TestDec.ml" 52 1301 1303 "TestDec.ml" 55 1399 1432
+)
+"TestDec.ml" 51 1258 1274 "TestDec.ml" 51 1258 1279
+type(
+  secret
+)
+"TestDec.ml" 51 1258 1283 "TestDec.ml" 51 1258 1288
+type(
+  secret
+)
+"TestDec.ml" 51 1258 1292 "TestDec.ml" 51 1258 1295
+type(
+  secret
+)
+"TestDec.ml" 51 1258 1291 "TestDec.ml" 51 1258 1296
+type(
+  secret list
+)
+"TestDec.ml" 51 1258 1282 "TestDec.ml" 51 1258 1296
+type(
+  secret list
+)
+"TestDec.ml" 51 1258 1273 "TestDec.ml" 51 1258 1296
+type(
+  secret list
+)
+"TestDec.ml" 51 1258 1272 "TestDec.ml" 51 1258 1297
+type(
+  secret list
+)
+"TestDec.ml" 52 1301 1310 "TestDec.ml" 52 1301 1323
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_poly_int
+)
+"TestDec.ml" 52 1301 1325 "TestDec.ml" 52 1301 1327
+type(
+  secret
+)
+"TestDec.ml" 52 1301 1329 "TestDec.ml" 52 1301 1334
+type(
+  poly
+)
+ident(
+  int_ref poly2 "TestDec.ml" 51 1258 1264 "TestDec.ml" 51 1258 1269
+)
+"TestDec.ml" 52 1301 1310 "TestDec.ml" 52 1301 1334
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 52 1301 1335 "TestDec.ml" 52 1301 1336
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 53 1337 1344 "TestDec.ml" 53 1337 1348
+type(
+  secret
+)
+"TestDec.ml" 53 1337 1350 "TestDec.ml" 53 1337 1354
+type(
+  secret
+)
+"TestDec.ml" 53 1337 1356 "TestDec.ml" 53 1337 1359
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 53 1337 1350 "TestDec.ml" 53 1337 1359
+type(
+  secret list
+)
+"TestDec.ml" 53 1337 1344 "TestDec.ml" 53 1337 1359
+type(
+  poly
+)
+"TestDec.ml" 53 1337 1343 "TestDec.ml" 53 1337 1360
+type(
+  secret list
+)
+"TestDec.ml" 52 1301 1310 "TestDec.ml" 53 1337 1360
+type(
+  bool
+)
+"TestDec.ml" 52 1301 1303 "TestDec.ml" 53 1337 1361
+type(
+  unit
+)
+"TestDec.ml" 54 1363 1372 "TestDec.ml" 54 1363 1385
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_poly_int
+)
+"TestDec.ml" 54 1363 1387 "TestDec.ml" 54 1363 1389
+type(
+  secret
+)
+"TestDec.ml" 54 1363 1391 "TestDec.ml" 54 1363 1396
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 48 1165 1171 "TestDec.ml" 48 1165 1176
+)
+"TestDec.ml" 54 1363 1372 "TestDec.ml" 54 1363 1396
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 54 1363 1397 "TestDec.ml" 54 1363 1398
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 55 1399 1407 "TestDec.ml" 55 1399 1412
+type(
+  secret
+)
+"TestDec.ml" 55 1399 1416 "TestDec.ml" 55 1399 1421
+type(
+  secret
+)
+"TestDec.ml" 55 1399 1425 "TestDec.ml" 55 1399 1429
+type(
+  secret
+)
+"TestDec.ml" 55 1399 1424 "TestDec.ml" 55 1399 1430
+type(
+  secret list
+)
+"TestDec.ml" 55 1399 1415 "TestDec.ml" 55 1399 1430
+type(
+  secret list
+)
+"TestDec.ml" 55 1399 1406 "TestDec.ml" 55 1399 1430
+type(
+  poly
+)
+"TestDec.ml" 55 1399 1405 "TestDec.ml" 55 1399 1431
+type(
+  secret list
+)
+"TestDec.ml" 54 1363 1372 "TestDec.ml" 55 1399 1431
+type(
+  bool
+)
+"TestDec.ml" 54 1363 1365 "TestDec.ml" 55 1399 1432
+type(
+  unit
+)
+"TestDec.ml" 52 1301 1303 "TestDec.ml" 55 1399 1432
+type(
+  unit
+)
+"TestDec.ml" 51 1258 1260 "TestDec.ml" 55 1399 1432
+type(
+  unit
+)
+"TestDec.ml" 49 1199 1201 "TestDec.ml" 55 1399 1432
+type(
+  unit
+)
+"TestDec.ml" 48 1165 1167 "TestDec.ml" 55 1399 1432
+type(
+  unit
+)
+"TestDec.ml" 47 1137 1160 "TestDec.ml" 55 1399 1432
+type(
+  unit -> unit
+)
+"TestDec.ml" 58 1437 1441 "TestDec.ml" 58 1437 1458
+type(
+  unit -> unit
+)
+ident(
+  def test_div_poly_int "TestDec.ml" 73 1835 1835 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 58 1437 1459 "TestDec.ml" 58 1437 1461
+type(
+  unit
+)
+"TestDec.ml" 59 1464 1470 "TestDec.ml" 59 1464 1472
+type(
+  secret
+)
+ident(
+  def x1 "TestDec.ml" 60 1480 1482 "TestDec.ml" 70 1806 1830
+)
+"TestDec.ml" 59 1464 1475 "TestDec.ml" 59 1464 1476
+type(
+  secret
+)
+"TestDec.ml" 60 1480 1486 "TestDec.ml" 60 1480 1491
+type(
+  secret list
+)
+ident(
+  def poly1 "TestDec.ml" 61 1515 1517 "TestDec.ml" 70 1806 1830
+)
+"TestDec.ml" 60 1480 1495 "TestDec.ml" 60 1480 1499
+type(
+  secret
+)
+"TestDec.ml" 60 1480 1501 "TestDec.ml" 60 1480 1505
+type(
+  secret
+)
+"TestDec.ml" 60 1480 1507 "TestDec.ml" 60 1480 1510
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 60 1480 1501 "TestDec.ml" 60 1480 1510
+type(
+  secret list
+)
+"TestDec.ml" 60 1480 1495 "TestDec.ml" 60 1480 1510
+type(
+  secret list
+)
+"TestDec.ml" 60 1480 1494 "TestDec.ml" 60 1480 1511
+type(
+  secret list
+)
+"TestDec.ml" 61 1515 1524 "TestDec.ml" 61 1515 1536
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref div_poly_int
+)
+"TestDec.ml" 61 1515 1537 "TestDec.ml" 61 1515 1539
+type(
+  secret
+)
+ident(
+  int_ref x1 "TestDec.ml" 59 1464 1470 "TestDec.ml" 59 1464 1472
+)
+"TestDec.ml" 61 1515 1540 "TestDec.ml" 61 1515 1545
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 60 1480 1486 "TestDec.ml" 60 1480 1491
+)
+"TestDec.ml" 61 1515 1524 "TestDec.ml" 61 1515 1545
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 61 1515 1546 "TestDec.ml" 61 1515 1547
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 62 1548 1555 "TestDec.ml" 62 1548 1559
+type(
+  secret
+)
+"TestDec.ml" 62 1548 1561 "TestDec.ml" 62 1548 1565
+type(
+  secret
+)
+"TestDec.ml" 62 1548 1567 "TestDec.ml" 62 1548 1570
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 62 1548 1561 "TestDec.ml" 62 1548 1570
+type(
+  secret list
+)
+"TestDec.ml" 62 1548 1555 "TestDec.ml" 62 1548 1570
+type(
+  poly
+)
+"TestDec.ml" 62 1548 1554 "TestDec.ml" 62 1548 1571
+type(
+  secret list
+)
+"TestDec.ml" 61 1515 1524 "TestDec.ml" 62 1548 1571
+type(
+  bool
+)
+"TestDec.ml" 61 1515 1517 "TestDec.ml" 62 1548 1572
+type(
+  unit
+)
+"TestDec.ml" 63 1574 1580 "TestDec.ml" 63 1574 1582
+type(
+  secret
+)
+ident(
+  def x2 "TestDec.ml" 64 1593 1595 "TestDec.ml" 70 1806 1830
+)
+"TestDec.ml" 63 1574 1586 "TestDec.ml" 63 1574 1588
+type(
+  secret
+)
+"TestDec.ml" 64 1593 1602 "TestDec.ml" 64 1593 1614
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref div_poly_int
+)
+"TestDec.ml" 64 1593 1615 "TestDec.ml" 64 1593 1617
+type(
+  secret
+)
+ident(
+  int_ref x2 "TestDec.ml" 63 1574 1580 "TestDec.ml" 63 1574 1582
+)
+"TestDec.ml" 64 1593 1618 "TestDec.ml" 64 1593 1623
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 60 1480 1486 "TestDec.ml" 60 1480 1491
+)
+"TestDec.ml" 64 1593 1602 "TestDec.ml" 64 1593 1623
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 64 1593 1624 "TestDec.ml" 64 1593 1625
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 65 1626 1634 "TestDec.ml" 65 1626 1639
+type(
+  secret
+)
+"TestDec.ml" 65 1626 1643 "TestDec.ml" 65 1626 1648
+type(
+  secret
+)
+"TestDec.ml" 65 1626 1652 "TestDec.ml" 65 1626 1656
+type(
+  secret
+)
+"TestDec.ml" 65 1626 1651 "TestDec.ml" 65 1626 1657
+type(
+  secret list
+)
+"TestDec.ml" 65 1626 1642 "TestDec.ml" 65 1626 1657
+type(
+  secret list
+)
+"TestDec.ml" 65 1626 1633 "TestDec.ml" 65 1626 1657
+type(
+  poly
+)
+"TestDec.ml" 65 1626 1632 "TestDec.ml" 65 1626 1658
+type(
+  secret list
+)
+"TestDec.ml" 64 1593 1602 "TestDec.ml" 65 1626 1658
+type(
+  bool
+)
+"TestDec.ml" 64 1593 1595 "TestDec.ml" 65 1626 1659
+type(
+  unit
+)
+"TestDec.ml" 66 1661 1667 "TestDec.ml" 66 1661 1672
+type(
+  secret list
+)
+ident(
+  def poly2 "TestDec.ml" 67 1705 1707 "TestDec.ml" 70 1806 1830
+)
+"TestDec.ml" 66 1661 1677 "TestDec.ml" 66 1661 1682
+type(
+  secret
+)
+"TestDec.ml" 66 1661 1686 "TestDec.ml" 66 1661 1691
+type(
+  secret
+)
+"TestDec.ml" 66 1661 1695 "TestDec.ml" 66 1661 1699
+type(
+  secret
+)
+"TestDec.ml" 66 1661 1694 "TestDec.ml" 66 1661 1700
+type(
+  secret list
+)
+"TestDec.ml" 66 1661 1685 "TestDec.ml" 66 1661 1700
+type(
+  secret list
+)
+"TestDec.ml" 66 1661 1676 "TestDec.ml" 66 1661 1700
+type(
+  secret list
+)
+"TestDec.ml" 66 1661 1675 "TestDec.ml" 66 1661 1701
+type(
+  secret list
+)
+"TestDec.ml" 67 1705 1714 "TestDec.ml" 67 1705 1726
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref div_poly_int
+)
+"TestDec.ml" 67 1705 1727 "TestDec.ml" 67 1705 1729
+type(
+  secret
+)
+ident(
+  int_ref x1 "TestDec.ml" 59 1464 1470 "TestDec.ml" 59 1464 1472
+)
+"TestDec.ml" 67 1705 1730 "TestDec.ml" 67 1705 1735
+type(
+  poly
+)
+ident(
+  int_ref poly2 "TestDec.ml" 66 1661 1667 "TestDec.ml" 66 1661 1672
+)
+"TestDec.ml" 67 1705 1714 "TestDec.ml" 67 1705 1735
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 67 1705 1736 "TestDec.ml" 67 1705 1737
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 68 1738 1746 "TestDec.ml" 68 1738 1751
+type(
+  secret
+)
+"TestDec.ml" 68 1738 1755 "TestDec.ml" 68 1738 1760
+type(
+  secret
+)
+"TestDec.ml" 68 1738 1764 "TestDec.ml" 68 1738 1768
+type(
+  secret
+)
+"TestDec.ml" 68 1738 1763 "TestDec.ml" 68 1738 1769
+type(
+  secret list
+)
+"TestDec.ml" 68 1738 1754 "TestDec.ml" 68 1738 1769
+type(
+  secret list
+)
+"TestDec.ml" 68 1738 1745 "TestDec.ml" 68 1738 1769
+type(
+  poly
+)
+"TestDec.ml" 68 1738 1744 "TestDec.ml" 68 1738 1770
+type(
+  secret list
+)
+"TestDec.ml" 67 1705 1714 "TestDec.ml" 68 1738 1770
+type(
+  bool
+)
+"TestDec.ml" 67 1705 1707 "TestDec.ml" 68 1738 1771
+type(
+  unit
+)
+"TestDec.ml" 69 1773 1782 "TestDec.ml" 69 1773 1794
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref div_poly_int
+)
+"TestDec.ml" 69 1773 1795 "TestDec.ml" 69 1773 1797
+type(
+  secret
+)
+ident(
+  int_ref x2 "TestDec.ml" 63 1574 1580 "TestDec.ml" 63 1574 1582
+)
+"TestDec.ml" 69 1773 1798 "TestDec.ml" 69 1773 1803
+type(
+  poly
+)
+ident(
+  int_ref poly2 "TestDec.ml" 66 1661 1667 "TestDec.ml" 66 1661 1672
+)
+"TestDec.ml" 69 1773 1782 "TestDec.ml" 69 1773 1803
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 69 1773 1804 "TestDec.ml" 69 1773 1805
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 70 1806 1813 "TestDec.ml" 70 1806 1817
+type(
+  secret
+)
+"TestDec.ml" 70 1806 1819 "TestDec.ml" 70 1806 1823
+type(
+  secret
+)
+"TestDec.ml" 70 1806 1825 "TestDec.ml" 70 1806 1828
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 70 1806 1819 "TestDec.ml" 70 1806 1828
+type(
+  secret list
+)
+"TestDec.ml" 70 1806 1813 "TestDec.ml" 70 1806 1828
+type(
+  poly
+)
+"TestDec.ml" 70 1806 1812 "TestDec.ml" 70 1806 1829
+type(
+  secret list
+)
+"TestDec.ml" 69 1773 1782 "TestDec.ml" 70 1806 1829
+type(
+  bool
+)
+"TestDec.ml" 69 1773 1775 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 67 1705 1707 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 66 1661 1663 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 64 1593 1595 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 63 1574 1576 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 61 1515 1517 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 60 1480 1482 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 59 1464 1466 "TestDec.ml" 70 1806 1830
+type(
+  unit
+)
+"TestDec.ml" 58 1437 1459 "TestDec.ml" 70 1806 1830
+type(
+  unit -> unit
+)
+"TestDec.ml" 73 1835 1839 "TestDec.ml" 73 1835 1857
+type(
+  unit -> unit
+)
+ident(
+  def test_mult_x_a_poly "TestDec.ml" 88 2275 2275 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 73 1835 1858 "TestDec.ml" 73 1835 1860
+type(
+  unit
+)
+"TestDec.ml" 74 1863 1869 "TestDec.ml" 74 1863 1871
+type(
+  secret
+)
+ident(
+  def a1 "TestDec.ml" 75 1879 1881 "TestDec.ml" 85 2232 2270
+)
+"TestDec.ml" 74 1863 1874 "TestDec.ml" 74 1863 1875
+type(
+  secret
+)
+"TestDec.ml" 75 1879 1885 "TestDec.ml" 75 1879 1890
+type(
+  secret list
+)
+ident(
+  def poly1 "TestDec.ml" 76 1914 1916 "TestDec.ml" 85 2232 2270
+)
+"TestDec.ml" 75 1879 1894 "TestDec.ml" 75 1879 1898
+type(
+  secret
+)
+"TestDec.ml" 75 1879 1900 "TestDec.ml" 75 1879 1904
+type(
+  secret
+)
+"TestDec.ml" 75 1879 1906 "TestDec.ml" 75 1879 1909
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 75 1879 1900 "TestDec.ml" 75 1879 1909
+type(
+  secret list
+)
+"TestDec.ml" 75 1879 1894 "TestDec.ml" 75 1879 1909
+type(
+  secret list
+)
+"TestDec.ml" 75 1879 1893 "TestDec.ml" 75 1879 1910
+type(
+  secret list
+)
+"TestDec.ml" 76 1914 1923 "TestDec.ml" 76 1914 1936
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_x_a_poly
+)
+"TestDec.ml" 76 1914 1937 "TestDec.ml" 76 1914 1939
+type(
+  secret
+)
+ident(
+  int_ref a1 "TestDec.ml" 74 1863 1869 "TestDec.ml" 74 1863 1871
+)
+"TestDec.ml" 76 1914 1940 "TestDec.ml" 76 1914 1945
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 75 1879 1885 "TestDec.ml" 75 1879 1890
+)
+"TestDec.ml" 76 1914 1923 "TestDec.ml" 76 1914 1945
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 76 1914 1946 "TestDec.ml" 76 1914 1947
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 77 1948 1955 "TestDec.ml" 77 1948 1960
+type(
+  secret
+)
+"TestDec.ml" 77 1948 1962 "TestDec.ml" 77 1948 1967
+type(
+  secret
+)
+"TestDec.ml" 77 1948 1969 "TestDec.ml" 77 1948 1973
+type(
+  secret
+)
+"TestDec.ml" 77 1948 1975 "TestDec.ml" 77 1948 1978
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 77 1948 1969 "TestDec.ml" 77 1948 1978
+type(
+  secret list
+)
+"TestDec.ml" 77 1948 1962 "TestDec.ml" 77 1948 1978
+type(
+  secret list
+)
+"TestDec.ml" 77 1948 1955 "TestDec.ml" 77 1948 1978
+type(
+  poly
+)
+"TestDec.ml" 77 1948 1954 "TestDec.ml" 77 1948 1979
+type(
+  secret list
+)
+"TestDec.ml" 76 1914 1923 "TestDec.ml" 77 1948 1979
+type(
+  bool
+)
+"TestDec.ml" 76 1914 1916 "TestDec.ml" 77 1948 1980
+type(
+  unit
+)
+"TestDec.ml" 78 1982 1988 "TestDec.ml" 78 1982 1990
+type(
+  secret
+)
+ident(
+  def a2 "TestDec.ml" 79 2001 2003 "TestDec.ml" 85 2232 2270
+)
+"TestDec.ml" 78 1982 1994 "TestDec.ml" 78 1982 1996
+type(
+  secret
+)
+"TestDec.ml" 79 2001 2010 "TestDec.ml" 79 2001 2023
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_x_a_poly
+)
+"TestDec.ml" 79 2001 2024 "TestDec.ml" 79 2001 2026
+type(
+  secret
+)
+ident(
+  int_ref a2 "TestDec.ml" 78 1982 1988 "TestDec.ml" 78 1982 1990
+)
+"TestDec.ml" 79 2001 2027 "TestDec.ml" 79 2001 2032
+type(
+  poly
+)
+ident(
+  int_ref poly1 "TestDec.ml" 75 1879 1885 "TestDec.ml" 75 1879 1890
+)
+"TestDec.ml" 79 2001 2010 "TestDec.ml" 79 2001 2032
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 79 2001 2033 "TestDec.ml" 79 2001 2034
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 80 2035 2043 "TestDec.ml" 80 2035 2049
+type(
+  secret
+)
+"TestDec.ml" 80 2035 2052 "TestDec.ml" 80 2035 2058
+type(
+  secret
+)
+"TestDec.ml" 80 2035 2061 "TestDec.ml" 80 2035 2065
+type(
+  secret
+)
+"TestDec.ml" 80 2035 2067 "TestDec.ml" 80 2035 2070
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 80 2035 2061 "TestDec.ml" 80 2035 2070
+type(
+  secret list
+)
+"TestDec.ml" 80 2035 2051 "TestDec.ml" 80 2035 2070
+type(
+  secret list
+)
+"TestDec.ml" 80 2035 2042 "TestDec.ml" 80 2035 2070
+type(
+  poly
+)
+"TestDec.ml" 80 2035 2041 "TestDec.ml" 80 2035 2071
+type(
+  secret list
+)
+"TestDec.ml" 79 2001 2010 "TestDec.ml" 80 2035 2071
+type(
+  bool
+)
+"TestDec.ml" 79 2001 2003 "TestDec.ml" 80 2035 2072
+type(
+  unit
+)
+"TestDec.ml" 81 2074 2080 "TestDec.ml" 81 2074 2085
+type(
+  secret list
+)
+ident(
+  def poly2 "TestDec.ml" 82 2118 2120 "TestDec.ml" 85 2232 2270
+)
+"TestDec.ml" 81 2074 2090 "TestDec.ml" 81 2074 2095
+type(
+  secret
+)
+"TestDec.ml" 81 2074 2099 "TestDec.ml" 81 2074 2104
+type(
+  secret
+)
+"TestDec.ml" 81 2074 2108 "TestDec.ml" 81 2074 2112
+type(
+  secret
+)
+"TestDec.ml" 81 2074 2107 "TestDec.ml" 81 2074 2113
+type(
+  secret list
+)
+"TestDec.ml" 81 2074 2098 "TestDec.ml" 81 2074 2113
+type(
+  secret list
+)
+"TestDec.ml" 81 2074 2089 "TestDec.ml" 81 2074 2113
+type(
+  secret list
+)
+"TestDec.ml" 81 2074 2088 "TestDec.ml" 81 2074 2114
+type(
+  secret list
+)
+"TestDec.ml" 82 2118 2127 "TestDec.ml" 82 2118 2140
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_x_a_poly
+)
+"TestDec.ml" 82 2118 2141 "TestDec.ml" 82 2118 2143
+type(
+  secret
+)
+ident(
+  int_ref a1 "TestDec.ml" 74 1863 1869 "TestDec.ml" 74 1863 1871
+)
+"TestDec.ml" 82 2118 2144 "TestDec.ml" 82 2118 2149
+type(
+  poly
+)
+ident(
+  int_ref poly2 "TestDec.ml" 81 2074 2080 "TestDec.ml" 81 2074 2085
+)
+"TestDec.ml" 82 2118 2127 "TestDec.ml" 82 2118 2149
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 82 2118 2150 "TestDec.ml" 82 2118 2151
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 83 2152 2160 "TestDec.ml" 83 2152 2166
+type(
+  secret
+)
+"TestDec.ml" 83 2152 2170 "TestDec.ml" 83 2152 2176
+type(
+  secret
+)
+"TestDec.ml" 83 2152 2180 "TestDec.ml" 83 2152 2185
+type(
+  secret
+)
+"TestDec.ml" 83 2152 2189 "TestDec.ml" 83 2152 2193
+type(
+  secret
+)
+"TestDec.ml" 83 2152 2188 "TestDec.ml" 83 2152 2194
+type(
+  secret list
+)
+"TestDec.ml" 83 2152 2179 "TestDec.ml" 83 2152 2194
+type(
+  secret list
+)
+"TestDec.ml" 83 2152 2169 "TestDec.ml" 83 2152 2194
+type(
+  secret list
+)
+"TestDec.ml" 83 2152 2159 "TestDec.ml" 83 2152 2194
+type(
+  poly
+)
+"TestDec.ml" 83 2152 2158 "TestDec.ml" 83 2152 2195
+type(
+  secret list
+)
+"TestDec.ml" 82 2118 2127 "TestDec.ml" 83 2152 2195
+type(
+  bool
+)
+"TestDec.ml" 82 2118 2120 "TestDec.ml" 83 2152 2196
+type(
+  unit
+)
+"TestDec.ml" 84 2198 2207 "TestDec.ml" 84 2198 2220
+type(
+  secret -> poly -> poly
+)
+ident(
+  ext_ref mult_x_a_poly
+)
+"TestDec.ml" 84 2198 2221 "TestDec.ml" 84 2198 2223
+type(
+  secret
+)
+ident(
+  int_ref a2 "TestDec.ml" 78 1982 1988 "TestDec.ml" 78 1982 1990
+)
+"TestDec.ml" 84 2198 2224 "TestDec.ml" 84 2198 2229
+type(
+  poly
+)
+ident(
+  int_ref poly2 "TestDec.ml" 81 2074 2080 "TestDec.ml" 81 2074 2085
+)
+"TestDec.ml" 84 2198 2207 "TestDec.ml" 84 2198 2229
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 84 2198 2230 "TestDec.ml" 84 2198 2231
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 85 2232 2239 "TestDec.ml" 85 2232 2244
+type(
+  secret
+)
+"TestDec.ml" 85 2232 2246 "TestDec.ml" 85 2232 2251
+type(
+  secret
+)
+"TestDec.ml" 85 2232 2254 "TestDec.ml" 85 2232 2259
+type(
+  secret
+)
+"TestDec.ml" 85 2232 2263 "TestDec.ml" 85 2232 2267
+type(
+  secret
+)
+"TestDec.ml" 85 2232 2262 "TestDec.ml" 85 2232 2268
+type(
+  secret list
+)
+"TestDec.ml" 85 2232 2253 "TestDec.ml" 85 2232 2268
+type(
+  secret list
+)
+"TestDec.ml" 85 2232 2246 "TestDec.ml" 85 2232 2268
+type(
+  secret list
+)
+"TestDec.ml" 85 2232 2239 "TestDec.ml" 85 2232 2268
+type(
+  poly
+)
+"TestDec.ml" 85 2232 2238 "TestDec.ml" 85 2232 2269
+type(
+  secret list
+)
+"TestDec.ml" 84 2198 2207 "TestDec.ml" 85 2232 2269
+type(
+  bool
+)
+"TestDec.ml" 84 2198 2200 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 82 2118 2120 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 81 2074 2076 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 79 2001 2003 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 78 1982 1984 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 76 1914 1916 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 75 1879 1881 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 74 1863 1865 "TestDec.ml" 85 2232 2270
+type(
+  unit
+)
+"TestDec.ml" 73 1835 1858 "TestDec.ml" 85 2232 2270
+type(
+  unit -> unit
+)
+"TestDec.ml" 88 2275 2279 "TestDec.ml" 88 2275 2302
+type(
+  unit -> unit
+)
+ident(
+  def test_gen_lagrange_denom "TestDec.ml" 95 2487 2487 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 88 2275 2303 "TestDec.ml" 88 2275 2305
+type(
+  unit
+)
+"TestDec.ml" 89 2308 2314 "TestDec.ml" 89 2308 2318
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 90 2358 2360 "TestDec.ml" 92 2443 2482
+)
+"TestDec.ml" 89 2308 2323 "TestDec.ml" 89 2308 2324
+type(
+  secret
+)
+"TestDec.ml" 89 2308 2326 "TestDec.ml" 89 2308 2330
+type(
+  secret
+)
+"TestDec.ml" 89 2308 2323 "TestDec.ml" 89 2308 2330
+type(
+  secret * secret
+)
+"TestDec.ml" 89 2308 2334 "TestDec.ml" 89 2308 2335
+type(
+  secret
+)
+"TestDec.ml" 89 2308 2337 "TestDec.ml" 89 2308 2341
+type(
+  secret
+)
+"TestDec.ml" 89 2308 2334 "TestDec.ml" 89 2308 2341
+type(
+  secret * secret
+)
+"TestDec.ml" 89 2308 2345 "TestDec.ml" 89 2308 2346
+type(
+  secret
+)
+"TestDec.ml" 89 2308 2348 "TestDec.ml" 89 2308 2352
+type(
+  secret
+)
+"TestDec.ml" 89 2308 2345 "TestDec.ml" 89 2308 2352
+type(
+  secret * secret
+)
+"TestDec.ml" 89 2308 2344 "TestDec.ml" 89 2308 2353
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 89 2308 2333 "TestDec.ml" 89 2308 2353
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 89 2308 2322 "TestDec.ml" 89 2308 2353
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 89 2308 2321 "TestDec.ml" 89 2308 2354
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 90 2358 2367 "TestDec.ml" 90 2358 2385
+type(
+  secret -> key list -> secret
+)
+ident(
+  ext_ref gen_lagrange_denom
+)
+"TestDec.ml" 90 2358 2386 "TestDec.ml" 90 2358 2387
+type(
+  secret
+)
+"TestDec.ml" 90 2358 2388 "TestDec.ml" 90 2358 2392
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 89 2308 2314 "TestDec.ml" 89 2308 2318
+)
+"TestDec.ml" 90 2358 2367 "TestDec.ml" 90 2358 2392
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 90 2358 2393 "TestDec.ml" 90 2358 2394
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 90 2358 2395 "TestDec.ml" 90 2358 2396
+type(
+  secret
+)
+"TestDec.ml" 90 2358 2367 "TestDec.ml" 90 2358 2396
+type(
+  bool
+)
+"TestDec.ml" 90 2358 2360 "TestDec.ml" 90 2358 2397
+type(
+  unit
+)
+"TestDec.ml" 91 2399 2408 "TestDec.ml" 91 2399 2426
+type(
+  secret -> key list -> secret
+)
+ident(
+  ext_ref gen_lagrange_denom
+)
+"TestDec.ml" 91 2399 2427 "TestDec.ml" 91 2399 2428
+type(
+  secret
+)
+"TestDec.ml" 91 2399 2429 "TestDec.ml" 91 2399 2433
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 89 2308 2314 "TestDec.ml" 89 2308 2318
+)
+"TestDec.ml" 91 2399 2408 "TestDec.ml" 91 2399 2433
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 91 2399 2434 "TestDec.ml" 91 2399 2435
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 91 2399 2437 "TestDec.ml" 91 2399 2439
+type(
+  secret
+)
+"TestDec.ml" 91 2399 2408 "TestDec.ml" 91 2399 2440
+type(
+  bool
+)
+"TestDec.ml" 91 2399 2401 "TestDec.ml" 91 2399 2441
+type(
+  unit
+)
+"TestDec.ml" 92 2443 2452 "TestDec.ml" 92 2443 2470
+type(
+  secret -> key list -> secret
+)
+ident(
+  ext_ref gen_lagrange_denom
+)
+"TestDec.ml" 92 2443 2471 "TestDec.ml" 92 2443 2472
+type(
+  secret
+)
+"TestDec.ml" 92 2443 2473 "TestDec.ml" 92 2443 2477
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 89 2308 2314 "TestDec.ml" 89 2308 2318
+)
+"TestDec.ml" 92 2443 2452 "TestDec.ml" 92 2443 2477
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 92 2443 2478 "TestDec.ml" 92 2443 2479
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 92 2443 2480 "TestDec.ml" 92 2443 2481
+type(
+  secret
+)
+"TestDec.ml" 92 2443 2452 "TestDec.ml" 92 2443 2481
+type(
+  bool
+)
+"TestDec.ml" 92 2443 2445 "TestDec.ml" 92 2443 2482
+type(
+  unit
+)
+"TestDec.ml" 91 2399 2401 "TestDec.ml" 92 2443 2482
+type(
+  unit
+)
+"TestDec.ml" 90 2358 2360 "TestDec.ml" 92 2443 2482
+type(
+  unit
+)
+"TestDec.ml" 89 2308 2310 "TestDec.ml" 92 2443 2482
+type(
+  unit
+)
+"TestDec.ml" 88 2275 2303 "TestDec.ml" 92 2443 2482
+type(
+  unit -> unit
+)
+"TestDec.ml" 95 2487 2491 "TestDec.ml" 95 2487 2512
+type(
+  unit -> unit
+)
+ident(
+  def test_gen_lagrange_num "TestDec.ml" 102 2723 2723 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 95 2487 2513 "TestDec.ml" 95 2487 2515
+type(
+  unit
+)
+"TestDec.ml" 96 2518 2524 "TestDec.ml" 96 2518 2528
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 97 2568 2570 "TestDec.ml" 99 2670 2718
+)
+"TestDec.ml" 96 2518 2533 "TestDec.ml" 96 2518 2534
+type(
+  secret
+)
+"TestDec.ml" 96 2518 2536 "TestDec.ml" 96 2518 2540
+type(
+  secret
+)
+"TestDec.ml" 96 2518 2533 "TestDec.ml" 96 2518 2540
+type(
+  secret * secret
+)
+"TestDec.ml" 96 2518 2544 "TestDec.ml" 96 2518 2545
+type(
+  secret
+)
+"TestDec.ml" 96 2518 2547 "TestDec.ml" 96 2518 2551
+type(
+  secret
+)
+"TestDec.ml" 96 2518 2544 "TestDec.ml" 96 2518 2551
+type(
+  secret * secret
+)
+"TestDec.ml" 96 2518 2555 "TestDec.ml" 96 2518 2556
+type(
+  secret
+)
+"TestDec.ml" 96 2518 2558 "TestDec.ml" 96 2518 2562
+type(
+  secret
+)
+"TestDec.ml" 96 2518 2555 "TestDec.ml" 96 2518 2562
+type(
+  secret * secret
+)
+"TestDec.ml" 96 2518 2554 "TestDec.ml" 96 2518 2563
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 96 2518 2543 "TestDec.ml" 96 2518 2563
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 96 2518 2532 "TestDec.ml" 96 2518 2563
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 96 2518 2531 "TestDec.ml" 96 2518 2564
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 97 2568 2577 "TestDec.ml" 97 2568 2593
+type(
+  secret -> key list -> poly
+)
+ident(
+  ext_ref gen_lagrange_num
+)
+"TestDec.ml" 97 2568 2594 "TestDec.ml" 97 2568 2595
+type(
+  secret
+)
+"TestDec.ml" 97 2568 2596 "TestDec.ml" 97 2568 2600
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 96 2518 2524 "TestDec.ml" 96 2518 2528
+)
+"TestDec.ml" 97 2568 2577 "TestDec.ml" 97 2568 2600
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 97 2568 2601 "TestDec.ml" 97 2568 2602
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 97 2568 2604 "TestDec.ml" 97 2568 2606
+type(
+  secret
+)
+"TestDec.ml" 97 2568 2609 "TestDec.ml" 97 2568 2611
+type(
+  secret
+)
+"TestDec.ml" 97 2568 2614 "TestDec.ml" 97 2568 2615
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 97 2568 2608 "TestDec.ml" 97 2568 2615
+type(
+  secret list
+)
+"TestDec.ml" 97 2568 2604 "TestDec.ml" 97 2568 2615
+type(
+  poly
+)
+"TestDec.ml" 97 2568 2603 "TestDec.ml" 97 2568 2616
+type(
+  secret list
+)
+"TestDec.ml" 97 2568 2577 "TestDec.ml" 97 2568 2616
+type(
+  bool
+)
+"TestDec.ml" 97 2568 2570 "TestDec.ml" 97 2568 2617
+type(
+  unit
+)
+"TestDec.ml" 98 2619 2628 "TestDec.ml" 98 2619 2644
+type(
+  secret -> key list -> poly
+)
+ident(
+  ext_ref gen_lagrange_num
+)
+"TestDec.ml" 98 2619 2645 "TestDec.ml" 98 2619 2646
+type(
+  secret
+)
+"TestDec.ml" 98 2619 2647 "TestDec.ml" 98 2619 2651
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 96 2518 2524 "TestDec.ml" 96 2518 2528
+)
+"TestDec.ml" 98 2619 2628 "TestDec.ml" 98 2619 2651
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 98 2619 2652 "TestDec.ml" 98 2619 2653
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 98 2619 2655 "TestDec.ml" 98 2619 2657
+type(
+  secret
+)
+"TestDec.ml" 98 2619 2660 "TestDec.ml" 98 2619 2662
+type(
+  secret
+)
+"TestDec.ml" 98 2619 2665 "TestDec.ml" 98 2619 2666
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 98 2619 2659 "TestDec.ml" 98 2619 2666
+type(
+  secret list
+)
+"TestDec.ml" 98 2619 2655 "TestDec.ml" 98 2619 2666
+type(
+  poly
+)
+"TestDec.ml" 98 2619 2654 "TestDec.ml" 98 2619 2667
+type(
+  secret list
+)
+"TestDec.ml" 98 2619 2628 "TestDec.ml" 98 2619 2667
+type(
+  bool
+)
+"TestDec.ml" 98 2619 2621 "TestDec.ml" 98 2619 2668
+type(
+  unit
+)
+"TestDec.ml" 99 2670 2679 "TestDec.ml" 99 2670 2695
+type(
+  secret -> key list -> poly
+)
+ident(
+  ext_ref gen_lagrange_num
+)
+"TestDec.ml" 99 2670 2696 "TestDec.ml" 99 2670 2697
+type(
+  secret
+)
+"TestDec.ml" 99 2670 2698 "TestDec.ml" 99 2670 2702
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 96 2518 2524 "TestDec.ml" 96 2518 2528
+)
+"TestDec.ml" 99 2670 2679 "TestDec.ml" 99 2670 2702
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 99 2670 2703 "TestDec.ml" 99 2670 2704
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 99 2670 2706 "TestDec.ml" 99 2670 2707
+type(
+  secret
+)
+"TestDec.ml" 99 2670 2710 "TestDec.ml" 99 2670 2712
+type(
+  secret
+)
+"TestDec.ml" 99 2670 2715 "TestDec.ml" 99 2670 2716
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 99 2670 2709 "TestDec.ml" 99 2670 2716
+type(
+  secret list
+)
+"TestDec.ml" 99 2670 2706 "TestDec.ml" 99 2670 2716
+type(
+  poly
+)
+"TestDec.ml" 99 2670 2705 "TestDec.ml" 99 2670 2717
+type(
+  secret list
+)
+"TestDec.ml" 99 2670 2679 "TestDec.ml" 99 2670 2717
+type(
+  bool
+)
+"TestDec.ml" 99 2670 2672 "TestDec.ml" 99 2670 2718
+type(
+  unit
+)
+"TestDec.ml" 98 2619 2621 "TestDec.ml" 99 2670 2718
+type(
+  unit
+)
+"TestDec.ml" 97 2568 2570 "TestDec.ml" 99 2670 2718
+type(
+  unit
+)
+"TestDec.ml" 96 2518 2520 "TestDec.ml" 99 2670 2718
+type(
+  unit
+)
+"TestDec.ml" 95 2487 2513 "TestDec.ml" 99 2670 2718
+type(
+  unit -> unit
+)
+"TestDec.ml" 102 2723 2727 "TestDec.ml" 102 2723 2749
+type(
+  unit -> unit
+)
+ident(
+  def test_gen_lagrange_poly "TestDec.ml" 115 3071 3071 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 102 2723 2750 "TestDec.ml" 102 2723 2752
+type(
+  unit
+)
+"TestDec.ml" 103 2755 2761 "TestDec.ml" 103 2755 2765
+type(
+  secret * secret
+)
+ident(
+  def key1 "TestDec.ml" 104 2781 2783 "TestDec.ml" 112 3042 3066
+)
+"TestDec.ml" 103 2755 2769 "TestDec.ml" 103 2755 2770
+type(
+  secret
+)
+"TestDec.ml" 103 2755 2772 "TestDec.ml" 103 2755 2776
+type(
+  secret
+)
+"TestDec.ml" 103 2755 2769 "TestDec.ml" 103 2755 2776
+type(
+  secret * secret
+)
+"TestDec.ml" 104 2781 2787 "TestDec.ml" 104 2781 2791
+type(
+  secret * secret
+)
+ident(
+  def key2 "TestDec.ml" 105 2807 2809 "TestDec.ml" 112 3042 3066
+)
+"TestDec.ml" 104 2781 2795 "TestDec.ml" 104 2781 2796
+type(
+  secret
+)
+"TestDec.ml" 104 2781 2798 "TestDec.ml" 104 2781 2802
+type(
+  secret
+)
+"TestDec.ml" 104 2781 2795 "TestDec.ml" 104 2781 2802
+type(
+  secret * secret
+)
+"TestDec.ml" 105 2807 2813 "TestDec.ml" 105 2807 2817
+type(
+  secret * secret
+)
+ident(
+  def key3 "TestDec.ml" 106 2833 2835 "TestDec.ml" 112 3042 3066
+)
+"TestDec.ml" 105 2807 2821 "TestDec.ml" 105 2807 2822
+type(
+  secret
+)
+"TestDec.ml" 105 2807 2824 "TestDec.ml" 105 2807 2828
+type(
+  secret
+)
+"TestDec.ml" 105 2807 2821 "TestDec.ml" 105 2807 2828
+type(
+  secret * secret
+)
+"TestDec.ml" 106 2833 2839 "TestDec.ml" 106 2833 2843
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 107 2868 2870 "TestDec.ml" 112 3042 3066
+)
+"TestDec.ml" 106 2833 2847 "TestDec.ml" 106 2833 2851
+type(
+  secret * secret
+)
+ident(
+  int_ref key1 "TestDec.ml" 103 2755 2761 "TestDec.ml" 103 2755 2765
+)
+"TestDec.ml" 106 2833 2853 "TestDec.ml" 106 2833 2857
+type(
+  secret * secret
+)
+ident(
+  int_ref key2 "TestDec.ml" 104 2781 2787 "TestDec.ml" 104 2781 2791
+)
+"TestDec.ml" 106 2833 2859 "TestDec.ml" 106 2833 2863
+type(
+  secret * secret
+)
+ident(
+  int_ref key3 "TestDec.ml" 105 2807 2813 "TestDec.ml" 105 2807 2817
+)
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 106 2833 2853 "TestDec.ml" 106 2833 2863
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 106 2833 2847 "TestDec.ml" 106 2833 2863
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 106 2833 2846 "TestDec.ml" 106 2833 2864
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 107 2868 2877 "TestDec.ml" 107 2868 2894
+type(
+  key -> key list -> lagrange_poly
+)
+ident(
+  ext_ref gen_lagrange_poly
+)
+"TestDec.ml" 107 2868 2895 "TestDec.ml" 107 2868 2899
+type(
+  key
+)
+ident(
+  int_ref key1 "TestDec.ml" 103 2755 2761 "TestDec.ml" 103 2755 2765
+)
+"TestDec.ml" 107 2868 2900 "TestDec.ml" 107 2868 2904
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 106 2833 2839 "TestDec.ml" 106 2833 2843
+)
+"TestDec.ml" 107 2868 2877 "TestDec.ml" 107 2868 2904
+call(
+  stack
+)
+type(
+  lagrange_poly
+)
+"TestDec.ml" 107 2868 2905 "TestDec.ml" 107 2868 2906
+type(
+  lagrange_poly -> lagrange_poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 108 2907 2914 "TestDec.ml" 108 2907 2915
+type(
+  secret
+)
+"TestDec.ml" 108 2907 2918 "TestDec.ml" 108 2907 2920
+type(
+  secret
+)
+"TestDec.ml" 108 2907 2923 "TestDec.ml" 108 2907 2925
+type(
+  secret
+)
+"TestDec.ml" 108 2907 2928 "TestDec.ml" 108 2907 2929
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 108 2907 2922 "TestDec.ml" 108 2907 2929
+type(
+  secret list
+)
+"TestDec.ml" 108 2907 2918 "TestDec.ml" 108 2907 2929
+type(
+  poly
+)
+"TestDec.ml" 108 2907 2917 "TestDec.ml" 108 2907 2930
+type(
+  secret list
+)
+"TestDec.ml" 108 2907 2914 "TestDec.ml" 108 2907 2930
+type(
+  lagrange_poly
+)
+"TestDec.ml" 107 2868 2877 "TestDec.ml" 108 2907 2931
+type(
+  bool
+)
+"TestDec.ml" 107 2868 2870 "TestDec.ml" 108 2907 2932
+type(
+  unit
+)
+"TestDec.ml" 109 2934 2943 "TestDec.ml" 109 2934 2960
+type(
+  key -> key list -> lagrange_poly
+)
+ident(
+  ext_ref gen_lagrange_poly
+)
+"TestDec.ml" 109 2934 2961 "TestDec.ml" 109 2934 2965
+type(
+  key
+)
+ident(
+  int_ref key2 "TestDec.ml" 104 2781 2787 "TestDec.ml" 104 2781 2791
+)
+"TestDec.ml" 109 2934 2966 "TestDec.ml" 109 2934 2970
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 106 2833 2839 "TestDec.ml" 106 2833 2843
+)
+"TestDec.ml" 109 2934 2943 "TestDec.ml" 109 2934 2970
+call(
+  stack
+)
+type(
+  lagrange_poly
+)
+"TestDec.ml" 109 2934 2971 "TestDec.ml" 109 2934 2972
+type(
+  lagrange_poly -> lagrange_poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 110 2973 2981 "TestDec.ml" 110 2973 2983
+type(
+  secret
+)
+"TestDec.ml" 110 2973 2987 "TestDec.ml" 110 2973 2989
+type(
+  secret
+)
+"TestDec.ml" 110 2973 2992 "TestDec.ml" 110 2973 2994
+type(
+  secret
+)
+"TestDec.ml" 110 2973 2997 "TestDec.ml" 110 2973 2998
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 110 2973 2991 "TestDec.ml" 110 2973 2998
+type(
+  secret list
+)
+"TestDec.ml" 110 2973 2987 "TestDec.ml" 110 2973 2998
+type(
+  poly
+)
+"TestDec.ml" 110 2973 2986 "TestDec.ml" 110 2973 2999
+type(
+  secret list
+)
+"TestDec.ml" 110 2973 2980 "TestDec.ml" 110 2973 2999
+type(
+  lagrange_poly
+)
+"TestDec.ml" 109 2934 2943 "TestDec.ml" 110 2973 3000
+type(
+  bool
+)
+"TestDec.ml" 109 2934 2936 "TestDec.ml" 110 2973 3001
+type(
+  unit
+)
+"TestDec.ml" 111 3003 3012 "TestDec.ml" 111 3003 3029
+type(
+  key -> key list -> lagrange_poly
+)
+ident(
+  ext_ref gen_lagrange_poly
+)
+"TestDec.ml" 111 3003 3030 "TestDec.ml" 111 3003 3034
+type(
+  key
+)
+ident(
+  int_ref key3 "TestDec.ml" 105 2807 2813 "TestDec.ml" 105 2807 2817
+)
+"TestDec.ml" 111 3003 3035 "TestDec.ml" 111 3003 3039
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 106 2833 2839 "TestDec.ml" 106 2833 2843
+)
+"TestDec.ml" 111 3003 3012 "TestDec.ml" 111 3003 3039
+call(
+  stack
+)
+type(
+  lagrange_poly
+)
+"TestDec.ml" 111 3003 3040 "TestDec.ml" 111 3003 3041
+type(
+  lagrange_poly -> lagrange_poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 112 3042 3049 "TestDec.ml" 112 3042 3050
+type(
+  secret
+)
+"TestDec.ml" 112 3042 3053 "TestDec.ml" 112 3042 3054
+type(
+  secret
+)
+"TestDec.ml" 112 3042 3057 "TestDec.ml" 112 3042 3059
+type(
+  secret
+)
+"TestDec.ml" 112 3042 3062 "TestDec.ml" 112 3042 3063
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 112 3042 3056 "TestDec.ml" 112 3042 3063
+type(
+  secret list
+)
+"TestDec.ml" 112 3042 3053 "TestDec.ml" 112 3042 3063
+type(
+  poly
+)
+"TestDec.ml" 112 3042 3052 "TestDec.ml" 112 3042 3064
+type(
+  secret list
+)
+"TestDec.ml" 112 3042 3049 "TestDec.ml" 112 3042 3064
+type(
+  lagrange_poly
+)
+"TestDec.ml" 111 3003 3012 "TestDec.ml" 112 3042 3065
+type(
+  bool
+)
+"TestDec.ml" 111 3003 3005 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 109 2934 2936 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 107 2868 2870 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 106 2833 2835 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 105 2807 2809 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 104 2781 2783 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 103 2755 2757 "TestDec.ml" 112 3042 3066
+type(
+  unit
+)
+"TestDec.ml" 102 2723 2750 "TestDec.ml" 112 3042 3066
+type(
+  unit -> unit
+)
+"TestDec.ml" 115 3071 3075 "TestDec.ml" 115 3071 3097
+type(
+  unit -> unit
+)
+ident(
+  def test_gen_lag_poly_list "TestDec.ml" 126 3339 3339 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 115 3071 3098 "TestDec.ml" 115 3071 3100
+type(
+  unit
+)
+"TestDec.ml" 116 3103 3109 "TestDec.ml" 116 3103 3113
+type(
+  secret * secret
+)
+ident(
+  def key1 "TestDec.ml" 117 3129 3131 "TestDec.ml" 123 3307 3334
+)
+"TestDec.ml" 116 3103 3117 "TestDec.ml" 116 3103 3118
+type(
+  secret
+)
+"TestDec.ml" 116 3103 3120 "TestDec.ml" 116 3103 3124
+type(
+  secret
+)
+"TestDec.ml" 116 3103 3117 "TestDec.ml" 116 3103 3124
+type(
+  secret * secret
+)
+"TestDec.ml" 117 3129 3135 "TestDec.ml" 117 3129 3139
+type(
+  secret * secret
+)
+ident(
+  def key2 "TestDec.ml" 118 3155 3157 "TestDec.ml" 123 3307 3334
+)
+"TestDec.ml" 117 3129 3143 "TestDec.ml" 117 3129 3144
+type(
+  secret
+)
+"TestDec.ml" 117 3129 3146 "TestDec.ml" 117 3129 3150
+type(
+  secret
+)
+"TestDec.ml" 117 3129 3143 "TestDec.ml" 117 3129 3150
+type(
+  secret * secret
+)
+"TestDec.ml" 118 3155 3161 "TestDec.ml" 118 3155 3165
+type(
+  secret * secret
+)
+ident(
+  def key3 "TestDec.ml" 119 3181 3183 "TestDec.ml" 123 3307 3334
+)
+"TestDec.ml" 118 3155 3169 "TestDec.ml" 118 3155 3170
+type(
+  secret
+)
+"TestDec.ml" 118 3155 3172 "TestDec.ml" 118 3155 3176
+type(
+  secret
+)
+"TestDec.ml" 118 3155 3169 "TestDec.ml" 118 3155 3176
+type(
+  secret * secret
+)
+"TestDec.ml" 119 3181 3187 "TestDec.ml" 119 3181 3191
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 120 3216 3218 "TestDec.ml" 123 3307 3334
+)
+"TestDec.ml" 119 3181 3195 "TestDec.ml" 119 3181 3199
+type(
+  secret * secret
+)
+ident(
+  int_ref key1 "TestDec.ml" 116 3103 3109 "TestDec.ml" 116 3103 3113
+)
+"TestDec.ml" 119 3181 3201 "TestDec.ml" 119 3181 3205
+type(
+  secret * secret
+)
+ident(
+  int_ref key2 "TestDec.ml" 117 3129 3135 "TestDec.ml" 117 3129 3139
+)
+"TestDec.ml" 119 3181 3207 "TestDec.ml" 119 3181 3211
+type(
+  secret * secret
+)
+ident(
+  int_ref key3 "TestDec.ml" 118 3155 3161 "TestDec.ml" 118 3155 3165
+)
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 119 3181 3201 "TestDec.ml" 119 3181 3211
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 119 3181 3195 "TestDec.ml" 119 3181 3211
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 119 3181 3194 "TestDec.ml" 119 3181 3212
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 120 3216 3225 "TestDec.ml" 120 3216 3242
+type(
+  key list -> lagrange_poly list
+)
+ident(
+  ext_ref gen_lag_poly_list
+)
+"TestDec.ml" 120 3216 3243 "TestDec.ml" 120 3216 3247
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 119 3181 3187 "TestDec.ml" 119 3181 3191
+)
+"TestDec.ml" 120 3216 3225 "TestDec.ml" 120 3216 3247
+call(
+  stack
+)
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 120 3216 3248 "TestDec.ml" 120 3216 3249
+type(
+  lagrange_poly list -> lagrange_poly list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 121 3250 3258 "TestDec.ml" 121 3250 3259
+type(
+  secret
+)
+"TestDec.ml" 121 3250 3262 "TestDec.ml" 121 3250 3264
+type(
+  secret
+)
+"TestDec.ml" 121 3250 3267 "TestDec.ml" 121 3250 3269
+type(
+  secret
+)
+"TestDec.ml" 121 3250 3272 "TestDec.ml" 121 3250 3273
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 121 3250 3266 "TestDec.ml" 121 3250 3273
+type(
+  secret list
+)
+"TestDec.ml" 121 3250 3262 "TestDec.ml" 121 3250 3273
+type(
+  poly
+)
+"TestDec.ml" 121 3250 3261 "TestDec.ml" 121 3250 3274
+type(
+  secret list
+)
+"TestDec.ml" 121 3250 3258 "TestDec.ml" 121 3250 3274
+type(
+  lagrange_poly
+)
+"TestDec.ml" 122 3277 3286 "TestDec.ml" 122 3277 3288
+type(
+  secret
+)
+"TestDec.ml" 122 3277 3292 "TestDec.ml" 122 3277 3294
+type(
+  secret
+)
+"TestDec.ml" 122 3277 3297 "TestDec.ml" 122 3277 3299
+type(
+  secret
+)
+"TestDec.ml" 122 3277 3302 "TestDec.ml" 122 3277 3303
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 122 3277 3296 "TestDec.ml" 122 3277 3303
+type(
+  secret list
+)
+"TestDec.ml" 122 3277 3292 "TestDec.ml" 122 3277 3303
+type(
+  poly
+)
+"TestDec.ml" 122 3277 3291 "TestDec.ml" 122 3277 3304
+type(
+  secret list
+)
+"TestDec.ml" 122 3277 3285 "TestDec.ml" 122 3277 3304
+type(
+  lagrange_poly
+)
+"TestDec.ml" 123 3307 3315 "TestDec.ml" 123 3307 3316
+type(
+  secret
+)
+"TestDec.ml" 123 3307 3319 "TestDec.ml" 123 3307 3320
+type(
+  secret
+)
+"TestDec.ml" 123 3307 3323 "TestDec.ml" 123 3307 3325
+type(
+  secret
+)
+"TestDec.ml" 123 3307 3328 "TestDec.ml" 123 3307 3329
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 123 3307 3322 "TestDec.ml" 123 3307 3329
+type(
+  secret list
+)
+"TestDec.ml" 123 3307 3319 "TestDec.ml" 123 3307 3329
+type(
+  poly
+)
+"TestDec.ml" 123 3307 3318 "TestDec.ml" 123 3307 3330
+type(
+  secret list
+)
+"TestDec.ml" 123 3307 3315 "TestDec.ml" 123 3307 3330
+type(
+  lagrange_poly
+)
+"TestDec.ml" 123 3307 3314 "TestDec.ml" 123 3307 3331
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 122 3277 3284 "TestDec.ml" 123 3307 3331
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 121 3250 3257 "TestDec.ml" 123 3307 3331
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 121 3250 3256 "TestDec.ml" 123 3307 3333
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 120 3216 3225 "TestDec.ml" 123 3307 3333
+type(
+  bool
+)
+"TestDec.ml" 120 3216 3218 "TestDec.ml" 123 3307 3334
+type(
+  unit
+)
+"TestDec.ml" 119 3181 3183 "TestDec.ml" 123 3307 3334
+type(
+  unit
+)
+"TestDec.ml" 118 3155 3157 "TestDec.ml" 123 3307 3334
+type(
+  unit
+)
+"TestDec.ml" 117 3129 3131 "TestDec.ml" 123 3307 3334
+type(
+  unit
+)
+"TestDec.ml" 116 3103 3105 "TestDec.ml" 123 3307 3334
+type(
+  unit
+)
+"TestDec.ml" 115 3071 3098 "TestDec.ml" 123 3307 3334
+type(
+  unit -> unit
+)
+"TestDec.ml" 126 3339 3343 "TestDec.ml" 126 3339 3361
+type(
+  unit -> unit
+)
+ident(
+  def test_remove_denoms "TestDec.ml" 134 3554 3554 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 126 3339 3362 "TestDec.ml" 126 3339 3364
+type(
+  unit
+)
+"TestDec.ml" 127 3367 3373 "TestDec.ml" 127 3367 3377
+type(
+  secret * secret list
+)
+ident(
+  def lag1 "TestDec.ml" 128 3402 3404 "TestDec.ml" 131 3509 3549
+)
+"TestDec.ml" 127 3367 3381 "TestDec.ml" 127 3367 3382
+type(
+  secret
+)
+"TestDec.ml" 127 3367 3385 "TestDec.ml" 127 3367 3387
+type(
+  secret
+)
+"TestDec.ml" 127 3367 3390 "TestDec.ml" 127 3367 3392
+type(
+  secret
+)
+"TestDec.ml" 127 3367 3395 "TestDec.ml" 127 3367 3396
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 127 3367 3389 "TestDec.ml" 127 3367 3396
+type(
+  secret list
+)
+"TestDec.ml" 127 3367 3385 "TestDec.ml" 127 3367 3396
+type(
+  secret list
+)
+"TestDec.ml" 127 3367 3384 "TestDec.ml" 127 3367 3397
+type(
+  secret list
+)
+"TestDec.ml" 127 3367 3381 "TestDec.ml" 127 3367 3397
+type(
+  secret * secret list
+)
+"TestDec.ml" 128 3402 3408 "TestDec.ml" 128 3402 3412
+type(
+  secret * secret list
+)
+ident(
+  def lag2 "TestDec.ml" 129 3440 3442 "TestDec.ml" 131 3509 3549
+)
+"TestDec.ml" 128 3402 3417 "TestDec.ml" 128 3402 3419
+type(
+  secret
+)
+"TestDec.ml" 128 3402 3423 "TestDec.ml" 128 3402 3425
+type(
+  secret
+)
+"TestDec.ml" 128 3402 3428 "TestDec.ml" 128 3402 3430
+type(
+  secret
+)
+"TestDec.ml" 128 3402 3433 "TestDec.ml" 128 3402 3434
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 128 3402 3427 "TestDec.ml" 128 3402 3434
+type(
+  secret list
+)
+"TestDec.ml" 128 3402 3423 "TestDec.ml" 128 3402 3434
+type(
+  secret list
+)
+"TestDec.ml" 128 3402 3422 "TestDec.ml" 128 3402 3435
+type(
+  secret list
+)
+"TestDec.ml" 128 3402 3416 "TestDec.ml" 128 3402 3435
+type(
+  secret * secret list
+)
+"TestDec.ml" 129 3440 3446 "TestDec.ml" 129 3440 3450
+type(
+  secret * secret list
+)
+ident(
+  def lag3 "TestDec.ml" 130 3474 3476 "TestDec.ml" 131 3509 3549
+)
+"TestDec.ml" 129 3440 3454 "TestDec.ml" 129 3440 3455
+type(
+  secret
+)
+"TestDec.ml" 129 3440 3458 "TestDec.ml" 129 3440 3459
+type(
+  secret
+)
+"TestDec.ml" 129 3440 3462 "TestDec.ml" 129 3440 3464
+type(
+  secret
+)
+"TestDec.ml" 129 3440 3467 "TestDec.ml" 129 3440 3468
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 129 3440 3461 "TestDec.ml" 129 3440 3468
+type(
+  secret list
+)
+"TestDec.ml" 129 3440 3458 "TestDec.ml" 129 3440 3468
+type(
+  secret list
+)
+"TestDec.ml" 129 3440 3457 "TestDec.ml" 129 3440 3469
+type(
+  secret list
+)
+"TestDec.ml" 129 3440 3454 "TestDec.ml" 129 3440 3469
+type(
+  secret * secret list
+)
+"TestDec.ml" 130 3474 3480 "TestDec.ml" 130 3474 3484
+type(
+  (secret * secret list) list
+)
+ident(
+  def lags "TestDec.ml" 131 3509 3511 "TestDec.ml" 131 3509 3549
+)
+"TestDec.ml" 130 3474 3488 "TestDec.ml" 130 3474 3492
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag1 "TestDec.ml" 127 3367 3373 "TestDec.ml" 127 3367 3377
+)
+"TestDec.ml" 130 3474 3494 "TestDec.ml" 130 3474 3498
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag2 "TestDec.ml" 128 3402 3408 "TestDec.ml" 128 3402 3412
+)
+"TestDec.ml" 130 3474 3500 "TestDec.ml" 130 3474 3504
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag3 "TestDec.ml" 129 3440 3446 "TestDec.ml" 129 3440 3450
+)
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 130 3474 3494 "TestDec.ml" 130 3474 3504
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 130 3474 3488 "TestDec.ml" 130 3474 3504
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 130 3474 3487 "TestDec.ml" 130 3474 3505
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 131 3509 3518 "TestDec.ml" 131 3509 3531
+type(
+  lagrange_poly list -> secret list
+)
+ident(
+  ext_ref remove_denoms
+)
+"TestDec.ml" 131 3509 3532 "TestDec.ml" 131 3509 3536
+type(
+  lagrange_poly list
+)
+ident(
+  int_ref lags "TestDec.ml" 130 3474 3480 "TestDec.ml" 130 3474 3484
+)
+"TestDec.ml" 131 3509 3518 "TestDec.ml" 131 3509 3536
+call(
+  stack
+)
+type(
+  secret list
+)
+"TestDec.ml" 131 3509 3537 "TestDec.ml" 131 3509 3538
+type(
+  secret list -> secret list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 131 3509 3540 "TestDec.ml" 131 3509 3541
+type(
+  secret
+)
+"TestDec.ml" 131 3509 3543 "TestDec.ml" 131 3509 3544
+type(
+  secret
+)
+"TestDec.ml" 131 3509 3546 "TestDec.ml" 131 3509 3547
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 131 3509 3543 "TestDec.ml" 131 3509 3547
+type(
+  secret list
+)
+"TestDec.ml" 131 3509 3540 "TestDec.ml" 131 3509 3547
+type(
+  secret list
+)
+"TestDec.ml" 131 3509 3539 "TestDec.ml" 131 3509 3548
+type(
+  secret list
+)
+"TestDec.ml" 131 3509 3518 "TestDec.ml" 131 3509 3548
+type(
+  bool
+)
+"TestDec.ml" 131 3509 3511 "TestDec.ml" 131 3509 3549
+type(
+  unit
+)
+"TestDec.ml" 130 3474 3476 "TestDec.ml" 131 3509 3549
+type(
+  unit
+)
+"TestDec.ml" 129 3440 3442 "TestDec.ml" 131 3509 3549
+type(
+  unit
+)
+"TestDec.ml" 128 3402 3404 "TestDec.ml" 131 3509 3549
+type(
+  unit
+)
+"TestDec.ml" 127 3367 3369 "TestDec.ml" 131 3509 3549
+type(
+  unit
+)
+"TestDec.ml" 126 3339 3362 "TestDec.ml" 131 3509 3549
+type(
+  unit -> unit
+)
+"TestDec.ml" 134 3554 3558 "TestDec.ml" 134 3554 3575
+type(
+  unit -> unit
+)
+ident(
+  def test_common_denom "TestDec.ml" 143 3784 3784 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 134 3554 3576 "TestDec.ml" 134 3554 3578
+type(
+  unit
+)
+"TestDec.ml" 135 3581 3587 "TestDec.ml" 135 3581 3594
+type(
+  secret list
+)
+ident(
+  def denoms1 "TestDec.ml" 136 3610 3612 "TestDec.ml" 140 3743 3779
+)
+"TestDec.ml" 135 3581 3598 "TestDec.ml" 135 3581 3599
+type(
+  secret
+)
+"TestDec.ml" 135 3581 3601 "TestDec.ml" 135 3581 3602
+type(
+  secret
+)
+"TestDec.ml" 135 3581 3604 "TestDec.ml" 135 3581 3605
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 135 3581 3601 "TestDec.ml" 135 3581 3605
+type(
+  secret list
+)
+"TestDec.ml" 135 3581 3598 "TestDec.ml" 135 3581 3605
+type(
+  secret list
+)
+"TestDec.ml" 135 3581 3597 "TestDec.ml" 135 3581 3606
+type(
+  secret list
+)
+"TestDec.ml" 136 3610 3619 "TestDec.ml" 136 3610 3631
+type(
+  secret list -> secret
+)
+ident(
+  ext_ref common_denom
+)
+"TestDec.ml" 136 3610 3632 "TestDec.ml" 136 3610 3639
+type(
+  secret list
+)
+ident(
+  int_ref denoms1 "TestDec.ml" 135 3581 3587 "TestDec.ml" 135 3581 3594
+)
+"TestDec.ml" 136 3610 3619 "TestDec.ml" 136 3610 3639
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 136 3610 3640 "TestDec.ml" 136 3610 3641
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 136 3610 3642 "TestDec.ml" 136 3610 3643
+type(
+  secret
+)
+"TestDec.ml" 136 3610 3619 "TestDec.ml" 136 3610 3643
+type(
+  bool
+)
+"TestDec.ml" 136 3610 3612 "TestDec.ml" 136 3610 3644
+type(
+  unit
+)
+"TestDec.ml" 137 3646 3652 "TestDec.ml" 137 3646 3659
+type(
+  secret list
+)
+ident(
+  def denoms2 "TestDec.ml" 138 3676 3678 "TestDec.ml" 140 3743 3779
+)
+"TestDec.ml" 137 3646 3663 "TestDec.ml" 137 3646 3665
+type(
+  secret
+)
+"TestDec.ml" 137 3646 3667 "TestDec.ml" 137 3646 3668
+type(
+  secret
+)
+"TestDec.ml" 137 3646 3670 "TestDec.ml" 137 3646 3671
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 137 3646 3667 "TestDec.ml" 137 3646 3671
+type(
+  secret list
+)
+"TestDec.ml" 137 3646 3663 "TestDec.ml" 137 3646 3671
+type(
+  secret list
+)
+"TestDec.ml" 137 3646 3662 "TestDec.ml" 137 3646 3672
+type(
+  secret list
+)
+"TestDec.ml" 138 3676 3685 "TestDec.ml" 138 3676 3697
+type(
+  secret list -> secret
+)
+ident(
+  ext_ref common_denom
+)
+"TestDec.ml" 138 3676 3698 "TestDec.ml" 138 3676 3705
+type(
+  secret list
+)
+ident(
+  int_ref denoms2 "TestDec.ml" 137 3646 3652 "TestDec.ml" 137 3646 3659
+)
+"TestDec.ml" 138 3676 3685 "TestDec.ml" 138 3676 3705
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 138 3676 3706 "TestDec.ml" 138 3676 3707
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 138 3676 3708 "TestDec.ml" 138 3676 3710
+type(
+  secret
+)
+"TestDec.ml" 138 3676 3685 "TestDec.ml" 138 3676 3710
+type(
+  bool
+)
+"TestDec.ml" 138 3676 3678 "TestDec.ml" 138 3676 3711
+type(
+  unit
+)
+"TestDec.ml" 139 3713 3719 "TestDec.ml" 139 3713 3726
+type(
+  secret list
+)
+ident(
+  def denoms3 "TestDec.ml" 140 3743 3745 "TestDec.ml" 140 3743 3779
+)
+"TestDec.ml" 139 3713 3730 "TestDec.ml" 139 3713 3731
+type(
+  secret
+)
+"TestDec.ml" 139 3713 3733 "TestDec.ml" 139 3713 3734
+type(
+  secret
+)
+"TestDec.ml" 139 3713 3736 "TestDec.ml" 139 3713 3738
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 139 3713 3733 "TestDec.ml" 139 3713 3738
+type(
+  secret list
+)
+"TestDec.ml" 139 3713 3730 "TestDec.ml" 139 3713 3738
+type(
+  secret list
+)
+"TestDec.ml" 139 3713 3729 "TestDec.ml" 139 3713 3739
+type(
+  secret list
+)
+"TestDec.ml" 140 3743 3752 "TestDec.ml" 140 3743 3764
+type(
+  secret list -> secret
+)
+ident(
+  ext_ref common_denom
+)
+"TestDec.ml" 140 3743 3765 "TestDec.ml" 140 3743 3772
+type(
+  secret list
+)
+ident(
+  int_ref denoms3 "TestDec.ml" 139 3713 3719 "TestDec.ml" 139 3713 3726
+)
+"TestDec.ml" 140 3743 3752 "TestDec.ml" 140 3743 3772
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 140 3743 3773 "TestDec.ml" 140 3743 3774
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 140 3743 3775 "TestDec.ml" 140 3743 3778
+type(
+  secret
+)
+"TestDec.ml" 140 3743 3752 "TestDec.ml" 140 3743 3778
+type(
+  bool
+)
+"TestDec.ml" 140 3743 3745 "TestDec.ml" 140 3743 3779
+type(
+  unit
+)
+"TestDec.ml" 139 3713 3715 "TestDec.ml" 140 3743 3779
+type(
+  unit
+)
+"TestDec.ml" 138 3676 3678 "TestDec.ml" 140 3743 3779
+type(
+  unit
+)
+"TestDec.ml" 137 3646 3648 "TestDec.ml" 140 3743 3779
+type(
+  unit
+)
+"TestDec.ml" 136 3610 3612 "TestDec.ml" 140 3743 3779
+type(
+  unit
+)
+"TestDec.ml" 135 3581 3583 "TestDec.ml" 140 3743 3779
+type(
+  unit
+)
+"TestDec.ml" 134 3554 3576 "TestDec.ml" 140 3743 3779
+type(
+  unit -> unit
+)
+"TestDec.ml" 143 3784 3788 "TestDec.ml" 143 3784 3807
+type(
+  unit -> unit
+)
+ident(
+  def test_scale_lag_poly "TestDec.ml" 156 4214 4214 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 143 3784 3808 "TestDec.ml" 143 3784 3810
+type(
+  unit
+)
+"TestDec.ml" 144 3813 3819 "TestDec.ml" 144 3813 3823
+type(
+  secret * secret list
+)
+ident(
+  def lag1 "TestDec.ml" 145 3848 3850 "TestDec.ml" 153 4183 4209
+)
+"TestDec.ml" 144 3813 3827 "TestDec.ml" 144 3813 3828
+type(
+  secret
+)
+"TestDec.ml" 144 3813 3831 "TestDec.ml" 144 3813 3833
+type(
+  secret
+)
+"TestDec.ml" 144 3813 3836 "TestDec.ml" 144 3813 3838
+type(
+  secret
+)
+"TestDec.ml" 144 3813 3841 "TestDec.ml" 144 3813 3842
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 144 3813 3835 "TestDec.ml" 144 3813 3842
+type(
+  secret list
+)
+"TestDec.ml" 144 3813 3831 "TestDec.ml" 144 3813 3842
+type(
+  secret list
+)
+"TestDec.ml" 144 3813 3830 "TestDec.ml" 144 3813 3843
+type(
+  secret list
+)
+"TestDec.ml" 144 3813 3827 "TestDec.ml" 144 3813 3843
+type(
+  secret * secret list
+)
+"TestDec.ml" 145 3848 3854 "TestDec.ml" 145 3848 3858
+type(
+  secret * secret list
+)
+ident(
+  def lag2 "TestDec.ml" 146 3886 3888 "TestDec.ml" 153 4183 4209
+)
+"TestDec.ml" 145 3848 3863 "TestDec.ml" 145 3848 3865
+type(
+  secret
+)
+"TestDec.ml" 145 3848 3869 "TestDec.ml" 145 3848 3871
+type(
+  secret
+)
+"TestDec.ml" 145 3848 3874 "TestDec.ml" 145 3848 3876
+type(
+  secret
+)
+"TestDec.ml" 145 3848 3879 "TestDec.ml" 145 3848 3880
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 145 3848 3873 "TestDec.ml" 145 3848 3880
+type(
+  secret list
+)
+"TestDec.ml" 145 3848 3869 "TestDec.ml" 145 3848 3880
+type(
+  secret list
+)
+"TestDec.ml" 145 3848 3868 "TestDec.ml" 145 3848 3881
+type(
+  secret list
+)
+"TestDec.ml" 145 3848 3862 "TestDec.ml" 145 3848 3881
+type(
+  secret * secret list
+)
+"TestDec.ml" 146 3886 3892 "TestDec.ml" 146 3886 3896
+type(
+  secret * secret list
+)
+ident(
+  def lag3 "TestDec.ml" 147 3920 3922 "TestDec.ml" 153 4183 4209
+)
+"TestDec.ml" 146 3886 3900 "TestDec.ml" 146 3886 3901
+type(
+  secret
+)
+"TestDec.ml" 146 3886 3904 "TestDec.ml" 146 3886 3905
+type(
+  secret
+)
+"TestDec.ml" 146 3886 3908 "TestDec.ml" 146 3886 3910
+type(
+  secret
+)
+"TestDec.ml" 146 3886 3913 "TestDec.ml" 146 3886 3914
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 146 3886 3907 "TestDec.ml" 146 3886 3914
+type(
+  secret list
+)
+"TestDec.ml" 146 3886 3904 "TestDec.ml" 146 3886 3914
+type(
+  secret list
+)
+"TestDec.ml" 146 3886 3903 "TestDec.ml" 146 3886 3915
+type(
+  secret list
+)
+"TestDec.ml" 146 3886 3900 "TestDec.ml" 146 3886 3915
+type(
+  secret * secret list
+)
+"TestDec.ml" 147 3920 3926 "TestDec.ml" 147 3920 3930
+type(
+  (secret * secret list) list
+)
+ident(
+  def lags "TestDec.ml" 148 3955 3957 "TestDec.ml" 153 4183 4209
+)
+"TestDec.ml" 147 3920 3934 "TestDec.ml" 147 3920 3938
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag1 "TestDec.ml" 144 3813 3819 "TestDec.ml" 144 3813 3823
+)
+"TestDec.ml" 147 3920 3940 "TestDec.ml" 147 3920 3944
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag2 "TestDec.ml" 145 3848 3854 "TestDec.ml" 145 3848 3858
+)
+"TestDec.ml" 147 3920 3946 "TestDec.ml" 147 3920 3950
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag3 "TestDec.ml" 146 3886 3892 "TestDec.ml" 146 3886 3896
+)
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 147 3920 3940 "TestDec.ml" 147 3920 3950
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 147 3920 3934 "TestDec.ml" 147 3920 3950
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 147 3920 3933 "TestDec.ml" 147 3920 3951
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 148 3955 3961 "TestDec.ml" 148 3955 3973
+type(
+  secret
+)
+ident(
+  def common_denom "TestDec.ml" 149 4012 4014 "TestDec.ml" 153 4183 4209
+)
+"TestDec.ml" 148 3955 3976 "TestDec.ml" 148 3955 3988
+type(
+  secret list -> secret
+)
+ident(
+  ext_ref common_denom
+)
+"TestDec.ml" 148 3955 3989 "TestDec.ml" 148 3955 4002
+type(
+  lagrange_poly list -> secret list
+)
+ident(
+  ext_ref remove_denoms
+)
+"TestDec.ml" 148 3955 4003 "TestDec.ml" 148 3955 4007
+type(
+  lagrange_poly list
+)
+ident(
+  int_ref lags "TestDec.ml" 147 3920 3926 "TestDec.ml" 147 3920 3930
+)
+"TestDec.ml" 148 3955 3989 "TestDec.ml" 148 3955 4007
+call(
+  stack
+)
+type(
+  secret list
+)
+"TestDec.ml" 148 3955 3976 "TestDec.ml" 148 3955 4008
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 149 4012 4021 "TestDec.ml" 149 4012 4035
+type(
+  lagrange_poly -> secret -> lagrange_poly
+)
+ident(
+  ext_ref scale_lag_poly
+)
+"TestDec.ml" 149 4012 4036 "TestDec.ml" 149 4012 4040
+type(
+  lagrange_poly
+)
+ident(
+  int_ref lag1 "TestDec.ml" 144 3813 3819 "TestDec.ml" 144 3813 3823
+)
+"TestDec.ml" 149 4012 4041 "TestDec.ml" 149 4012 4053
+type(
+  secret
+)
+ident(
+  int_ref common_denom "TestDec.ml" 148 3955 3961 "TestDec.ml" 148 3955 3973
+)
+"TestDec.ml" 149 4012 4021 "TestDec.ml" 149 4012 4053
+call(
+  stack
+)
+type(
+  lagrange_poly
+)
+"TestDec.ml" 149 4012 4054 "TestDec.ml" 149 4012 4055
+type(
+  lagrange_poly -> lagrange_poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 149 4012 4056 "TestDec.ml" 149 4012 4060
+type(
+  lagrange_poly
+)
+ident(
+  int_ref lag1 "TestDec.ml" 144 3813 3819 "TestDec.ml" 144 3813 3823
+)
+"TestDec.ml" 149 4012 4021 "TestDec.ml" 149 4012 4060
+type(
+  bool
+)
+"TestDec.ml" 149 4012 4014 "TestDec.ml" 149 4012 4061
+type(
+  unit
+)
+"TestDec.ml" 150 4063 4072 "TestDec.ml" 150 4063 4086
+type(
+  lagrange_poly -> secret -> lagrange_poly
+)
+ident(
+  ext_ref scale_lag_poly
+)
+"TestDec.ml" 150 4063 4087 "TestDec.ml" 150 4063 4091
+type(
+  lagrange_poly
+)
+ident(
+  int_ref lag2 "TestDec.ml" 145 3848 3854 "TestDec.ml" 145 3848 3858
+)
+"TestDec.ml" 150 4063 4092 "TestDec.ml" 150 4063 4104
+type(
+  secret
+)
+ident(
+  int_ref common_denom "TestDec.ml" 148 3955 3961 "TestDec.ml" 148 3955 3973
+)
+"TestDec.ml" 150 4063 4072 "TestDec.ml" 150 4063 4104
+call(
+  stack
+)
+type(
+  lagrange_poly
+)
+"TestDec.ml" 150 4063 4105 "TestDec.ml" 150 4063 4106
+type(
+  lagrange_poly -> lagrange_poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 151 4108 4115 "TestDec.ml" 151 4108 4116
+type(
+  secret
+)
+"TestDec.ml" 151 4108 4120 "TestDec.ml" 151 4108 4123
+type(
+  secret
+)
+"TestDec.ml" 151 4108 4126 "TestDec.ml" 151 4108 4128
+type(
+  secret
+)
+"TestDec.ml" 151 4108 4131 "TestDec.ml" 151 4108 4133
+type(
+  secret
+)
+"TestDec.ml" 151 4108 4130 "TestDec.ml" 151 4108 4134
+type(
+  secret list
+)
+"TestDec.ml" 151 4108 4126 "TestDec.ml" 151 4108 4134
+type(
+  secret list
+)
+"TestDec.ml" 151 4108 4119 "TestDec.ml" 151 4108 4134
+type(
+  poly
+)
+"TestDec.ml" 151 4108 4118 "TestDec.ml" 151 4108 4135
+type(
+  secret list
+)
+"TestDec.ml" 151 4108 4115 "TestDec.ml" 151 4108 4135
+type(
+  lagrange_poly
+)
+"TestDec.ml" 150 4063 4072 "TestDec.ml" 151 4108 4136
+type(
+  bool
+)
+"TestDec.ml" 150 4063 4065 "TestDec.ml" 151 4108 4137
+type(
+  unit
+)
+"TestDec.ml" 152 4139 4148 "TestDec.ml" 152 4139 4162
+type(
+  lagrange_poly -> secret -> lagrange_poly
+)
+ident(
+  ext_ref scale_lag_poly
+)
+"TestDec.ml" 152 4139 4163 "TestDec.ml" 152 4139 4167
+type(
+  lagrange_poly
+)
+ident(
+  int_ref lag3 "TestDec.ml" 146 3886 3892 "TestDec.ml" 146 3886 3896
+)
+"TestDec.ml" 152 4139 4168 "TestDec.ml" 152 4139 4180
+type(
+  secret
+)
+ident(
+  int_ref common_denom "TestDec.ml" 148 3955 3961 "TestDec.ml" 148 3955 3973
+)
+"TestDec.ml" 152 4139 4148 "TestDec.ml" 152 4139 4180
+call(
+  stack
+)
+type(
+  lagrange_poly
+)
+"TestDec.ml" 152 4139 4181 "TestDec.ml" 152 4139 4182
+type(
+  lagrange_poly -> lagrange_poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 153 4183 4190 "TestDec.ml" 153 4183 4191
+type(
+  secret
+)
+"TestDec.ml" 153 4183 4194 "TestDec.ml" 153 4183 4196
+type(
+  secret
+)
+"TestDec.ml" 153 4183 4199 "TestDec.ml" 153 4183 4202
+type(
+  secret
+)
+"TestDec.ml" 153 4183 4205 "TestDec.ml" 153 4183 4206
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 153 4183 4198 "TestDec.ml" 153 4183 4206
+type(
+  secret list
+)
+"TestDec.ml" 153 4183 4194 "TestDec.ml" 153 4183 4206
+type(
+  poly
+)
+"TestDec.ml" 153 4183 4193 "TestDec.ml" 153 4183 4207
+type(
+  secret list
+)
+"TestDec.ml" 153 4183 4190 "TestDec.ml" 153 4183 4207
+type(
+  lagrange_poly
+)
+"TestDec.ml" 152 4139 4148 "TestDec.ml" 153 4183 4208
+type(
+  bool
+)
+"TestDec.ml" 152 4139 4141 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 150 4063 4065 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 149 4012 4014 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 148 3955 3957 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 147 3920 3922 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 146 3886 3888 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 145 3848 3850 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 144 3813 3815 "TestDec.ml" 153 4183 4209
+type(
+  unit
+)
+"TestDec.ml" 143 3784 3808 "TestDec.ml" 153 4183 4209
+type(
+  unit -> unit
+)
+"TestDec.ml" 156 4214 4218 "TestDec.ml" 156 4214 4238
+type(
+  unit -> unit
+)
+ident(
+  def test_scale_lag_polys "TestDec.ml" 166 4553 4553 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 156 4214 4239 "TestDec.ml" 156 4214 4241
+type(
+  unit
+)
+"TestDec.ml" 157 4244 4250 "TestDec.ml" 157 4244 4254
+type(
+  secret * secret list
+)
+ident(
+  def lag1 "TestDec.ml" 158 4279 4281 "TestDec.ml" 163 4489 4548
+)
+"TestDec.ml" 157 4244 4258 "TestDec.ml" 157 4244 4259
+type(
+  secret
+)
+"TestDec.ml" 157 4244 4262 "TestDec.ml" 157 4244 4264
+type(
+  secret
+)
+"TestDec.ml" 157 4244 4267 "TestDec.ml" 157 4244 4269
+type(
+  secret
+)
+"TestDec.ml" 157 4244 4272 "TestDec.ml" 157 4244 4273
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 157 4244 4266 "TestDec.ml" 157 4244 4273
+type(
+  secret list
+)
+"TestDec.ml" 157 4244 4262 "TestDec.ml" 157 4244 4273
+type(
+  secret list
+)
+"TestDec.ml" 157 4244 4261 "TestDec.ml" 157 4244 4274
+type(
+  secret list
+)
+"TestDec.ml" 157 4244 4258 "TestDec.ml" 157 4244 4274
+type(
+  secret * secret list
+)
+"TestDec.ml" 158 4279 4285 "TestDec.ml" 158 4279 4289
+type(
+  secret * secret list
+)
+ident(
+  def lag2 "TestDec.ml" 159 4317 4319 "TestDec.ml" 163 4489 4548
+)
+"TestDec.ml" 158 4279 4294 "TestDec.ml" 158 4279 4296
+type(
+  secret
+)
+"TestDec.ml" 158 4279 4300 "TestDec.ml" 158 4279 4302
+type(
+  secret
+)
+"TestDec.ml" 158 4279 4305 "TestDec.ml" 158 4279 4307
+type(
+  secret
+)
+"TestDec.ml" 158 4279 4310 "TestDec.ml" 158 4279 4311
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 158 4279 4304 "TestDec.ml" 158 4279 4311
+type(
+  secret list
+)
+"TestDec.ml" 158 4279 4300 "TestDec.ml" 158 4279 4311
+type(
+  secret list
+)
+"TestDec.ml" 158 4279 4299 "TestDec.ml" 158 4279 4312
+type(
+  secret list
+)
+"TestDec.ml" 158 4279 4293 "TestDec.ml" 158 4279 4312
+type(
+  secret * secret list
+)
+"TestDec.ml" 159 4317 4323 "TestDec.ml" 159 4317 4327
+type(
+  secret * secret list
+)
+ident(
+  def lag3 "TestDec.ml" 160 4351 4353 "TestDec.ml" 163 4489 4548
+)
+"TestDec.ml" 159 4317 4331 "TestDec.ml" 159 4317 4332
+type(
+  secret
+)
+"TestDec.ml" 159 4317 4335 "TestDec.ml" 159 4317 4336
+type(
+  secret
+)
+"TestDec.ml" 159 4317 4339 "TestDec.ml" 159 4317 4341
+type(
+  secret
+)
+"TestDec.ml" 159 4317 4344 "TestDec.ml" 159 4317 4345
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 159 4317 4338 "TestDec.ml" 159 4317 4345
+type(
+  secret list
+)
+"TestDec.ml" 159 4317 4335 "TestDec.ml" 159 4317 4345
+type(
+  secret list
+)
+"TestDec.ml" 159 4317 4334 "TestDec.ml" 159 4317 4346
+type(
+  secret list
+)
+"TestDec.ml" 159 4317 4331 "TestDec.ml" 159 4317 4346
+type(
+  secret * secret list
+)
+"TestDec.ml" 160 4351 4357 "TestDec.ml" 160 4351 4361
+type(
+  (secret * secret list) list
+)
+ident(
+  def lags "TestDec.ml" 161 4386 4388 "TestDec.ml" 163 4489 4548
+)
+"TestDec.ml" 160 4351 4365 "TestDec.ml" 160 4351 4369
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag1 "TestDec.ml" 157 4244 4250 "TestDec.ml" 157 4244 4254
+)
+"TestDec.ml" 160 4351 4371 "TestDec.ml" 160 4351 4375
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag2 "TestDec.ml" 158 4279 4285 "TestDec.ml" 158 4279 4289
+)
+"TestDec.ml" 160 4351 4377 "TestDec.ml" 160 4351 4381
+type(
+  secret * secret list
+)
+ident(
+  int_ref lag3 "TestDec.ml" 159 4317 4323 "TestDec.ml" 159 4317 4327
+)
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 160 4351 4371 "TestDec.ml" 160 4351 4381
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 160 4351 4365 "TestDec.ml" 160 4351 4381
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 160 4351 4364 "TestDec.ml" 160 4351 4382
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 161 4386 4392 "TestDec.ml" 161 4386 4404
+type(
+  secret
+)
+ident(
+  def common_denom "TestDec.ml" 162 4444 4446 "TestDec.ml" 163 4489 4548
+)
+"TestDec.ml" 161 4386 4407 "TestDec.ml" 161 4386 4419
+type(
+  secret list -> secret
+)
+ident(
+  ext_ref common_denom
+)
+"TestDec.ml" 161 4386 4421 "TestDec.ml" 161 4386 4434
+type(
+  lagrange_poly list -> secret list
+)
+ident(
+  ext_ref remove_denoms
+)
+"TestDec.ml" 161 4386 4435 "TestDec.ml" 161 4386 4439
+type(
+  lagrange_poly list
+)
+ident(
+  int_ref lags "TestDec.ml" 160 4351 4357 "TestDec.ml" 160 4351 4361
+)
+"TestDec.ml" 161 4386 4421 "TestDec.ml" 161 4386 4439
+call(
+  stack
+)
+type(
+  secret list
+)
+"TestDec.ml" 161 4386 4407 "TestDec.ml" 161 4386 4440
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 162 4444 4453 "TestDec.ml" 162 4444 4468
+type(
+  lagrange_poly list -> secret -> lagrange_poly list
+)
+ident(
+  ext_ref scale_lag_polys
+)
+"TestDec.ml" 162 4444 4469 "TestDec.ml" 162 4444 4473
+type(
+  lagrange_poly list
+)
+ident(
+  int_ref lags "TestDec.ml" 160 4351 4357 "TestDec.ml" 160 4351 4361
+)
+"TestDec.ml" 162 4444 4474 "TestDec.ml" 162 4444 4486
+type(
+  secret
+)
+ident(
+  int_ref common_denom "TestDec.ml" 161 4386 4392 "TestDec.ml" 161 4386 4404
+)
+"TestDec.ml" 162 4444 4453 "TestDec.ml" 162 4444 4486
+call(
+  stack
+)
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 162 4444 4487 "TestDec.ml" 162 4444 4488
+type(
+  lagrange_poly list -> lagrange_poly list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 163 4489 4496 "TestDec.ml" 163 4489 4500
+type(
+  lagrange_poly
+)
+ident(
+  int_ref lag1 "TestDec.ml" 157 4244 4250 "TestDec.ml" 157 4244 4254
+)
+"TestDec.ml" 163 4489 4503 "TestDec.ml" 163 4489 4504
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4508 "TestDec.ml" 163 4489 4511
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4514 "TestDec.ml" 163 4489 4516
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4519 "TestDec.ml" 163 4489 4521
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4518 "TestDec.ml" 163 4489 4522
+type(
+  secret list
+)
+"TestDec.ml" 163 4489 4514 "TestDec.ml" 163 4489 4522
+type(
+  secret list
+)
+"TestDec.ml" 163 4489 4507 "TestDec.ml" 163 4489 4522
+type(
+  poly
+)
+"TestDec.ml" 163 4489 4506 "TestDec.ml" 163 4489 4523
+type(
+  secret list
+)
+"TestDec.ml" 163 4489 4503 "TestDec.ml" 163 4489 4523
+type(
+  lagrange_poly
+)
+"TestDec.ml" 163 4489 4527 "TestDec.ml" 163 4489 4528
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4531 "TestDec.ml" 163 4489 4533
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4536 "TestDec.ml" 163 4489 4539
+type(
+  secret
+)
+"TestDec.ml" 163 4489 4542 "TestDec.ml" 163 4489 4543
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 163 4489 4535 "TestDec.ml" 163 4489 4543
+type(
+  secret list
+)
+"TestDec.ml" 163 4489 4531 "TestDec.ml" 163 4489 4543
+type(
+  poly
+)
+"TestDec.ml" 163 4489 4530 "TestDec.ml" 163 4489 4544
+type(
+  secret list
+)
+"TestDec.ml" 163 4489 4527 "TestDec.ml" 163 4489 4544
+type(
+  lagrange_poly
+)
+"TestDec.ml" 163 4489 4526 "TestDec.ml" 163 4489 4545
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 163 4489 4502 "TestDec.ml" 163 4489 4545
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 163 4489 4496 "TestDec.ml" 163 4489 4545
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 163 4489 4495 "TestDec.ml" 163 4489 4546
+type(
+  lagrange_poly list
+)
+"TestDec.ml" 162 4444 4453 "TestDec.ml" 163 4489 4546
+type(
+  bool
+)
+"TestDec.ml" 162 4444 4446 "TestDec.ml" 163 4489 4548
+type(
+  unit
+)
+"TestDec.ml" 161 4386 4388 "TestDec.ml" 163 4489 4548
+type(
+  unit
+)
+"TestDec.ml" 160 4351 4353 "TestDec.ml" 163 4489 4548
+type(
+  unit
+)
+"TestDec.ml" 159 4317 4319 "TestDec.ml" 163 4489 4548
+type(
+  unit
+)
+"TestDec.ml" 158 4279 4281 "TestDec.ml" 163 4489 4548
+type(
+  unit
+)
+"TestDec.ml" 157 4244 4246 "TestDec.ml" 163 4489 4548
+type(
+  unit
+)
+"TestDec.ml" 156 4214 4239 "TestDec.ml" 163 4489 4548
+type(
+  unit -> unit
+)
+"TestDec.ml" 166 4553 4557 "TestDec.ml" 166 4553 4576
+type(
+  unit -> unit
+)
+ident(
+  def test_combine_lag_ys "TestDec.ml" 181 4991 4991 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 166 4553 4577 "TestDec.ml" 166 4553 4579
+type(
+  unit
+)
+"TestDec.ml" 167 4582 4588 "TestDec.ml" 167 4582 4592
+type(
+  secret * secret
+)
+ident(
+  def key1 "TestDec.ml" 168 4608 4610 "TestDec.ml" 178 4954 4986
+)
+"TestDec.ml" 167 4582 4596 "TestDec.ml" 167 4582 4597
+type(
+  secret
+)
+"TestDec.ml" 167 4582 4599 "TestDec.ml" 167 4582 4603
+type(
+  secret
+)
+"TestDec.ml" 167 4582 4596 "TestDec.ml" 167 4582 4603
+type(
+  secret * secret
+)
+"TestDec.ml" 168 4608 4614 "TestDec.ml" 168 4608 4618
+type(
+  secret * secret
+)
+ident(
+  def key2 "TestDec.ml" 169 4634 4636 "TestDec.ml" 178 4954 4986
+)
+"TestDec.ml" 168 4608 4622 "TestDec.ml" 168 4608 4623
+type(
+  secret
+)
+"TestDec.ml" 168 4608 4625 "TestDec.ml" 168 4608 4629
+type(
+  secret
+)
+"TestDec.ml" 168 4608 4622 "TestDec.ml" 168 4608 4629
+type(
+  secret * secret
+)
+"TestDec.ml" 169 4634 4640 "TestDec.ml" 169 4634 4644
+type(
+  secret * secret
+)
+ident(
+  def key3 "TestDec.ml" 170 4660 4662 "TestDec.ml" 178 4954 4986
+)
+"TestDec.ml" 169 4634 4648 "TestDec.ml" 169 4634 4649
+type(
+  secret
+)
+"TestDec.ml" 169 4634 4651 "TestDec.ml" 169 4634 4655
+type(
+  secret
+)
+"TestDec.ml" 169 4634 4648 "TestDec.ml" 169 4634 4655
+type(
+  secret * secret
+)
+"TestDec.ml" 170 4660 4666 "TestDec.ml" 170 4660 4670
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 171 4695 4697 "TestDec.ml" 178 4954 4986
+)
+"TestDec.ml" 170 4660 4674 "TestDec.ml" 170 4660 4678
+type(
+  secret * secret
+)
+ident(
+  int_ref key1 "TestDec.ml" 167 4582 4588 "TestDec.ml" 167 4582 4592
+)
+"TestDec.ml" 170 4660 4680 "TestDec.ml" 170 4660 4684
+type(
+  secret * secret
+)
+ident(
+  int_ref key2 "TestDec.ml" 168 4608 4614 "TestDec.ml" 168 4608 4618
+)
+"TestDec.ml" 170 4660 4686 "TestDec.ml" 170 4660 4690
+type(
+  secret * secret
+)
+ident(
+  int_ref key3 "TestDec.ml" 169 4634 4640 "TestDec.ml" 169 4634 4644
+)
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 170 4660 4680 "TestDec.ml" 170 4660 4690
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 170 4660 4674 "TestDec.ml" 170 4660 4690
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 170 4660 4673 "TestDec.ml" 170 4660 4691
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 171 4695 4701 "TestDec.ml" 171 4695 4711
+type(
+  (secret * secret list) list
+)
+ident(
+  def scaledlags "TestDec.ml" 174 4796 4798 "TestDec.ml" 178 4954 4986
+)
+"TestDec.ml" 171 4695 4716 "TestDec.ml" 171 4695 4717
+type(
+  secret
+)
+"TestDec.ml" 171 4695 4720 "TestDec.ml" 171 4695 4722
+type(
+  secret
+)
+"TestDec.ml" 171 4695 4725 "TestDec.ml" 171 4695 4727
+type(
+  secret
+)
+"TestDec.ml" 171 4695 4730 "TestDec.ml" 171 4695 4731
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 171 4695 4724 "TestDec.ml" 171 4695 4731
+type(
+  secret list
+)
+"TestDec.ml" 171 4695 4720 "TestDec.ml" 171 4695 4731
+type(
+  secret list
+)
+"TestDec.ml" 171 4695 4719 "TestDec.ml" 171 4695 4732
+type(
+  secret list
+)
+"TestDec.ml" 171 4695 4716 "TestDec.ml" 171 4695 4732
+type(
+  secret * secret list
+)
+"TestDec.ml" 172 4736 4743 "TestDec.ml" 172 4736 4744
+type(
+  secret
+)
+"TestDec.ml" 172 4736 4748 "TestDec.ml" 172 4736 4751
+type(
+  secret
+)
+"TestDec.ml" 172 4736 4754 "TestDec.ml" 172 4736 4756
+type(
+  secret
+)
+"TestDec.ml" 172 4736 4759 "TestDec.ml" 172 4736 4761
+type(
+  secret
+)
+"TestDec.ml" 172 4736 4758 "TestDec.ml" 172 4736 4762
+type(
+  secret list
+)
+"TestDec.ml" 172 4736 4754 "TestDec.ml" 172 4736 4762
+type(
+  secret list
+)
+"TestDec.ml" 172 4736 4747 "TestDec.ml" 172 4736 4762
+type(
+  secret list
+)
+"TestDec.ml" 172 4736 4746 "TestDec.ml" 172 4736 4763
+type(
+  secret list
+)
+"TestDec.ml" 172 4736 4743 "TestDec.ml" 172 4736 4763
+type(
+  secret * secret list
+)
+"TestDec.ml" 173 4766 4773 "TestDec.ml" 173 4766 4774
+type(
+  secret
+)
+"TestDec.ml" 173 4766 4777 "TestDec.ml" 173 4766 4779
+type(
+  secret
+)
+"TestDec.ml" 173 4766 4782 "TestDec.ml" 173 4766 4785
+type(
+  secret
+)
+"TestDec.ml" 173 4766 4788 "TestDec.ml" 173 4766 4789
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 173 4766 4781 "TestDec.ml" 173 4766 4789
+type(
+  secret list
+)
+"TestDec.ml" 173 4766 4777 "TestDec.ml" 173 4766 4789
+type(
+  secret list
+)
+"TestDec.ml" 173 4766 4776 "TestDec.ml" 173 4766 4790
+type(
+  secret list
+)
+"TestDec.ml" 173 4766 4773 "TestDec.ml" 173 4766 4790
+type(
+  secret * secret list
+)
+"TestDec.ml" 173 4766 4772 "TestDec.ml" 173 4766 4791
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 172 4736 4742 "TestDec.ml" 173 4766 4791
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 171 4695 4715 "TestDec.ml" 173 4766 4791
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 171 4695 4714 "TestDec.ml" 173 4766 4792
+type(
+  (secret * secret list) list
+)
+"TestDec.ml" 174 4796 4802 "TestDec.ml" 174 4796 4807
+type(
+  secret list
+)
+ident(
+  def lagys "TestDec.ml" 175 4842 4844 "TestDec.ml" 178 4954 4986
+)
+"TestDec.ml" 174 4796 4810 "TestDec.ml" 174 4796 4818
+type(
+  key list -> f:(key -> secret) -> secret list
+)
+ident(
+  ext_ref Core.Std.List.map
+)
+"TestDec.ml" 174 4796 4823 "TestDec.ml" 174 4796 4832
+type(
+  key -> secret
+)
+ident(
+  ext_ref get_key_y
+)
+"TestDec.ml" 174 4796 4834 "TestDec.ml" 174 4796 4838
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 170 4660 4666 "TestDec.ml" 170 4660 4670
+)
+"TestDec.ml" 174 4796 4810 "TestDec.ml" 174 4796 4838
+call(
+  stack
+)
+type(
+  secret list
+)
+"TestDec.ml" 175 4842 4851 "TestDec.ml" 175 4842 4865
+type(
+  secret list -> lagrange_poly list -> poly list
+)
+ident(
+  ext_ref combine_lag_ys
+)
+"TestDec.ml" 175 4842 4866 "TestDec.ml" 175 4842 4871
+type(
+  secret list
+)
+ident(
+  int_ref lagys "TestDec.ml" 174 4796 4802 "TestDec.ml" 174 4796 4807
+)
+"TestDec.ml" 175 4842 4872 "TestDec.ml" 175 4842 4882
+type(
+  lagrange_poly list
+)
+ident(
+  int_ref scaledlags "TestDec.ml" 171 4695 4701 "TestDec.ml" 171 4695 4711
+)
+"TestDec.ml" 175 4842 4851 "TestDec.ml" 175 4842 4882
+call(
+  stack
+)
+type(
+  poly list
+)
+"TestDec.ml" 175 4842 4883 "TestDec.ml" 175 4842 4884
+type(
+  poly list -> poly list -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 176 4885 4893 "TestDec.ml" 176 4885 4898
+type(
+  secret
+)
+"TestDec.ml" 176 4885 4901 "TestDec.ml" 176 4885 4907
+type(
+  secret
+)
+"TestDec.ml" 176 4885 4910 "TestDec.ml" 176 4885 4914
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 176 4885 4900 "TestDec.ml" 176 4885 4914
+type(
+  secret list
+)
+"TestDec.ml" 176 4885 4893 "TestDec.ml" 176 4885 4914
+type(
+  poly
+)
+"TestDec.ml" 176 4885 4892 "TestDec.ml" 176 4885 4915
+type(
+  secret list
+)
+"TestDec.ml" 177 4917 4926 "TestDec.ml" 177 4917 4933
+type(
+  secret
+)
+"TestDec.ml" 177 4917 4936 "TestDec.ml" 177 4917 4941
+type(
+  secret
+)
+"TestDec.ml" 177 4917 4944 "TestDec.ml" 177 4917 4950
+type(
+  secret
+)
+"TestDec.ml" 177 4917 4943 "TestDec.ml" 177 4917 4951
+type(
+  secret list
+)
+"TestDec.ml" 177 4917 4936 "TestDec.ml" 177 4917 4951
+type(
+  secret list
+)
+"TestDec.ml" 177 4917 4925 "TestDec.ml" 177 4917 4951
+type(
+  poly
+)
+"TestDec.ml" 177 4917 4924 "TestDec.ml" 177 4917 4952
+type(
+  secret list
+)
+"TestDec.ml" 178 4954 4962 "TestDec.ml" 178 4954 4967
+type(
+  secret
+)
+"TestDec.ml" 178 4954 4970 "TestDec.ml" 178 4954 4976
+type(
+  secret
+)
+"TestDec.ml" 178 4954 4979 "TestDec.ml" 178 4954 4983
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 178 4954 4969 "TestDec.ml" 178 4954 4983
+type(
+  secret list
+)
+"TestDec.ml" 178 4954 4962 "TestDec.ml" 178 4954 4983
+type(
+  poly
+)
+"TestDec.ml" 178 4954 4961 "TestDec.ml" 178 4954 4984
+type(
+  secret list
+)
+type(
+  poly list
+)
+"TestDec.ml" 177 4917 4924 "TestDec.ml" 178 4954 4984
+type(
+  poly list
+)
+"TestDec.ml" 176 4885 4892 "TestDec.ml" 178 4954 4984
+type(
+  poly list
+)
+"TestDec.ml" 176 4885 4891 "TestDec.ml" 178 4954 4985
+type(
+  poly list
+)
+"TestDec.ml" 175 4842 4851 "TestDec.ml" 178 4954 4985
+type(
+  bool
+)
+"TestDec.ml" 175 4842 4844 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 174 4796 4798 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 171 4695 4697 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 170 4660 4662 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 169 4634 4636 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 168 4608 4610 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 167 4582 4584 "TestDec.ml" 178 4954 4986
+type(
+  unit
+)
+"TestDec.ml" 166 4553 4577 "TestDec.ml" 178 4954 4986
+type(
+  unit -> unit
+)
+"TestDec.ml" 181 4991 4995 "TestDec.ml" 181 4991 5011
+type(
+  unit -> unit
+)
+ident(
+  def test_decode_keys "TestDec.ml" 191 5225 5225 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 181 4991 5012 "TestDec.ml" 181 4991 5014
+type(
+  unit
+)
+"TestDec.ml" 182 5017 5023 "TestDec.ml" 182 5017 5029
+type(
+  secret
+)
+ident(
+  def secret "TestDec.ml" 183 5040 5042 "TestDec.ml" 188 5187 5220
+)
+"TestDec.ml" 182 5017 5032 "TestDec.ml" 182 5017 5036
+type(
+  secret
+)
+"TestDec.ml" 183 5040 5046 "TestDec.ml" 183 5040 5050
+type(
+  secret list
+)
+ident(
+  def poly "TestDec.ml" 184 5074 5076 "TestDec.ml" 188 5187 5220
+)
+"TestDec.ml" 183 5040 5054 "TestDec.ml" 183 5040 5060
+type(
+  secret
+)
+ident(
+  int_ref secret "TestDec.ml" 182 5017 5023 "TestDec.ml" 182 5017 5029
+)
+"TestDec.ml" 183 5040 5062 "TestDec.ml" 183 5040 5065
+type(
+  secret
+)
+"TestDec.ml" 183 5040 5067 "TestDec.ml" 183 5040 5069
+type(
+  secret
+)
+type(
+  secret list
+)
+"TestDec.ml" 183 5040 5062 "TestDec.ml" 183 5040 5069
+type(
+  secret list
+)
+"TestDec.ml" 183 5040 5054 "TestDec.ml" 183 5040 5069
+type(
+  secret list
+)
+"TestDec.ml" 183 5040 5053 "TestDec.ml" 183 5040 5070
+type(
+  secret list
+)
+"TestDec.ml" 184 5074 5080 "TestDec.ml" 184 5074 5084
+type(
+  secret * secret
+)
+ident(
+  def key1 "TestDec.ml" 185 5100 5102 "TestDec.ml" 188 5187 5220
+)
+"TestDec.ml" 184 5074 5088 "TestDec.ml" 184 5074 5089
+type(
+  secret
+)
+"TestDec.ml" 184 5074 5091 "TestDec.ml" 184 5074 5095
+type(
+  secret
+)
+"TestDec.ml" 184 5074 5088 "TestDec.ml" 184 5074 5095
+type(
+  secret * secret
+)
+"TestDec.ml" 185 5100 5106 "TestDec.ml" 185 5100 5110
+type(
+  secret * secret
+)
+ident(
+  def key2 "TestDec.ml" 186 5126 5128 "TestDec.ml" 188 5187 5220
+)
+"TestDec.ml" 185 5100 5114 "TestDec.ml" 185 5100 5115
+type(
+  secret
+)
+"TestDec.ml" 185 5100 5117 "TestDec.ml" 185 5100 5121
+type(
+  secret
+)
+"TestDec.ml" 185 5100 5114 "TestDec.ml" 185 5100 5121
+type(
+  secret * secret
+)
+"TestDec.ml" 186 5126 5132 "TestDec.ml" 186 5126 5136
+type(
+  secret * secret
+)
+ident(
+  def key3 "TestDec.ml" 187 5152 5154 "TestDec.ml" 188 5187 5220
+)
+"TestDec.ml" 186 5126 5140 "TestDec.ml" 186 5126 5141
+type(
+  secret
+)
+"TestDec.ml" 186 5126 5143 "TestDec.ml" 186 5126 5147
+type(
+  secret
+)
+"TestDec.ml" 186 5126 5140 "TestDec.ml" 186 5126 5147
+type(
+  secret * secret
+)
+"TestDec.ml" 187 5152 5158 "TestDec.ml" 187 5152 5162
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 188 5187 5189 "TestDec.ml" 188 5187 5220
+)
+"TestDec.ml" 187 5152 5166 "TestDec.ml" 187 5152 5170
+type(
+  secret * secret
+)
+ident(
+  int_ref key1 "TestDec.ml" 184 5074 5080 "TestDec.ml" 184 5074 5084
+)
+"TestDec.ml" 187 5152 5172 "TestDec.ml" 187 5152 5176
+type(
+  secret * secret
+)
+ident(
+  int_ref key2 "TestDec.ml" 185 5100 5106 "TestDec.ml" 185 5100 5110
+)
+"TestDec.ml" 187 5152 5178 "TestDec.ml" 187 5152 5182
+type(
+  secret * secret
+)
+ident(
+  int_ref key3 "TestDec.ml" 186 5126 5132 "TestDec.ml" 186 5126 5136
+)
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 187 5152 5172 "TestDec.ml" 187 5152 5182
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 187 5152 5166 "TestDec.ml" 187 5152 5182
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 187 5152 5165 "TestDec.ml" 187 5152 5183
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 188 5187 5196 "TestDec.ml" 188 5187 5207
+type(
+  key list -> poly
+)
+ident(
+  ext_ref decode_keys
+)
+"TestDec.ml" 188 5187 5208 "TestDec.ml" 188 5187 5212
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 187 5152 5158 "TestDec.ml" 187 5152 5162
+)
+"TestDec.ml" 188 5187 5196 "TestDec.ml" 188 5187 5212
+call(
+  stack
+)
+type(
+  poly
+)
+"TestDec.ml" 188 5187 5213 "TestDec.ml" 188 5187 5214
+type(
+  poly -> poly -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 188 5187 5215 "TestDec.ml" 188 5187 5219
+type(
+  poly
+)
+ident(
+  int_ref poly "TestDec.ml" 183 5040 5046 "TestDec.ml" 183 5040 5050
+)
+"TestDec.ml" 188 5187 5196 "TestDec.ml" 188 5187 5219
+type(
+  bool
+)
+"TestDec.ml" 188 5187 5189 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 187 5152 5154 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 186 5126 5128 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 185 5100 5102 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 184 5074 5076 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 183 5040 5042 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 182 5017 5019 "TestDec.ml" 188 5187 5220
+type(
+  unit
+)
+"TestDec.ml" 181 4991 5012 "TestDec.ml" 188 5187 5220
+type(
+  unit -> unit
+)
+"TestDec.ml" 191 5225 5229 "TestDec.ml" 191 5225 5244
+type(
+  unit -> unit
+)
+ident(
+  def test_get_secret "TestDec.ml" 200 5425 5425 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 191 5225 5245 "TestDec.ml" 191 5225 5247
+type(
+  unit
+)
+"TestDec.ml" 192 5250 5256 "TestDec.ml" 192 5250 5262
+type(
+  secret
+)
+ident(
+  def secret "TestDec.ml" 193 5273 5275 "TestDec.ml" 197 5386 5420
+)
+"TestDec.ml" 192 5250 5265 "TestDec.ml" 192 5250 5269
+type(
+  secret
+)
+"TestDec.ml" 193 5273 5279 "TestDec.ml" 193 5273 5283
+type(
+  secret * secret
+)
+ident(
+  def key1 "TestDec.ml" 194 5299 5301 "TestDec.ml" 197 5386 5420
+)
+"TestDec.ml" 193 5273 5287 "TestDec.ml" 193 5273 5288
+type(
+  secret
+)
+"TestDec.ml" 193 5273 5290 "TestDec.ml" 193 5273 5294
+type(
+  secret
+)
+"TestDec.ml" 193 5273 5287 "TestDec.ml" 193 5273 5294
+type(
+  secret * secret
+)
+"TestDec.ml" 194 5299 5305 "TestDec.ml" 194 5299 5309
+type(
+  secret * secret
+)
+ident(
+  def key2 "TestDec.ml" 195 5325 5327 "TestDec.ml" 197 5386 5420
+)
+"TestDec.ml" 194 5299 5313 "TestDec.ml" 194 5299 5314
+type(
+  secret
+)
+"TestDec.ml" 194 5299 5316 "TestDec.ml" 194 5299 5320
+type(
+  secret
+)
+"TestDec.ml" 194 5299 5313 "TestDec.ml" 194 5299 5320
+type(
+  secret * secret
+)
+"TestDec.ml" 195 5325 5331 "TestDec.ml" 195 5325 5335
+type(
+  secret * secret
+)
+ident(
+  def key3 "TestDec.ml" 196 5351 5353 "TestDec.ml" 197 5386 5420
+)
+"TestDec.ml" 195 5325 5339 "TestDec.ml" 195 5325 5340
+type(
+  secret
+)
+"TestDec.ml" 195 5325 5342 "TestDec.ml" 195 5325 5346
+type(
+  secret
+)
+"TestDec.ml" 195 5325 5339 "TestDec.ml" 195 5325 5346
+type(
+  secret * secret
+)
+"TestDec.ml" 196 5351 5357 "TestDec.ml" 196 5351 5361
+type(
+  (secret * secret) list
+)
+ident(
+  def keys "TestDec.ml" 197 5386 5388 "TestDec.ml" 197 5386 5420
+)
+"TestDec.ml" 196 5351 5365 "TestDec.ml" 196 5351 5369
+type(
+  secret * secret
+)
+ident(
+  int_ref key1 "TestDec.ml" 193 5273 5279 "TestDec.ml" 193 5273 5283
+)
+"TestDec.ml" 196 5351 5371 "TestDec.ml" 196 5351 5375
+type(
+  secret * secret
+)
+ident(
+  int_ref key2 "TestDec.ml" 194 5299 5305 "TestDec.ml" 194 5299 5309
+)
+"TestDec.ml" 196 5351 5377 "TestDec.ml" 196 5351 5381
+type(
+  secret * secret
+)
+ident(
+  int_ref key3 "TestDec.ml" 195 5325 5331 "TestDec.ml" 195 5325 5335
+)
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 196 5351 5371 "TestDec.ml" 196 5351 5381
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 196 5351 5365 "TestDec.ml" 196 5351 5381
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 196 5351 5364 "TestDec.ml" 196 5351 5382
+type(
+  (secret * secret) list
+)
+"TestDec.ml" 197 5386 5395 "TestDec.ml" 197 5386 5405
+type(
+  key list -> secret
+)
+ident(
+  ext_ref get_secret
+)
+"TestDec.ml" 197 5386 5406 "TestDec.ml" 197 5386 5410
+type(
+  key list
+)
+ident(
+  int_ref keys "TestDec.ml" 196 5351 5357 "TestDec.ml" 196 5351 5361
+)
+"TestDec.ml" 197 5386 5395 "TestDec.ml" 197 5386 5410
+call(
+  stack
+)
+type(
+  secret
+)
+"TestDec.ml" 197 5386 5411 "TestDec.ml" 197 5386 5412
+type(
+  secret -> secret -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"TestDec.ml" 197 5386 5413 "TestDec.ml" 197 5386 5419
+type(
+  secret
+)
+ident(
+  int_ref secret "TestDec.ml" 192 5250 5256 "TestDec.ml" 192 5250 5262
+)
+"TestDec.ml" 197 5386 5395 "TestDec.ml" 197 5386 5419
+type(
+  bool
+)
+"TestDec.ml" 197 5386 5388 "TestDec.ml" 197 5386 5420
+type(
+  unit
+)
+"TestDec.ml" 196 5351 5353 "TestDec.ml" 197 5386 5420
+type(
+  unit
+)
+"TestDec.ml" 195 5325 5327 "TestDec.ml" 197 5386 5420
+type(
+  unit
+)
+"TestDec.ml" 194 5299 5301 "TestDec.ml" 197 5386 5420
+type(
+  unit
+)
+"TestDec.ml" 193 5273 5275 "TestDec.ml" 197 5386 5420
+type(
+  unit
+)
+"TestDec.ml" 192 5250 5252 "TestDec.ml" 197 5386 5420
+type(
+  unit
+)
+"TestDec.ml" 191 5225 5245 "TestDec.ml" 197 5386 5420
+type(
+  unit -> unit
+)
+"TestDec.ml" 200 5425 5429 "TestDec.ml" 200 5425 5438
+type(
+  unit -> unit
+)
+ident(
+  def run_tests "TestDec.ml" 207 5572 5574 "TestDec.ml" 1 0 -1
+)
+"TestDec.ml" 200 5425 5439 "TestDec.ml" 200 5425 5441
+type(
+  unit
+)
+"TestDec.ml" 201 5444 5446 "TestDec.ml" 201 5444 5457
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_to_key "TestDec.ml" 5 55 59 "TestDec.ml" 5 55 70
+)
+"TestDec.ml" 201 5444 5458 "TestDec.ml" 201 5444 5460
+type(
+  unit
+)
+"TestDec.ml" 201 5444 5446 "TestDec.ml" 201 5444 5460
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 202 5462 5464 "TestDec.ml" 202 5462 5476
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_get_key "TestDec.ml" 13 257 261 "TestDec.ml" 13 257 273
+)
+"TestDec.ml" 202 5462 5477 "TestDec.ml" 202 5462 5479
+type(
+  unit
+)
+"TestDec.ml" 202 5462 5464 "TestDec.ml" 202 5462 5479
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 203 5481 5483 "TestDec.ml" 203 5481 5497
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_add_polys "TestDec.ml" 22 456 460 "TestDec.ml" 22 456 474
+)
+"TestDec.ml" 203 5481 5498 "TestDec.ml" 203 5481 5500
+type(
+  unit
+)
+"TestDec.ml" 203 5481 5483 "TestDec.ml" 203 5481 5500
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 204 5502 5504 "TestDec.ml" 204 5502 5517
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_neg_poly "TestDec.ml" 39 943 947 "TestDec.ml" 39 943 960
+)
+"TestDec.ml" 204 5502 5518 "TestDec.ml" 204 5502 5520
+type(
+  unit
+)
+"TestDec.ml" 204 5502 5504 "TestDec.ml" 204 5502 5520
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 205 5522 5524 "TestDec.ml" 205 5522 5542
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_mult_poly_int "TestDec.ml" 47 1137 1141 "TestDec.ml" 47 1137 1159
+)
+"TestDec.ml" 205 5522 5543 "TestDec.ml" 205 5522 5545
+type(
+  unit
+)
+"TestDec.ml" 205 5522 5524 "TestDec.ml" 205 5522 5545
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 206 5547 5549 "TestDec.ml" 206 5547 5566
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_div_poly_int "TestDec.ml" 58 1437 1441 "TestDec.ml" 58 1437 1458
+)
+"TestDec.ml" 206 5547 5567 "TestDec.ml" 206 5547 5569
+type(
+  unit
+)
+"TestDec.ml" 206 5547 5549 "TestDec.ml" 206 5547 5569
+call(
+  tail
+)
+type(
+  unit
+)
+"TestDec.ml" 205 5522 5524 "TestDec.ml" 206 5547 5569
+type(
+  unit
+)
+"TestDec.ml" 204 5502 5504 "TestDec.ml" 206 5547 5569
+type(
+  unit
+)
+"TestDec.ml" 203 5481 5483 "TestDec.ml" 206 5547 5569
+type(
+  unit
+)
+"TestDec.ml" 202 5462 5464 "TestDec.ml" 206 5547 5569
+type(
+  unit
+)
+"TestDec.ml" 201 5444 5446 "TestDec.ml" 206 5547 5569
+type(
+  unit
+)
+"TestDec.ml" 200 5425 5439 "TestDec.ml" 206 5547 5569
+type(
+  unit -> unit
+)
+"TestDec.ml" 207 5572 5574 "TestDec.ml" 207 5572 5592
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_mult_x_a_poly "TestDec.ml" 73 1835 1839 "TestDec.ml" 73 1835 1857
+)
+"TestDec.ml" 207 5572 5593 "TestDec.ml" 207 5572 5595
+type(
+  unit
+)
+"TestDec.ml" 207 5572 5574 "TestDec.ml" 207 5572 5595
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 208 5597 5599 "TestDec.ml" 208 5597 5622
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_gen_lagrange_denom "TestDec.ml" 88 2275 2279 "TestDec.ml" 88 2275 2302
+)
+"TestDec.ml" 208 5597 5623 "TestDec.ml" 208 5597 5625
+type(
+  unit
+)
+"TestDec.ml" 208 5597 5599 "TestDec.ml" 208 5597 5625
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 209 5627 5629 "TestDec.ml" 209 5627 5650
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_gen_lagrange_num "TestDec.ml" 95 2487 2491 "TestDec.ml" 95 2487 2512
+)
+"TestDec.ml" 209 5627 5651 "TestDec.ml" 209 5627 5653
+type(
+  unit
+)
+"TestDec.ml" 209 5627 5629 "TestDec.ml" 209 5627 5653
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 210 5655 5657 "TestDec.ml" 210 5655 5679
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_gen_lagrange_poly "TestDec.ml" 102 2723 2727 "TestDec.ml" 102 2723 2749
+)
+"TestDec.ml" 210 5655 5680 "TestDec.ml" 210 5655 5682
+type(
+  unit
+)
+"TestDec.ml" 210 5655 5657 "TestDec.ml" 210 5655 5682
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 211 5684 5686 "TestDec.ml" 211 5684 5708
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_gen_lag_poly_list "TestDec.ml" 115 3071 3075 "TestDec.ml" 115 3071 3097
+)
+"TestDec.ml" 211 5684 5709 "TestDec.ml" 211 5684 5711
+type(
+  unit
+)
+"TestDec.ml" 211 5684 5686 "TestDec.ml" 211 5684 5711
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 212 5713 5715 "TestDec.ml" 212 5713 5733
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_remove_denoms "TestDec.ml" 126 3339 3343 "TestDec.ml" 126 3339 3361
+)
+"TestDec.ml" 212 5713 5734 "TestDec.ml" 212 5713 5736
+type(
+  unit
+)
+"TestDec.ml" 212 5713 5715 "TestDec.ml" 212 5713 5736
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 213 5738 5740 "TestDec.ml" 213 5738 5757
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_common_denom "TestDec.ml" 134 3554 3558 "TestDec.ml" 134 3554 3575
+)
+"TestDec.ml" 213 5738 5758 "TestDec.ml" 213 5738 5760
+type(
+  unit
+)
+"TestDec.ml" 213 5738 5740 "TestDec.ml" 213 5738 5760
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 214 5762 5764 "TestDec.ml" 214 5762 5783
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_scale_lag_poly "TestDec.ml" 143 3784 3788 "TestDec.ml" 143 3784 3807
+)
+"TestDec.ml" 214 5762 5784 "TestDec.ml" 214 5762 5786
+type(
+  unit
+)
+"TestDec.ml" 214 5762 5764 "TestDec.ml" 214 5762 5786
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 215 5788 5790 "TestDec.ml" 215 5788 5810
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_scale_lag_polys "TestDec.ml" 156 4214 4218 "TestDec.ml" 156 4214 4238
+)
+"TestDec.ml" 215 5788 5811 "TestDec.ml" 215 5788 5813
+type(
+  unit
+)
+"TestDec.ml" 215 5788 5790 "TestDec.ml" 215 5788 5813
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 216 5815 5817 "TestDec.ml" 216 5815 5836
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_combine_lag_ys "TestDec.ml" 166 4553 4557 "TestDec.ml" 166 4553 4576
+)
+"TestDec.ml" 216 5815 5837 "TestDec.ml" 216 5815 5839
+type(
+  unit
+)
+"TestDec.ml" 216 5815 5817 "TestDec.ml" 216 5815 5839
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 217 5841 5843 "TestDec.ml" 217 5841 5859
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_decode_keys "TestDec.ml" 181 4991 4995 "TestDec.ml" 181 4991 5011
+)
+"TestDec.ml" 217 5841 5860 "TestDec.ml" 217 5841 5862
+type(
+  unit
+)
+"TestDec.ml" 217 5841 5843 "TestDec.ml" 217 5841 5862
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 218 5864 5866 "TestDec.ml" 218 5864 5881
+type(
+  unit -> unit
+)
+ident(
+  int_ref test_get_secret "TestDec.ml" 191 5225 5229 "TestDec.ml" 191 5225 5244
+)
+"TestDec.ml" 218 5864 5882 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 218 5864 5866 "TestDec.ml" 218 5864 5884
+call(
+  stack
+)
+type(
+  unit
+)
+"TestDec.ml" 217 5841 5843 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 216 5815 5817 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 215 5788 5790 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 214 5762 5764 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 213 5738 5740 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 212 5713 5715 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 211 5684 5686 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 210 5655 5657 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 209 5627 5629 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 208 5597 5599 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 207 5572 5574 "TestDec.ml" 218 5864 5884
+type(
+  unit
+)
+"TestDec.ml" 221 5890 5890 "TestDec.ml" 221 5890 5899
+type(
+  unit -> unit
+)
+ident(
+  int_ref run_tests "TestDec.ml" 200 5425 5429 "TestDec.ml" 200 5425 5438
+)
+"TestDec.ml" 221 5890 5900 "TestDec.ml" 221 5890 5902
+type(
+  unit
+)
+"TestDec.ml" 221 5890 5890 "TestDec.ml" 221 5890 5902
+call(
+  stack
+)
+type(
+  unit
+)
