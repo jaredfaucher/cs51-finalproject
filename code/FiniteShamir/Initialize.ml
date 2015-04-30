@@ -27,6 +27,24 @@ let rec validate_int (x: int) =
   else x
 ;;
 
+(* checks if n is prime, assumes n > 0 *)
+let is_prime (n: int) : bool =
+  let rec check_div (x: int) (count: int) : bool =
+     if count >= x then true
+     else if x mod count <> 0 then check_div x (count + 1)
+     else false
+  in if n = 1 || n = 2 then true 
+     else check_div n 2
+;;
+
+(* Function to validate that the integer entered is prime *)
+let rec validate_prime (x: int) =
+  if not(is_prime x)
+  then (print_string "\nError: Please enter a positive integer prime: ";
+	validate_prime(validate_int(try_read_int()) ))
+  else x
+;;
+
  (* Function to receive an integer value from the user, contains simple error
   * checking if a non-integer value is given, and also checks if the value
   * is less than the number of participants*)
@@ -88,7 +106,7 @@ let decrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
     \nInitialization Decryption Process...
     \nEnter in the prime base value: " in
-  let prime = validate_int (try_read_int ()) in
+  let prime = validate_prime(validate_int (try_read_int ())) in
   let () = print_string "\nGive me the threshold value: " in
   let threshold = validate_int (try_read_int ()) in
     (prime, (get_key_cl threshold []))

@@ -53,6 +53,14 @@ let rec validate_bignum (x: bignum) =
   else x
 ;;
 
+(* Function to validate that the bignum entered is prime *)
+let rec validate_prime (x: bignum) =
+  if not(isPrime x)
+  then (print_string "\nError: Please enter a positive bignum prime: ";
+	validate_prime(validate_bignum(try_read_bignum()) ))
+  else x
+;;
+
  (* Function to validate that threshold < number of participants *)
 let rec validate_threshold (n: int) =
   let x = validate_int(try_read_int ()) in
@@ -107,7 +115,7 @@ let decrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
     \nInitialization Decryption Process...
     \nEnter in the prime base value: " in
-  let prime = validate_bignum (try_read_bignum ()) in
+  let prime = validate_prime (validate_bignum (try_read_bignum ())) in
   let () = print_string "\nGive me the threshold value: " in
   let threshold = validate_int (try_read_int ()) in
     (prime, (get_key_cl threshold []))
