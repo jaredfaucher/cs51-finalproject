@@ -8,7 +8,7 @@ let rec start () =
   match try_read_int () with
   | 1 -> main_encrypt ()
   | 2 -> main_decrypt ()
-  | _ -> (print_string "Error: Incorrect entry, try again"; start ())
+  | _ -> (print_string "Error: Incorrect entry, try again: "; start ())
 ;;
 
 start();;

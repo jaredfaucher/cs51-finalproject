@@ -17,7 +17,7 @@ module FiniteShamirBigNumDecode = (FiniteShamirBigNum_decode : SHAMIR_DECODE)
 let rec try_read_int () =
   try read_int () with
     Failure _ -> 
-      print_string "\nError: Please enter a positive integer value: ";
+      print_string "\nError: Please enter a non-zero positive integer value: ";
       try_read_int ()
 ;;
 
@@ -26,7 +26,7 @@ let rec try_read_int () =
 let rec try_read_bignum () =
   try fromString(read_line ()) with
     Failure _ -> 
-      print_string "\nError: Please enter a bignum value: ";
+      print_string "\nError: Please enter a non-zero positive bignum value: ";
       try_read_bignum ()
 
  (* Function to receive a secret string from the user *)
@@ -37,11 +37,27 @@ let rec try_read_secret () =
       try_read_secret ()
 ;;
 
+(* Function to validate that integer entered is positive and non-zero *)
+let rec validate_int (x: int) =
+  if x <= 0
+  then (print_string "\nError: Please enter a non-zero positive integer value: ";
+       validate_int(try_read_int ()) )
+  else x
+;;
+
+(* Function to validate that integer entered is positive and non-zero *)
+let rec validate_bignum (x: bignum) =
+  if (less x (fromInt 0)) || (equal x (fromInt 0))
+  then (print_string "\nError: Please enter a non-zero positive bignum value: ";
+       validate_bignum(try_read_bignum ()) )
+  else x
+;;
+
  (* Function to validate that threshold < number of participants *)
 let rec validate_threshold (n: int) =
-  let x = try_read_int () in
+  let x = validate_int(try_read_int ()) in
   if (x > n)
-    then (print_string "\nError: Please enter a positive integer number less than or equal to
+    then (print_string "\nError: Please enter a non-zero positive integer number less than or equal to
     \nthe number of participants: ";
     validate_threshold n)
   else (print_string "\nInitialization Complete....processing...: ";x)
@@ -51,9 +67,9 @@ let rec validate_threshold (n: int) =
 let rec get_key_cl (count: int) (accum: (int * bignum) list) : (int * bignum) list =
   if count <= 0 then accum
   else let () = print_string "\nEnter key x: " in
-       let x = try_read_int () in
+       let x = validate_int (try_read_int ()) in
        let () = print_string "\nEnter key y: " in
-       let y = try_read_bignum () in
+       let y = validate_bignum (try_read_bignum ()) in
        get_key_cl (count - 1) ((x,y)::accum)
 	 ;; 
 
@@ -65,7 +81,7 @@ let encrypt_init () =
     \nGive me a secret string: " in
   let secret = stringConvert(try_read_secret ()) in
   let () = print_string "\nHow many participants (positive integer number requested): " in
-  let num_participants = try_read_int () in
+  let num_participants = validate_int (try_read_int ()) in
   let () = print_string "\nWhat is the minimum threshold required to access the secret
     \n(positive integer number requested): " in
   let threshold = validate_threshold num_participants in 
@@ -91,9 +107,9 @@ let decrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
     \nInitialization Decryption Process...
     \nEnter in the prime base value: " in
-  let prime = try_read_bignum () in
+  let prime = validate_bignum (try_read_bignum ()) in
   let () = print_string "\nGive me the threshold value: " in
-  let threshold = try_read_int () in
+  let threshold = validate_int (try_read_int ()) in
     (prime, (get_key_cl threshold []))
 ;;
 

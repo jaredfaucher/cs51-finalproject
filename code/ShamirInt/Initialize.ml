@@ -19,12 +19,21 @@ module ShamirIntDecode = (ShamirInt_decode : SHAMIR_DECODE)
 let rec try_read_int () =
   try read_int () with
     Failure _ -> 
-      print_string "\nError: Please enter an positive integer value: ";
+      print_string "\nError: Please enter a non-zero positive integer value: ";
       try_read_int ()
 ;;
+
+(* Function to validate that integer entered is positive and non-zero *)
+let rec validate_int (x: int) =
+  if x <= 0
+  then (print_string "\nError: Please enter a non-zero positive integer value: ";
+       validate_int(try_read_int ()) )
+  else x
+;;
+
  (* Function to validate that threshold < number of participants *)
 let rec validate_threshold (n: int) =
-  let x = try_read_int () in
+  let x = validate_int(try_read_int ()) in
   if (x > n)
     then (print_string "\nError: Please enter an positive integer number less than or equal to
     \nthe number of participants: ";
@@ -36,9 +45,9 @@ let rec validate_threshold (n: int) =
 let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
   if count <= 0 then accum
   else let () = print_string "\nEnter key x: " in
-       let x = try_read_int () in
+       let x = validate_int(try_read_int ()) in
        let () = print_string "\nEnter key y: " in
-       let y = try_read_int () in
+       let y = validate_int(try_read_int ()) in
        get_key_cl (count - 1) ((x,y)::accum)
 	 ;; 
 
@@ -48,11 +57,11 @@ let rec get_key_cl (count: int) (accum: (int * int) list) : (int * int) list =
 let encrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME: Initialization Process...
     \nGive me a secret positive integer: " in
-  let secret = try_read_int () in
-  let () = print_string "\nHow many participants (positive integer number requested): " in
-  let num_participants = try_read_int () in
+  let secret = validate_int (try_read_int ()) in
+  let () = print_string "\nHow many participants (non-zero positive integer number requested): " in
+  let num_participants = validate_int (try_read_int ()) in
   let () = print_string "\nWhat is the minimum threshold required to access the secret
-    \n(positive integer number requested): " in
+    \n(non-zero positive integer number requested): " in
   let threshold = validate_threshold num_participants in 
   (secret, threshold, num_participants)
 ;;
@@ -74,7 +83,7 @@ let decrypt_init () =
   let () = print_string "\nSHAMIR'S SECRET SHARING SCHEME:
     \nInitialization Decryption Process...
     \nEnter in the threshold value: " in
-  let threshold = try_read_int () in
+  let threshold = validate_int(try_read_int ()) in
   get_key_cl threshold []
 ;;
 
